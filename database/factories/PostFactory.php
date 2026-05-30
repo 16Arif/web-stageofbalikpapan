@@ -51,7 +51,7 @@ class PostFactory extends Factory
             'author' => $author->name,
             'category_id' => $category->id,
             'author_id' => $author->id,
-            'date' => $publishedAt?->format('Y-m-d'),
+            'date' => $publishedAt ? $publishedAt->format('Y-m-d') : now()->format('Y-m-d'),
             'published_at' => $publishedAt,
             'status' => $status,
             'img' => $this->faker->boolean(70)
