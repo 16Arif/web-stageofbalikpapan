@@ -535,15 +535,19 @@ Tujuan:
 
 Homepage menampilkan berita terbaru dari database.
 
+Status:
+
+Selesai pada komponen `ActivityNews`.
+
 Task:
 
-- [ ] Update component `ActivityNews`.
-- [ ] Ambil 3 post published terbaru.
-- [ ] Eager load category dan author.
-- [ ] Hapus card hard-coded.
-- [ ] Semua card link ke detail post.
-- [ ] Tambahkan link menuju `/activity`.
-- [ ] Tambahkan empty state jika belum ada post.
+- [x] Update component `ActivityNews`.
+- [x] Ambil 3 post published terbaru.
+- [x] Eager load category dan author.
+- [x] Hapus card hard-coded.
+- [x] Semua card link ke detail post.
+- [x] Tambahkan link menuju `/activity`.
+- [x] Tambahkan empty state jika belum ada post.
 
 Acceptance criteria:
 
