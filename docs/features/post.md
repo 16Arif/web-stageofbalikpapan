@@ -597,18 +597,22 @@ Tujuan:
 
 Data demo mendukung workflow baru.
 
+Status:
+
+Selesai. Telah diimplementasikan factory baru yang realistis.
+
 Task:
 
-- [ ] Update `PostFactory` agar menghasilkan status realistis:
+- [x] Update `PostFactory` agar menghasilkan status realistis:
   - mayoritas published.
   - sebagian draft.
   - sebagian scheduled.
-- [ ] Pastikan published post punya `published_at <= now()`.
-- [ ] Pastikan scheduled post punya `published_at > now()`.
-- [ ] Pastikan setiap post punya category dan author.
-- [ ] Update `PostSeeder`.
-- [ ] Hindari `Post::query()->delete()` jika sudah production.
-- [ ] Untuk local/demo, boleh truncate dengan guard environment.
+- [x] Pastikan published post punya `published_at <= now()`.
+- [x] Pastikan scheduled post punya `published_at > now()`.
+- [x] Pastikan setiap post punya category dan author.
+- [x] Update `PostSeeder`.
+- [x] Hindari `Post::query()->delete()` jika sudah production.
+- [x] Untuk local/demo, boleh truncate dengan guard environment.
 
 Acceptance criteria:
 

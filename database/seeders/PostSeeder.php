@@ -12,8 +12,10 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        Post::query()->delete();
+        if (!app()->isProduction()) {
+            Post::query()->delete();
+        }
 
-        Post::factory()->count(12)->create();
+        Post::factory()->count(15)->create();
     }
 }
