@@ -25,4 +25,11 @@ Route::view('/education-gerhana', 'pages.education-gerhana')->name('education-ge
 Route::view('/lightning-kalimantan', 'pages.lightning-kalimantan')->name('lightning-kalimantan');
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
+Route::get('/sitemap-posts.xml', function () {
+    $posts = \App\Models\Post::published()->latestPublished()->get();
+    return response()->view('sitemap', [
+        'posts' => $posts
+    ])->header('Content-Type', 'text/xml');
+})->name('sitemap.posts');
+
 Route::livewire('/counter', 'livewire.counter');

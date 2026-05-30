@@ -561,9 +561,13 @@ Tujuan:
 
 Post mudah dibagikan dan terindeks dengan metadata yang benar.
 
+Status:
+
+Selesai. Telah diimplementasikan tag meta di app.blade.php, JSON-LD di show.blade.php, dan sitemap dinamis.
+
 Task:
 
-- [ ] Tambahkan dukungan meta di layout:
+- [x] Tambahkan dukungan meta di layout:
   - title.
   - description.
   - canonical URL.
@@ -571,15 +575,15 @@ Task:
   - Open Graph description.
   - Open Graph image.
   - Twitter card.
-- [ ] Untuk post detail:
+- [x] Untuk post detail:
   - title default dari post title.
   - description default dari excerpt.
   - image default dari featured image.
-- [ ] Tambahkan JSON-LD `Article` atau `NewsArticle`.
-- [ ] Tambahkan `datePublished`.
-- [ ] Tambahkan `dateModified`.
-- [ ] Tambahkan `author`.
-- [ ] Tambahkan sitemap untuk post published.
+- [x] Tambahkan JSON-LD `Article` atau `NewsArticle`.
+- [x] Tambahkan `datePublished`.
+- [x] Tambahkan `dateModified`.
+- [x] Tambahkan `author`.
+- [x] Tambahkan sitemap untuk post published.
 
 Acceptance criteria:
 

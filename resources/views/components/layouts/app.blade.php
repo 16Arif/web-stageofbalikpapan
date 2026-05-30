@@ -6,6 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ asset('build/assets/img/logo-bmkg2.png') }}">
     <title>{{ $title ?? config('app.name') }}</title>
+    @if(isset($description))
+    <meta name="description" content="{{ $description }}">
+    @endif
+    @if(isset($canonicalUrl))
+    <link rel="canonical" href="{{ $canonicalUrl }}">
+    @endif
+
+    <meta property="og:title" content="{{ $title ?? config('app.name') }}">
+    @if(isset($description))
+    <meta property="og:description" content="{{ $description }}">
+    @endif
+    @if(isset($image))
+    <meta property="og:image" content="{{ $image }}">
+    @endif
+    <meta property="og:url" content="{{ request()->url() }}">
+    <meta property="og:type" content="{{ isset($isArticle) && $isArticle ? 'article' : 'website' }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title ?? config('app.name') }}">
+    @if(isset($description))
+    <meta name="twitter:description" content="{{ $description }}">
+    @endif
+    @if(isset($image))
+    <meta name="twitter:image" content="{{ $image }}">
+    @endif
+
+    {{ $schema ?? '' }}
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

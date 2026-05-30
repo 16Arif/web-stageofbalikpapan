@@ -6,6 +6,28 @@
     @if(isset($metaImage))
         <x-slot:image>{{ $metaImage }}</x-slot:image>
     @endif
+    @if(isset($canonicalUrl))
+        <x-slot:canonicalUrl>{{ $canonicalUrl }}</x-slot:canonicalUrl>
+    @endif
+    <x-slot:isArticle>true</x-slot:isArticle>
+    <x-slot:schema>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": "{{ addslashes($post->title) }}",
+            "image": [
+                "{{ $post->image_url }}"
+            ],
+            "datePublished": "{{ $post->published_at?->toIso8601String() }}",
+            "dateModified": "{{ $post->updated_at?->toIso8601String() }}",
+            "author": [{
+                "@type": "Person",
+                "name": "{{ $post->author?->name ?? 'Admin Stageof Balikpapan' }}"
+            }]
+        }
+        </script>
+    </x-slot:schema>
 
     <section class="relative isolate overflow-hidden bg-slate-950 py-16 md:py-20">
         <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-950" />
