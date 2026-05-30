@@ -54,7 +54,7 @@ class PostController extends Controller
         return view('pages.posts.show', [
             'post' => $post,
             'relatedPosts' => $relatedPosts,
-            'metaTitle' => ($post->meta_title ?: $post->title) . ' - Stageof Balikpapan',
+            'metaTitle' => ($post->meta_title ?: $post->title).' - Stageof Balikpapan',
             'metaDescription' => $post->meta_description ?: $post->excerpt,
             'canonicalUrl' => route('posts.show', $post),
             'metaImage' => $post->image_url,
@@ -76,10 +76,10 @@ class PostController extends Controller
             'categories' => Category::query()->orderBy('name')->get(),
             'selectedCategory' => $selectedCategory,
             'currentAuthor' => $author,
-            'pageTitle' => 'Post oleh ' . $author->name,
+            'pageTitle' => 'Post oleh '.$author->name,
             'pageDescription' => 'Kumpulan berita dan aktivitas dari penulis yang dipilih.',
-            'metaTitle' => 'Post oleh ' . $author->name . ' - Stageof Balikpapan',
-            'metaDescription' => 'Kumpulan berita dan aktivitas dari ' . $author->name . ' di Stasiun Geofisika Balikpapan.',
+            'metaTitle' => 'Post oleh '.$author->name.' - Stageof Balikpapan',
+            'metaDescription' => 'Kumpulan berita dan aktivitas dari '.$author->name.' di Stasiun Geofisika Balikpapan.',
             'canonicalUrl' => route('posts.by-author', $author),
         ]);
     }

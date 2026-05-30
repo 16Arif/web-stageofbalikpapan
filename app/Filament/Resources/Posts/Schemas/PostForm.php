@@ -2,15 +2,16 @@
 
 namespace App\Filament\Resources\Posts\Schemas;
 
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
@@ -26,7 +27,7 @@ class PostForm
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
-                            ->afterStateUpdated(fn (string $operation, $state, \Filament\Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                            ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
                         TextInput::make('slug')
                             ->required()
                             ->unique(ignoreRecord: true),
@@ -51,7 +52,7 @@ class PostForm
                             ->default('draft')
                             ->live(),
                         DateTimePicker::make('published_at')
-                            ->required(fn (\Filament\Forms\Get $get) => in_array($get('status'), ['published', 'scheduled']))
+                            ->required(fn (Get $get) => in_array($get('status'), ['published', 'scheduled']))
                             ->nullable(),
                         Select::make('category_id')
                             ->relationship('category', 'name')
@@ -76,7 +77,7 @@ class PostForm
                             ->maxLength(160)
                             ->columnSpanFull(),
                     ])->columnSpanFull(),
-                ])
+                ]),
             ]);
     }
 }

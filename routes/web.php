@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GempaController;
 use App\Http\Controllers\PostController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,9 +27,10 @@ Route::view('/lightning-kalimantan', 'pages.lightning-kalimantan')->name('lightn
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
 Route::get('/sitemap-posts.xml', function () {
-    $posts = \App\Models\Post::published()->latestPublished()->get();
+    $posts = Post::published()->latestPublished()->get();
+
     return response()->view('sitemap', [
-        'posts' => $posts
+        'posts' => $posts,
     ])->header('Content-Type', 'text/xml');
 })->name('sitemap.posts');
 

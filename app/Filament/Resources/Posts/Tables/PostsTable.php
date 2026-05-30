@@ -3,21 +3,19 @@
 namespace App\Filament\Resources\Posts\Tables;
 
 use App\Models\Post;
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
-use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\ReplicateAction;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
-use Filament\Forms\Components\DatePicker;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Support\Colors\Color;
 
 class PostsTable
 {
@@ -82,7 +80,7 @@ class PostsTable
                                 $data['published_until'],
                                 fn (Builder $query, $date): Builder => $query->whereDate('published_at', '<=', $date),
                             );
-                    })
+                    }),
             ])
             ->actions([
                 Action::make('preview')
