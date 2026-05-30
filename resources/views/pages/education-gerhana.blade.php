@@ -2,12 +2,12 @@
     <x-slot:title>Edukasi Gerhana - Stageof Balikpapan</x-slot:title>
 
     <section class="relative isolate overflow-hidden bg-slate-950 py-20">
-        <x-ui.decoration.blur-bg position="top" color="from-purple-900/20 to-slate-900" />
+        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-900" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center border-b border-slate-800/50 pb-16">
-            <h2 class="text-purple-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Fenomena Astronomi</h2>
+            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Fenomena Astronomi</h2>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Mekanisme <span
-                    class="text-purple-500">Gerhana</span></h1>
-            <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    class="text-indigo-500">Gerhana</span></h1>
+            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 Memahami peristiwa tertutupnya sebuah benda langit oleh benda langit lainnya dalam tata surya kita.
             </p>
         </div>
@@ -18,7 +18,7 @@
 
             <div class="mb-20">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="size-12 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-600">
+                    <div class="size-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600">
                         <svg class="size-7" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />

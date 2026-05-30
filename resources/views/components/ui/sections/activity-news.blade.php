@@ -3,8 +3,9 @@
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2 class="text-4xl font-black tracking-tight text-gray-900 sm:text-5xl uppercase">Warta Geofisika</h2>
-            <p class="mt-4 text-lg leading-8 text-gray-600">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-indigo-600">Warta Geofisika</p>
+            <h2 class="mt-3 text-4xl font-black tracking-tight text-gray-900 sm:text-5xl">Aktivitas dan Diseminasi Publik</h2>
+            <p class="mt-4 text-lg leading-8 text-gray-500">
                 Informasi terkini mengenai kegiatan operasional, sosialisasi mitigasi, dan edukasi kebencanaan di
                 wilayah Balikpapan dan sekitarnya.
             </p>
@@ -49,7 +50,7 @@
                 <div class="flex items-center gap-x-4 text-xs">
                     <time datetime="2026-03-05" class="text-gray-500 font-mono">05 Mar 2026</time>
                     <span
-                        class="relative z-10 rounded-full bg-amber-50 px-3 py-1.5 font-bold text-amber-600">Edukasi</span>
+                        class="relative z-10 rounded-full bg-indigo-50 px-3 py-1.5 font-bold text-indigo-600">Edukasi</span>
                 </div>
                 <div class="group relative grow">
                     <h3 class="mt-3 text-lg font-bold leading-6 text-gray-900 group-hover:text-indigo-600 transition">
@@ -81,7 +82,7 @@
                 <div class="flex items-center gap-x-4 text-xs">
                     <time datetime="2026-02-28" class="text-gray-500 font-mono">28 Feb 2026</time>
                     <span
-                        class="relative z-10 rounded-full bg-emerald-50 px-3 py-1.5 font-bold text-emerald-600">Teknis</span>
+                        class="relative z-10 rounded-full bg-indigo-50 px-3 py-1.5 font-bold text-indigo-600">Teknis</span>
                 </div>
                 <div class="group relative grow">
                     <h3 class="mt-3 text-lg font-bold leading-6 text-gray-900 group-hover:text-indigo-600 transition">

@@ -1,19 +1,21 @@
 <?php
 
 use App\Http\Controllers\GempaController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    // File ini ada di resources/views/pages/home.blade.php
-    return view('pages.home'); 
+    return view('pages.home');
 })->name('home_page');
 
-// Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 
-Route::view('/activity', 'pages.activity-news')->name('activity');
+Route::get('/activity', [PostController::class, 'index'])->name('activity');
+Route::get('/activity/author/{author:slug}', [PostController::class, 'byAuthor'])->name('posts.by-author');
+Route::get('/activity/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+
 Route::get('/borneo-earthquakes', [GempaController::class, 'index'])->name('borneo-earthquakes');
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 Route::view('/buletin', 'pages.buletin')->name('buletin');

@@ -1,7 +1,8 @@
 <section class="bg-white py-12 border-t border-slate-100">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="text-center mb-10">
-            <h2 class="text-sm font-bold text-slate-400 uppercase tracking-[0.2em]">Mitra Strategis & Kerja Sama</h2>
+            <p class="text-xs font-bold text-indigo-600 uppercase tracking-[0.3em]">Kolaborasi</p>
+            <h2 class="mt-3 text-2xl font-black text-gray-900">Mitra Strategis dan Kerja Sama</h2>
         </div>
 
         <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-10">

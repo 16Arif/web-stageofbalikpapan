@@ -35,7 +35,7 @@
     @livewireStyles
 </head>
 
-<body>
+<body class="bg-white font-[Inter] text-gray-900 antialiased">
     <x-ui.time-navigation />
     <x-ui.navigation />
     <main> {{ $slot }} </main>

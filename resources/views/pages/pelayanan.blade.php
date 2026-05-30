@@ -21,7 +21,7 @@
                 <div
                     class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition duration-300">
                     <div
-                        class="size-12 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mb-6">
+                        class="size-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -35,7 +35,7 @@
                 <div
                     class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition duration-300">
                     <div
-                        class="size-12 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mb-6">
+                        class="size-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -63,7 +63,7 @@
                 <div
                     class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition duration-300">
                     <div
-                        class="size-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                        class="size-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -139,7 +139,7 @@
         </div>
     </section>
 
-    <section class="py-16 bg-indigo-900 rounded-t-[3rem] text-white">
+    <section class="py-16 bg-slate-950 rounded-t-[3rem] text-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>

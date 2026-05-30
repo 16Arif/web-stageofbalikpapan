@@ -15,14 +15,14 @@
         $earthquake = array_merge($fallbackLatestEarthquake, $latestEarthquake ?? []);
     @endphp
 
-    <section class="relative isolate overflow-hidden bg-slate-900 py-16">
-        <x-ui.decoration.blur-bg position="top" color="from-orange-500/10 to-slate-900" />
+    <section class="relative isolate overflow-hidden bg-slate-950 py-16">
+        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/10 to-slate-950" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="max-w-2xl">
-                <h2 class="text-orange-500 font-bold uppercase tracking-[0.3em] text-xs mb-4">Monitoring Lokal</h2>
+                <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Monitoring Lokal</h2>
                 <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">Gempabumi <span
-                        class="text-orange-500">Kalimantan</span></h1>
-                <p class="mt-6 text-lg text-slate-400 leading-relaxed">
+                        class="text-indigo-500">Kalimantan</span></h1>
+                <p class="mt-6 text-lg text-slate-300 leading-relaxed">
                     Daftar aktivitas gempabumi di wilayah Pulau Kalimantan berdasarkan hasil analisa Stasiun Geofisika
                     Balikpapan.
                 </p>
@@ -48,7 +48,7 @@
                             class="w-full h-auto object-cover opacity-90">
                         <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
                             <div class="bg-slate-900/90 backdrop-blur-md border border-slate-700 p-2 rounded-lg">
-                                <p class="text-[9px] font-mono text-orange-400 uppercase leading-none mb-1">Koordinat
+                                <p class="text-[9px] font-mono text-indigo-400 uppercase leading-none mb-1">Koordinat
                                 </p>
                                 <p class="text-[10px] font-bold text-white">{{ $earthquake['coordinates'] }}</p>
                             </div>
@@ -59,7 +59,7 @@
                 <div class="lg:col-span-3 flex flex-col">
                     <div class="inline-flex items-center gap-2 mb-4">
                         <span
-                            class="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[10px] font-black uppercase tracking-widest">Update:
+                            class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-widest">Update:
                             {{ $earthquake['date'] }}</span>
                     </div>
 
