@@ -214,41 +214,54 @@ Tujuan:
 
 Membuat logic publikasi terpusat di model.
 
+Status:
+
+Selesai pada `app/Models/Post.php`.
+
 Task:
 
-- [ ] Tambahkan constant status di `Post`:
+- [x] Tambahkan constant status di `Post`:
   - `STATUS_DRAFT = 'draft'`
   - `STATUS_SCHEDULED = 'scheduled'`
   - `STATUS_PUBLISHED = 'published'`
   - `STATUS_ARCHIVED = 'archived'`
-- [ ] Tambahkan method:
+- [x] Tambahkan method:
   - `isPublished(): bool`
   - `isDraft(): bool`
   - `isScheduled(): bool`
-- [ ] Tambahkan scope:
+- [x] Tambahkan scope:
   - `scopePublished($query)`
   - `scopeLatestPublished($query)`
   - `scopeForCategory($query, Category|string|null $category)`
   - `scopeForAuthor($query, Author|string|null $author)`
-- [ ] Tambahkan relation standar:
+- [x] Tambahkan relation standar:
   - `category()`
   - `author()`
-- [ ] Jika relation lama `categoryRelation()` dan `authorRelation()` masih dipakai view, pertahankan sementara sebagai alias.
-- [ ] Tambahkan accessor `image_url`.
-- [ ] Accessor image harus mendukung:
+- [x] Jika relation lama `categoryRelation()` dan `authorRelation()` masih dipakai view, pertahankan sementara sebagai alias.
+- [x] Tambahkan accessor `image_url`.
+- [x] Accessor image harus mendukung:
   - file upload lokal/storage.
   - URL eksternal lama jika masih ada data lama.
   - fallback image lokal jika kosong.
-- [ ] Update `$fillable`.
-- [ ] Update `$casts`:
+- [x] Update `$fillable`.
+- [x] Update `$casts`:
   - `published_at` sebagai `datetime`.
-  - `date` dipertimbangkan untuk dihapus atau tetap legacy.
+  - `date` tetap dipertahankan sebagai legacy cast.
 
 Acceptance criteria:
 
 - Semua query publik memakai scope model.
 - Controller tidak mengulang logic `status = published`.
 - Detail post unpublished dapat ditolak dengan satu method/scope.
+
+Catatan implementasi:
+
+- `category()` dan `author()` ditambahkan sebagai relation standar.
+- `categoryRelation()` dan `authorRelation()` tetap dipertahankan agar controller/view lama tidak rusak sebelum Fase 3 dan Fase 5.
+- `image_url` memakai prioritas `featured_image`, lalu legacy `img`, lalu fallback lokal `favicon.ico`.
+- Validasi yang sudah dijalankan:
+  - `php -l app/Models/Post.php`
+  - `php artisan test`
 
 Contoh ekspektasi scope:
 
