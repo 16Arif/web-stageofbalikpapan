@@ -166,25 +166,31 @@ Tujuan:
 
 Membuat struktur data Post siap production.
 
+Status:
+
+Selesai pada migration `database/migrations/2026_05_30_151500_update_posts_table_for_publication_workflow.php`.
+
 Task:
 
-- [ ] Tambahkan migration baru untuk kolom:
+- [x] Tambahkan migration baru untuk kolom:
   - `status` string default `draft`.
   - `featured_image` nullable.
   - `meta_title` nullable.
   - `meta_description` nullable.
   - `published_at` nullable.
-- [ ] Tambahkan index:
+- [x] Tambahkan index:
   - `status`
   - `published_at`
   - `category_id`
   - `author_id`
   - kombinasi `status, published_at`
-- [ ] Putuskan strategi kolom lama:
-  - Jika database belum production, hapus `category`, `author`, dan `img`.
-  - Jika database sudah punya data, migrasikan `img` ke `featured_image`, lalu jadikan field lama legacy sementara.
-- [ ] Jadikan `category_id` dan `author_id` wajib untuk post yang akan dipublish.
-- [ ] Jika memungkinkan, ubah database constraint menjadi non-null setelah data legacy bersih.
+- [x] Putuskan strategi kolom lama:
+  - Kolom `category`, `author`, dan `img` dipertahankan sebagai legacy fallback.
+  - Nilai `img` dimigrasikan awal ke `featured_image` jika `featured_image` masih kosong.
+- [x] Jadikan `category_id` dan `author_id` wajib untuk post yang akan dipublish.
+  - Dicatat sebagai aturan data untuk fase CMS/validasi, belum dijadikan non-null database constraint di Fase 1.
+- [x] Jika memungkinkan, ubah database constraint menjadi non-null setelah data legacy bersih.
+  - Ditunda karena migration existing masih nullable dan data legacy perlu dibersihkan lebih dulu.
 
 Acceptance criteria:
 
@@ -196,6 +202,11 @@ Catatan implementasi:
 
 - Jangan menghapus kolom lama secara agresif jika sudah ada data production.
 - Untuk tahap aman, tambahkan kolom baru dulu, lalu migrasi data pada fase terpisah.
+- Fase 1 memilih jalur aman: additive migration, legacy column tetap ada, dan constraint non-null untuk `category_id`/`author_id` ditunda.
+- Validasi yang sudah dijalankan:
+  - `php -l database/migrations/2026_05_30_151500_update_posts_table_for_publication_workflow.php`
+  - `php artisan migrate --pretend`
+  - `php artisan test`
 
 ## Fase 2 - Perkuat Model Post
 
