@@ -38,56 +38,84 @@
 
                 @forelse ($posts as $post)
                     <article
-                        class="group flex flex-col bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 hover:border-indigo-300 shadow-sm hover:shadow-2xl transition-all duration-500">
+                        class="group relative flex flex-col bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 hover:border-indigo-300 shadow-sm hover:shadow-2xl transition-all duration-500">
                         <div class="aspect-[16/10] overflow-hidden relative">
-                            <img src="{{ $post->image_url }}" alt="{{ $post->title }}"
+                            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" loading="lazy"
                                 class="size-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute top-4 left-4">
-                                <span
-                                    class="px-3 py-1 bg-white/90 backdrop-blur text-[10px] font-black uppercase tracking-widest text-indigo-600 rounded-full shadow-sm italic">
-                                    {{ $post->categoryRelation?->name ?? $post->category }}
-                                </span>
+                            <div class="absolute top-4 left-4 z-10">
+                                @if($post->category)
+                                <a href="{{ route('activity', ['category' => $post->category->slug]) }}"
+                                    class="px-3 py-1 bg-white/90 backdrop-blur text-[10px] font-black uppercase tracking-widest text-indigo-600 rounded-full shadow-sm italic hover:bg-indigo-600 hover:text-white transition">
+                                    {{ $post->category->name }}
+                                </a>
+                                @endif
                             </div>
                         </div>
 
                         <div class="p-8 flex flex-col grow">
-                            <div
-                                class="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-tighter mb-4">
-                                <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                {{ $post->date?->translatedFormat('d M Y') }}
+                            <div class="flex items-center gap-4 text-slate-400 text-[10px] font-bold uppercase tracking-tighter mb-4">
+                                <div class="flex items-center gap-2">
+                                    <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    {{ $post->published_at?->translatedFormat('d M Y') }}
+                                </div>
+                                @if($post->author)
+                                <a href="{{ route('posts.by-author', $post->author) }}" class="flex items-center gap-2 hover:text-indigo-600 transition relative z-10">
+                                    <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    {{ $post->author->name }}
+                                </a>
+                                @endif
                             </div>
 
-                            <h3
-                                class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors leading-tight mb-4">
-                                <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+                            <h3 class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors leading-tight mb-4 line-clamp-2">
+                                <a href="{{ route('posts.show', $post) }}" class="before:absolute before:inset-0">
+                                    {{ $post->title }}
+                                </a>
                             </h3>
 
                             <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
                                 {{ $post->excerpt }}
                             </p>
 
-                            <div class="mt-auto pt-6 border-t border-slate-50">
-                                <a href="{{ route('posts.show', $post) }}"
-                                    class="inline-flex items-center gap-2 text-xs font-black text-slate-900 uppercase tracking-widest hover:text-indigo-600 transition">
+                            <div class="mt-auto pt-6 border-t border-slate-50 relative z-10">
+                                <span class="inline-flex items-center gap-2 text-xs font-black text-indigo-600 uppercase tracking-widest group-hover:translate-x-2 transition-transform">
                                     Baca Selengkapnya
                                     <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
-                                </a>
+                                </span>
                             </div>
                         </div>
                     </article>
                 @empty
-                    <div class="md:col-span-2 lg:col-span-3 rounded-[2rem] border border-slate-200 bg-white p-10 text-center text-slate-500">
-                        Belum ada postingan yang sesuai dengan filter ini.
+                    <div class="md:col-span-2 lg:col-span-3 rounded-[2.5rem] border border-slate-200 bg-white p-12 text-center shadow-sm flex flex-col items-center justify-center">
+                        <div class="size-16 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 mb-4">
+                            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Belum Ada Postingan</h3>
+                        <p class="text-slate-500 max-w-sm mx-auto mb-6">Kami belum menemukan berita atau aktivitas yang sesuai dengan kriteria yang Anda cari.</p>
+                        @if($selectedCategory || $currentAuthor)
+                            <a href="{{ route('activity') }}" class="px-6 py-2.5 bg-indigo-50 text-indigo-600 font-bold text-sm rounded-full hover:bg-indigo-600 hover:text-white transition">Hapus Filter</a>
+                        @endif
                     </div>
                 @endforelse
 
             </div>
+
+            @if($posts->hasPages())
+                <div class="mt-12">
+                    {{ $posts->links() }}
+                </div>
+            @endif
         </div>
     </section>
 </x-layouts.app>

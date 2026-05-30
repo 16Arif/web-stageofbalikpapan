@@ -474,19 +474,23 @@ Tujuan:
 
 Halaman `/activity` rapi, informatif, dan scalable.
 
+Status:
+
+Selesai pada view list post.
+
 Task:
 
-- [ ] Update view agar memakai relation `category` dan `author`.
-- [ ] Tambahkan pagination links.
-- [ ] Tambahkan state filter aktif.
-- [ ] Tambahkan empty state profesional:
+- [x] Update view agar memakai relation `category` dan `author`.
+- [x] Tambahkan pagination links.
+- [x] Tambahkan state filter aktif.
+- [x] Tambahkan empty state profesional:
   - ketika belum ada post.
   - ketika filter tidak punya hasil.
-- [ ] Tambahkan search opsional jika diperlukan.
-- [ ] Gunakan `loading="lazy"` untuk image card.
-- [ ] Pastikan judul panjang tidak merusak layout.
-- [ ] Pastikan card clickable area jelas.
-- [ ] Gunakan tanggal dari `published_at`, bukan `date` legacy.
+- [x] Tambahkan search opsional jika diperlukan.
+- [x] Gunakan `loading="lazy"` untuk image card.
+- [x] Pastikan judul panjang tidak merusak layout.
+- [x] Pastikan card clickable area jelas.
+- [x] Gunakan tanggal dari `published_at`, bukan `date` legacy.
 
 Acceptance criteria:
 
