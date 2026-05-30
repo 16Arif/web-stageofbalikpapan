@@ -24,7 +24,7 @@ class ActivityNews extends Component
     {
         $posts = Post::query()
             ->published()
-            ->with(['category', 'author'])
+            ->with(['categoryRelation', 'authorRelation'])
             ->latestPublished()
             ->limit(3)
             ->get();

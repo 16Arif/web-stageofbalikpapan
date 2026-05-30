@@ -43,10 +43,10 @@
                             <img src="{{ $post->image_url }}" alt="{{ $post->title }}" loading="lazy"
                                 class="size-full object-cover transition-transform duration-700 group-hover:scale-110">
                             <div class="absolute top-4 left-4 z-10">
-                                @if($post->category)
-                                <a href="{{ route('activity', ['category' => $post->category->slug]) }}"
+                                @if($post->categoryRelation)
+                                <a href="{{ route('activity', ['category' => $post->categoryRelation->slug]) }}"
                                     class="px-3 py-1 bg-white/90 backdrop-blur text-[10px] font-black uppercase tracking-widest text-indigo-600 rounded-full shadow-sm italic hover:bg-indigo-600 hover:text-white transition">
-                                    {{ $post->category->name }}
+                                    {{ $post->categoryRelation->name }}
                                 </a>
                                 @endif
                             </div>
@@ -61,13 +61,13 @@
                                     </svg>
                                     {{ $post->published_at?->translatedFormat('d M Y') }}
                                 </div>
-                                @if($post->author)
-                                <a href="{{ route('posts.by-author', $post->author) }}" class="flex items-center gap-2 hover:text-indigo-600 transition relative z-10">
+                                @if($post->authorRelation)
+                                <a href="{{ route('posts.by-author', $post->authorRelation) }}" class="flex items-center gap-2 hover:text-indigo-600 transition relative z-10">
                                     <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
-                                    {{ $post->author->name }}
+                                    {{ $post->authorRelation->name }}
                                 </a>
                                 @endif
                             </div>

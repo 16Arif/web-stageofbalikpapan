@@ -63,22 +63,22 @@
             </nav>
 
             <div>
-                @if($post->category)
-                <a href="{{ route('activity', ['category' => $post->category->slug]) }}"
+                @if($post->categoryRelation)
+                <a href="{{ route('activity', ['category' => $post->categoryRelation->slug]) }}"
                     class="inline-flex rounded-full bg-indigo-500/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-indigo-300 transition hover:bg-indigo-500/20">
-                    {{ $post->category->name }}
+                    {{ $post->categoryRelation->name }}
                 </a>
                 @endif
                 <h1 class="mt-5 text-4xl font-black leading-tight text-white md:text-5xl">
                     {{ $post->title }}
                 </h1>
                 <div class="mt-6 flex flex-col gap-3 text-sm text-slate-300 md:flex-row md:flex-wrap md:items-center md:gap-6">
-                    @if($post->author)
+                    @if($post->authorRelation)
                     <p>
                         <span class="font-bold text-white">Penulis:</span>
-                        <a href="{{ route('posts.by-author', $post->author) }}"
+                        <a href="{{ route('posts.by-author', $post->authorRelation) }}"
                             class="font-medium text-indigo-300 transition hover:text-indigo-200">
-                            {{ $post->author->name }}
+                            {{ $post->authorRelation->name }}
                         </a>
                     </p>
                     @endif

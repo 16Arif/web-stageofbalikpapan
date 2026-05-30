@@ -26,9 +26,9 @@
             <article class="flex max-w-xl flex-col items-start justify-between group">
                 <div class="flex items-center gap-x-4 text-xs">
                     <time datetime="{{ $post->published_at?->format('Y-m-d') }}" class="text-gray-500 font-mono">{{ $post->published_at?->translatedFormat('d M Y') }}</time>
-                    @if($post->category)
-                    <a href="{{ route('activity', ['category' => $post->category->slug]) }}" class="relative z-10 rounded-full bg-indigo-50 px-3 py-1.5 font-bold text-indigo-600 hover:bg-indigo-100 transition">
-                        {{ $post->category->name }}
+                    @if($post->categoryRelation)
+                    <a href="{{ route('activity', ['category' => $post->categoryRelation->slug]) }}" class="relative z-10 rounded-full bg-indigo-50 px-3 py-1.5 font-bold text-indigo-600 hover:bg-indigo-100 transition">
+                        {{ $post->categoryRelation->name }}
                     </a>
                     @endif
                 </div>
@@ -43,10 +43,10 @@
                         {{ $post->excerpt }}
                     </p>
                 </div>
-                @if($post->author)
+                @if($post->authorRelation)
                 <div class="relative mt-8 flex items-center gap-x-4">
-                    @if($post->author->photo)
-                        <img src="{{ Storage::disk('public')->url($post->author->photo) }}" alt="{{ $post->author->name }}" class="size-10 rounded-full bg-slate-100 object-cover">
+                    @if($post->authorRelation->photo)
+                        <img src="{{ Storage::disk('public')->url($post->authorRelation->photo) }}" alt="{{ $post->authorRelation->name }}" class="size-10 rounded-full bg-slate-100 object-cover">
                     @else
                         <div class="size-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
                             <svg class="size-6" fill="currentColor" viewBox="0 0 24 24">
@@ -56,12 +56,12 @@
                     @endif
                     <div class="text-sm leading-6">
                         <p class="font-bold text-gray-900">
-                            <a href="{{ route('posts.by-author', $post->author) }}">
+                            <a href="{{ route('posts.by-author', $post->authorRelation) }}">
                                 <span class="absolute inset-0"></span>
-                                {{ $post->author->name }}
+                                {{ $post->authorRelation->name }}
                             </a>
                         </p>
-                        <p class="text-gray-600 text-xs italic uppercase tracking-tighter line-clamp-1">{{ $post->author->bio ?? 'Penulis' }}</p>
+                        <p class="text-gray-600 text-xs italic uppercase tracking-tighter line-clamp-1">{{ $post->authorRelation->bio ?? 'Penulis' }}</p>
                     </div>
                 </div>
                 @endif
