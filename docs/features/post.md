@@ -504,20 +504,24 @@ Tujuan:
 
 Detail post menjadi halaman artikel profesional.
 
+Status:
+
+Selesai pada view detail post.
+
 Task:
 
-- [ ] Tampilkan category sebagai link.
-- [ ] Tampilkan author sebagai link jika author ada.
-- [ ] Tampilkan tanggal publikasi dari `published_at`.
-- [ ] Tambahkan featured image dengan alt text.
-- [ ] Render content dengan aman.
-- [ ] Jika content memakai rich editor HTML, pastikan sanitization/escape aman.
-- [ ] Tambahkan related posts.
-- [ ] Tambahkan breadcrumb:
+- [x] Tampilkan category sebagai link.
+- [x] Tampilkan author sebagai link jika author ada.
+- [x] Tampilkan tanggal publikasi dari `published_at`.
+- [x] Tambahkan featured image dengan alt text.
+- [x] Render content dengan aman.
+- [x] Jika content memakai rich editor HTML, pastikan sanitization/escape aman.
+- [x] Tambahkan related posts.
+- [x] Tambahkan breadcrumb:
   - Home
   - Berita dan Aktifitas
   - Judul Post
-- [ ] Tambahkan share links opsional.
+- [x] Tambahkan share links opsional.
 
 Acceptance criteria:
 
