@@ -342,121 +342,125 @@ Tujuan:
 
 Admin dapat mengelola Berita dan Aktifitas secara lengkap.
 
+Status:
+
+Selesai pada `app/Filament/Resources`.
+
 ### PostResource
 
 Field form:
 
-- [ ] `title`
+- [x] `title`
   - required.
   - max 255.
-- [ ] `slug`
+- [x] `slug`
   - auto generate dari title.
   - editable.
   - unique.
-- [ ] `excerpt`
+- [x] `excerpt`
   - required.
   - max 300 atau 500 karakter.
-- [ ] `content`
+- [x] `content`
   - required.
   - rich editor atau markdown editor.
-- [ ] `category_id`
+- [x] `category_id`
   - required.
   - searchable select.
   - preload.
-- [ ] `author_id`
+- [x] `author_id`
   - required.
   - searchable select.
   - preload.
-- [ ] `status`
+- [x] `status`
   - required.
   - options: draft, scheduled, published, archived.
-- [ ] `published_at`
+- [x] `published_at`
   - required jika status published atau scheduled.
   - nullable untuk draft.
-- [ ] `featured_image`
+- [x] `featured_image`
   - image upload.
   - directory `posts`.
   - image editor jika tersedia.
-- [ ] `meta_title`
+- [x] `meta_title`
   - nullable.
   - max 60 karakter ideal.
-- [ ] `meta_description`
+- [x] `meta_description`
   - nullable.
   - max 160 karakter ideal.
 
 Table columns:
 
-- [ ] title.
-- [ ] status badge.
-- [ ] category.
-- [ ] author.
-- [ ] published_at.
-- [ ] updated_at.
+- [x] title.
+- [x] status badge.
+- [x] category.
+- [x] author.
+- [x] published_at.
+- [x] updated_at.
 
 Filters:
 
-- [ ] status.
-- [ ] category.
-- [ ] author.
-- [ ] published date range.
+- [x] status.
+- [x] category.
+- [x] author.
+- [x] published date range.
 
 Actions:
 
-- [ ] edit.
-- [ ] delete.
-- [ ] publish.
-- [ ] unpublish/draft.
-- [ ] duplicate.
-- [ ] preview.
+- [x] edit.
+- [x] delete.
+- [x] publish.
+- [x] unpublish/draft.
+- [x] duplicate.
+- [x] preview.
 
 Validation rules:
 
-- [ ] Slug unique.
-- [ ] Published post wajib punya category dan author.
-- [ ] Published post wajib punya `published_at`.
-- [ ] Scheduled post wajib punya `published_at` di masa depan.
+- [x] Slug unique.
+- [x] Published post wajib punya category dan author.
+- [x] Published post wajib punya `published_at`.
+- [x] Scheduled post wajib punya `published_at` di masa depan.
 
 ### CategoryResource
 
 Field:
 
-- [ ] name.
-- [ ] slug auto generate.
-- [ ] description nullable.
+- [x] name.
+- [x] slug auto generate.
+- [x] description nullable.
 
 Table:
 
-- [ ] name.
-- [ ] slug.
-- [ ] posts count.
-- [ ] updated_at.
+- [x] name.
+- [x] slug.
+- [x] posts count.
+- [x] updated_at.
 
 Rules:
 
-- [ ] Name unique.
-- [ ] Slug unique.
-- [ ] Category yang masih punya post tidak boleh dihapus tanpa konfirmasi.
+- [x] Name unique.
+- [x] Slug unique.
+- [x] Category yang masih punya post tidak boleh dihapus tanpa konfirmasi.
 
 ### AuthorResource
 
 Field:
 
-- [ ] name.
-- [ ] slug auto generate.
-- [ ] bio nullable.
-- [ ] photo/avatar nullable.
+- [x] name.
+- [x] slug auto generate.
+- [x] bio nullable.
+- [x] photo/avatar nullable.
 
 Table:
 
-- [ ] name.
-- [ ] slug.
-- [ ] posts count.
-- [ ] updated_at.
+- [x] name.
+- [x] slug.
+- [x] posts count.
+- [x] updated_at.
 
 Rules:
 
-- [ ] Name unique atau minimal slug unique.
-- [ ] Author yang masih punya post tidak boleh dihapus tanpa strategi pengganti.
+- [x] Name unique atau minimal slug unique.
+- [x] Author yang masih punya post tidak boleh dihapus tanpa strategi pengganti.
 
 Acceptance criteria:
 

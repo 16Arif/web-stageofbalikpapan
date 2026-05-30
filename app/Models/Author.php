@@ -12,6 +12,8 @@ class Author extends Model
     protected $fillable = [
         'name',
         'slug',
+        'bio',
+        'photo',
     ];
 
     public function posts()
