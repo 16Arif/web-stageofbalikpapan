@@ -279,35 +279,40 @@ Tujuan:
 
 Membuat route publik aman, scalable, dan mudah dipakai.
 
+Status:
+
+Selesai pada `app/Http/Controllers/PostController.php`.
+
 Task untuk `index`:
 
-- [ ] Gunakan `Post::published()`.
-- [ ] Eager load `category` dan `author`.
-- [ ] Ambil category filter dari query string `category`.
-- [ ] Jika category slug tidak ditemukan, tampilkan empty state atau redirect ke `/activity`.
-- [ ] Gunakan `paginate(9)`.
-- [ ] Gunakan `withQueryString()` agar filter tetap saat pindah halaman.
-- [ ] Kirim data SEO page title dan description ke view.
+- [x] Gunakan `Post::published()`.
+- [x] Eager load `category` dan `author`.
+- [x] Ambil category filter dari query string `category`.
+- [x] Jika category slug tidak ditemukan, tampilkan empty state atau redirect ke `/activity`.
+  - Implementasi saat ini: query dibuat kosong agar view menampilkan empty state.
+- [x] Gunakan `paginate(9)`.
+- [x] Gunakan `withQueryString()` agar filter tetap saat pindah halaman.
+- [x] Kirim data SEO page title dan description ke view.
 
 Task untuk `show`:
 
-- [ ] Route model binding tetap berdasarkan slug.
-- [ ] Jika post tidak published, `abort(404)`.
-- [ ] Load `category` dan `author`.
-- [ ] Ambil related posts:
+- [x] Route model binding tetap berdasarkan slug.
+- [x] Jika post tidak published, `abort(404)`.
+- [x] Load `category` dan `author`.
+- [x] Ambil related posts:
   - status published.
   - category sama.
   - exclude post aktif.
   - limit 3.
-- [ ] Kirim meta title, meta description, canonical URL, dan image ke view.
+- [x] Kirim meta title, meta description, canonical URL, dan image ke view.
 
 Task untuk `byAuthor`:
 
-- [ ] Gunakan post published saja.
-- [ ] Eager load category dan author.
-- [ ] Gunakan pagination.
-- [ ] Support filter category jika masih dibutuhkan.
-- [ ] Tampilkan empty state jika belum ada post.
+- [x] Gunakan post published saja.
+- [x] Eager load category dan author.
+- [x] Gunakan pagination.
+- [x] Support filter category jika masih dibutuhkan.
+- [x] Tampilkan empty state jika belum ada post.
 
 Opsional route category:
 
@@ -320,6 +325,16 @@ Acceptance criteria:
 - `/activity/{post:slug}` untuk draft menghasilkan 404.
 - Pagination muncul jika post lebih dari 9.
 - Filter category tidak hilang saat pindah halaman.
+
+Catatan implementasi:
+
+- Relation standar `category` dan `author` sudah dipakai di controller.
+- Alias lama `categoryRelation` dan `authorRelation` tetap ikut di-eager-load agar view lama tidak menambah query sampai Fase 5.
+- Route category khusus belum dibuat karena bersifat opsional.
+- Validasi yang sudah dijalankan:
+  - `php -l app/Http/Controllers/PostController.php`
+  - `php artisan route:list`
+  - `php artisan test`
 
 ## Fase 4 - Bangun Filament CMS Resource
 
