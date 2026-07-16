@@ -9,24 +9,32 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home_page');
 
-Route::view('/profil', 'pages.profil')->name('profil');
+Route::prefix('profil')->name('profil.')->group(function () {
+    Route::view('/', 'pages.profil.profil')->name('profil');
+    Route::view('/struktur-organisasi', 'pages.profil.struktur-organisasi')->name('organisasi');
+});
+
+Route::prefix('gempabumi')->name('gempabumi.')->group(function () {
+    Route::get('/terkini', [GempaController::class, 'index'])->name('terkini');
+    Route::view('/kalimantan', 'pages.gempabumi.kalimantan')->name('kalimantan');
+    Route::view('/seismisitas', 'pages.gempabumi.seismisitas')->name('seismisitas');
+    Route::view('/mitigasi', 'pages.gempabumi.mitigasi')->name('mitigasi');
+});
+
+Route::prefix('geofisika')->name('geofisika.')->group(function () {
+    Route::view('/hilal', 'pages.geofisika.hilal')->name('hilal');
+    Route::view('/gerhana', 'pages.geofisika.gerhana')->name('gerhana');
+    Route::view('/petir', 'pages.geofisika.petir')->name('petir');
+    Route::view('/peta-petir', 'pages.geofisika.peta-petir')->name('peta-petir');
+    Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
+});
 
 Route::get('/activity', [PostController::class, 'index'])->name('activity');
 Route::get('/activity/author/{author:slug}', [PostController::class, 'byAuthor'])->name('posts.by-author');
 Route::get('/activity/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/gempabumi/terkini', [GempaController::class, 'index'])->name('gempabumi.terkini');
-Route::view('/gempabumi/kalimantan', 'pages.gempabumi.kalimantan')->name('gempabumi.kalimantan');
-Route::view('/gempabumi/seismisitas', 'pages.gempabumi.seismisitas')->name('gempabumi.seismisitas');
-Route::view('/gempabumi/mitigasi', 'pages.gempabumi.mitigasi')->name('gempabumi.mitigasi');
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 Route::view('/buletin', 'pages.buletin')->name('buletin');
-Route::view('/struktur-organisasi', 'pages.struktur-organisasi')->name('struktur-organisasi');
-Route::view('/geofisika/hilal', 'pages.geofisika.hilal')->name('geofisika.hilal');
-Route::view('/geofisika/gerhana', 'pages.geofisika.gerhana')->name('geofisika.gerhana');
-Route::view('/geofisika/petir', 'pages.geofisika.petir')->name('geofisika.petir');
-Route::view('/geofisika/peta-petir', 'pages.geofisika.peta-petir')->name('geofisika.peta-petir');
-Route::view('/geofisika/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('geofisika.kerapatan-petir');
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
 Route::get('/sitemap-posts.xml', function () {
