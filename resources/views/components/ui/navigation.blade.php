@@ -151,11 +151,10 @@
                      <div
                          class="absolute left-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                          <div class="p-2">
-                             <a href="{{ route('buletin') }}" wire:navigate
+                             <a href="{{ route('publikasi.buletin') }}" wire:navigate
                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Buletin</a>
-                             <a href="{{ route('activity') }}" wire:navigate
-                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Berita
-                                 Aktifitas</a>
+                             <a href="{{ route('publikasi.berita.index') }}" wire:navigate
+                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Berita</a>
                          </div>
                      </div>
                  </div>
@@ -203,8 +202,8 @@
                                  <a href="{{ route('gempabumi.seismisitas') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Peta
                                      Seismisitas</a>
-                                 <a href="{{ route('activity') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Publikasi</a>
+                                 <a href="{{ route('publikasi.berita.index') }}"
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Berita</a>
                                  <a href="{{ route('pelayanan') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Pelayanan</a>
                              </div>

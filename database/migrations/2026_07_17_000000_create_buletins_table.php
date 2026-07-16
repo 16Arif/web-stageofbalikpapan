@@ -8,16 +8,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('authors', function (Blueprint $table) {
+        Schema::create('buletins', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('title');
             $table->string('slug')->unique();
+            $table->string('file_path');
+            $table->date('published_at');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('authors');
+        Schema::dropIfExists('buletins');
     }
 };

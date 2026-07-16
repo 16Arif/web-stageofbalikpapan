@@ -22,10 +22,7 @@
                 <div class="flex items-center gap-2 bg-white p-1 rounded-xl shadow-sm border border-slate-200">
                     <button
                         class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-sm">Terbaru</button>
-                    <button
-                        class="px-4 py-2 text-slate-600 hover:bg-slate-50 rounded-lg text-sm font-bold transition">2026</button>
-                    <button
-                        class="px-4 py-2 text-slate-600 hover:bg-slate-50 rounded-lg text-sm font-bold transition">2025</button>
+                    <!-- Tombol filter tahun bisa diintegrasikan dengan Livewire atau parameter URL nanti -->
                 </div>
                 <div class="relative w-full md:w-72">
                     <input type="text" placeholder="Cari edisi buletin..."
@@ -39,19 +36,7 @@
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-
-                @php
-                    // Data Dummy untuk testing tampilan
-                    $buletins = [
-                        ['month' => 'Februari', 'year' => '2026', 'ver' => 'Edisi 02'],
-                        ['month' => 'Januari', 'year' => '2026', 'ver' => 'Edisi 01'],
-                        ['month' => 'Desember', 'year' => '2025', 'ver' => 'Edisi 12'],
-                        ['month' => 'November', 'year' => '2025', 'ver' => 'Edisi 11'],
-                        ['month' => 'Oktober', 'year' => '2025', 'ver' => 'Edisi 10'],
-                    ];
-                @endphp
-
-                @foreach ($buletins as $item)
+                @forelse ($buletins as $buletin)
                     <div
                         class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
                         <div
@@ -63,19 +48,17 @@
                                     XI</span>
                                 <p class="text-white text-xs font-black uppercase leading-tight">Buletin Geofisika</p>
                                 <div class="my-4 h-px w-8 bg-indigo-400"></div>
-                                <p class="text-indigo-300 text-[10px] font-bold">{{ $item['month'] }}
-                                    {{ $item['year'] }}</p>
+                                <p class="text-indigo-300 text-[10px] font-bold">{{ $buletin->published_at->translatedFormat('F Y') }}</p>
                             </div>
                         </div>
 
                         <div class="p-6">
                             <span
-                                class="text-[10px] font-bold text-indigo-600 uppercase tracking-tighter">{{ $item['ver'] }}</span>
-                            <h3 class="text-slate-900 font-bold mt-1">Edisi {{ $item['month'] }} {{ $item['year'] }}
-                            </h3>
+                                class="text-[10px] font-bold text-indigo-600 uppercase tracking-tighter">BULETIN</span>
+                            <h3 class="text-slate-900 font-bold mt-1">{{ $buletin->title }}</h3>
 
                             <div class="mt-6">
-                                <a href="#"
+                                <a href="{{ asset('storage/' . $buletin->file_path) }}" target="_blank"
                                     class="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-2xl text-xs font-bold transition-colors group">
                                     <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -86,26 +69,11 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
-
-            </div>
-
-            <div class="mt-16 flex justify-center">
-                <nav class="flex items-center gap-2">
-                    <a href="#"
-                        class="size-10 flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition">
-                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </a>
-                    <span class="px-4 font-bold text-slate-900">1</span>
-                    <a href="#"
-                        class="size-10 flex items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition">
-                        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                </nav>
+                @empty
+                    <div class="col-span-full p-12 text-center bg-white rounded-3xl border border-slate-200">
+                        <p class="text-slate-500 font-medium">Belum ada data buletin yang dipublikasikan.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>

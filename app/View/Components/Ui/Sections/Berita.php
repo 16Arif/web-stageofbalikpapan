@@ -2,12 +2,12 @@
 
 namespace App\View\Components\Ui\Sections;
 
-use App\Models\Post;
+use App\Models\Berita as ModelBerita;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ActivityNews extends Component
+class Berita extends Component
 {
     /**
      * Create a new component instance.
@@ -22,15 +22,10 @@ class ActivityNews extends Component
      */
     public function render(): View|Closure|string
     {
-        $posts = Post::query()
-            ->published()
-            ->with(['categoryRelation', 'authorRelation'])
-            ->latestPublished()
-            ->limit(3)
-            ->get();
+        $beritaList = ModelBerita::latest('published_at')->take(3)->get();
 
-        return view('components.ui.sections.activity-news', [
-            'posts' => $posts,
+        return view('components.ui.sections.berita', [
+            'beritaList' => $beritaList,
         ]);
     }
 }
