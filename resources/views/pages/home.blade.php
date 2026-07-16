@@ -5,6 +5,6 @@
     @livewire('geofisika.cuaca-kalimantan')
     @livewire('geofisika.media-section')
 
-    <x-ui.sections.activity-news />
+    <x-ui.sections.berita />
     <x-ui.sections.partners />
 </x-layouts.app>

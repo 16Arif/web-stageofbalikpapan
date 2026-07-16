@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\BuletinController;
 use App\Http\Controllers\GempaController;
-use App\Http\Controllers\PostController;
-use App\Models\Post;
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,20 +30,22 @@ Route::prefix('geofisika')->name('geofisika.')->group(function () {
     Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
 });
 
-Route::get('/activity', [PostController::class, 'index'])->name('activity');
-Route::get('/activity/author/{author:slug}', [PostController::class, 'byAuthor'])->name('posts.by-author');
-Route::get('/activity/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
-Route::view('/buletin', 'pages.buletin')->name('buletin');
+
+Route::prefix('publikasi')->name('publikasi.')->group(function () {
+    Route::get('/buletin', [BuletinController::class, 'index'])->name('buletin');
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
+    Route::get('/berita/{berita:slug}', [BeritaController::class, 'show'])->name('berita.show');
+});
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
-Route::get('/sitemap-posts.xml', function () {
-    $posts = Post::published()->latestPublished()->get();
+Route::get('/sitemap-berita.xml', function () {
+    $beritaTerkini = App\Models\Berita::latest('published_at')->get();
 
     return response()->view('sitemap', [
-        'posts' => $posts,
+        'posts' => $beritaTerkini, // Jika file view sitemap masih menggunakan $posts
     ])->header('Content-Type', 'text/xml');
-})->name('sitemap.posts');
+})->name('sitemap.berita');
 
 Route::livewire('/counter', 'livewire.counter');
