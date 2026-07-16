@@ -44,10 +44,10 @@
                          class="absolute left-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                          <div class="p-2">
 
-                             <a href="{{ route('profil') }}" wire:navigate
+                             <a href="{{ route('profil.profil') }}" wire:navigate
                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Profil
                                  UPT</a>
-                             <a href="{{ route('struktur-organisasi') }}" wire:navigate
+                             <a href="{{ route('profil.organisasi') }}" wire:navigate
                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Struktur
                                  Organisasi</a>
                          </div>
@@ -64,31 +64,33 @@
                          </svg>
                      </button>
 
-                    <div
-                        class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div class="p-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">Informasi</h4>
-                                    <a href="{{ route('gempabumi.terkini') }}" wire:navigate
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa
-                                        Terkini</a>
-                                    <a href="{{ route('gempabumi.kalimantan') }}" wire:navigate
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa
-                                        Kalimantan</a>
-                                    <a href="{{ route('gempabumi.mitigasi') }}" wire:navigate
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Mitigasi
-                                        Gempabumi</a>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">Peta &amp; Analisis</h4>
-                                    <a href="{{ route('gempabumi.seismisitas') }}" wire:navigate
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
-                                        Seismisitas</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     <div
+                         class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                         <div class="p-4">
+                             <div class="grid grid-cols-2 gap-4">
+                                 <div>
+                                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
+                                         Informasi</h4>
+                                     <a href="{{ route('gempabumi.terkini') }}" wire:navigate
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa
+                                         Terkini</a>
+                                     <a href="{{ route('gempabumi.kalimantan') }}" wire:navigate
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa
+                                         Kalimantan</a>
+                                     <a href="{{ route('gempabumi.mitigasi') }}" wire:navigate
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Mitigasi
+                                         Gempabumi</a>
+                                 </div>
+                                 <div>
+                                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
+                                         Peta &amp; Analisis</h4>
+                                     <a href="{{ route('gempabumi.seismisitas') }}" wire:navigate
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
+                                         Seismisitas</a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                  </div>
                  <div class="relative group">
                      <button
@@ -102,35 +104,37 @@
                      </button>
 
                      <div
-                        class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <div class="p-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">Informasi</h4>
-                                    <a href="{{ route('geofisika.hilal') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Hilal
-                                    </a>
-                                    <a href="{{ route('geofisika.gerhana') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gerhana</a>
-                                    <a href="{{ route('geofisika.petir') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
-                                        Petir</a>
-                                    <a href="https://www.bmkg.go.id/tanda-waktu/terbit-terbenam-matahari/7"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg"
-                                        target="blank">Terbit Terbenam Matahari</a>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">Layanan</h4>
-                                    <a href="{{ route('geofisika.peta-petir') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
-                                        Kejadian Petir</a>
-                                    <a href="{{ route('geofisika.kerapatan-petir') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
-                                        Kerapatan Petir</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                         class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                         <div class="p-4">
+                             <div class="grid grid-cols-2 gap-4">
+                                 <div>
+                                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
+                                         Informasi</h4>
+                                     <a href="{{ route('geofisika.hilal') }}"
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Hilal
+                                     </a>
+                                     <a href="{{ route('geofisika.gerhana') }}"
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gerhana</a>
+                                     <a href="{{ route('geofisika.petir') }}"
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
+                                         Petir</a>
+                                     <a href="https://www.bmkg.go.id/tanda-waktu/terbit-terbenam-matahari/7"
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg"
+                                         target="blank">Terbit Terbenam Matahari</a>
+                                 </div>
+                                 <div>
+                                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
+                                         Layanan</h4>
+                                     <a href="{{ route('geofisika.peta-petir') }}"
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
+                                         Kejadian Petir</a>
+                                     <a href="{{ route('geofisika.kerapatan-petir') }}"
+                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
+                                         Kerapatan Petir</a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
                  </div>
                  <div class="relative group">
                      <button
@@ -138,7 +142,8 @@
                          Publikasi
                          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
                              stroke="currentColor" viewBox="0 0 24 24">
-                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                 d="M19 9l-7 7-7-7">
                              </path>
                          </svg>
                      </button>
@@ -183,17 +188,21 @@
                              <div class="space-y-2 py-6">
                                  <a href="{{ route('home_page') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Home</a>
-                                 <a href="{{ route('profil') }}"
+                                 <a href="{{ route('profil.profil') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Profil
                                      Instansi</a>
                                  <a href="{{ route('gempabumi.terkini') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempa Terkini</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempa
+                                     Terkini</a>
                                  <a href="{{ route('gempabumi.kalimantan') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempa Kalimantan</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempa
+                                     Kalimantan</a>
                                  <a href="{{ route('gempabumi.mitigasi') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Mitigasi Gempabumi</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Mitigasi
+                                     Gempabumi</a>
                                  <a href="{{ route('gempabumi.seismisitas') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Peta Seismisitas</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Peta
+                                     Seismisitas</a>
                                  <a href="{{ route('activity') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Publikasi</a>
                                  <a href="{{ route('pelayanan') }}"

@@ -62,7 +62,7 @@
                     class="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition">
                     Cek Gempa Terkini
                 </a>
-                <a href="{{ route('profil') }}"
+                <a href="{{ route('profil.profil') }}"
                     class="text-sm font-bold leading-6 text-gray-900 hover:text-indigo-600 transition">
                     Profil Instansi <span aria-hidden="true">→</span>
                 </a>
