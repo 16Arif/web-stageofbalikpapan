@@ -1,29 +1,56 @@
 <x-layouts.app>
-    <x-slot:title>Data Gempabumi Kalimantan - Stageof Balikpapan</x-slot:title>
+    <x-slot:title>Gempa Kalimantan - Stasiun Geofisika Balikpapan</x-slot:title>
 
+    <!-- TODO: Hubungkan dengan Filament Admin untuk mengelola $gempaTerkini dan $listGempa -->
     @php
-        $fallbackLatestEarthquake = [
-            'date' => '21 April 2026',
-            'time' => '02:02:20 WIB',
-            'magnitude' => '2.9',
-            'depth' => '4 km',
-            'region' => '225 km Timur Laut BDRSRIBEGAWAN - BRUNEI',
-            'coordinates' => '6.12 LU - 116.56 BT',
-            'shakemap' => asset('build/assets/img/gempa2104.jpeg'),
+        // Data hardcoded sementara untuk MVP
+        $gempaTerkini = [
+            'date' => '15 Mei 2026',
+            'time' => '14:30:00 WIB',
+            'magnitude' => '4.2',
+            'depth' => '10 km',
+            'region' => 'Pusat Gempa Berada di Darat 25 km Barat Daya PASER',
+            'coordinates' => '1.92 LS - 116.12 BT',
+            'shakemap' => asset('images/dummy-map.jpg'), // Placeholder
         ];
 
-        $earthquake = array_merge($fallbackLatestEarthquake, $latestEarthquake ?? []);
+        $listGempa = [
+            [
+                'date' => '15 Mei 2026',
+                'time' => '14:30:00',
+                'mag' => '4.2',
+                'dep' => '10 km',
+                'area' => '25 km Barat Daya PASER - KALTIM',
+                'loc' => '1.92 LS - 116.12 BT',
+            ],
+            [
+                'date' => '10 Mei 2026',
+                'time' => '08:15:22',
+                'mag' => '3.5',
+                'dep' => '5 km',
+                'area' => '40 km Timur Laut MAHAKAM ULU - KALTIM',
+                'loc' => '0.85 LU - 115.65 BT',
+            ],
+            [
+                'date' => '02 Mei 2026',
+                'time' => '22:10:05',
+                'mag' => '4.0',
+                'dep' => '12 km',
+                'area' => '15 km Tenggara TABALONG - KALSEL',
+                'loc' => '2.15 LS - 115.42 BT',
+            ],
+        ];
     @endphp
 
     <section class="relative isolate overflow-hidden bg-slate-950 py-16">
         <x-ui.decoration.blur-bg position="top" color="from-indigo-500/10 to-slate-950" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="max-w-2xl">
-                <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Monitoring Lokal</h2>
-                <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">Gempabumi <span
+                <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Pemantauan Lokal</h2>
+                <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">Gempa <span
                         class="text-indigo-500">Kalimantan</span></h1>
                 <p class="mt-6 text-lg text-slate-300 leading-relaxed">
-                    Daftar aktivitas gempabumi di wilayah Pulau Kalimantan berdasarkan hasil analisa Stasiun Geofisika
+                    Daftar aktivitas gempabumi yang terjadi di wilayah Pulau Kalimantan dan sekitarnya, hasil analisis Stasiun Geofisika
                     Balikpapan.
                 </p>
             </div>
@@ -33,7 +60,9 @@
     <section class="py-12 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="mb-8 flex items-center gap-4">
-                <span class="relative flex h-3 w-3 rounded-full bg-red-500"></span>
+                <span class="relative flex h-3 w-3 rounded-full bg-indigo-500">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                </span>
                 <h3 class="text-xl font-bold text-slate-900 uppercase tracking-tight">Kejadian Terakhir</h3>
             </div>
 
@@ -42,15 +71,18 @@
 
                 <div class="lg:col-span-2 relative group">
                     <div
-                        class="relative overflow-hidden rounded-[1.5rem] bg-slate-800 border border-slate-700 shadow-inner">
-                        <img src="{{ $earthquake['shakemap'] }}"
-                            alt="Peta shakemap gempabumi terbaru"
-                            class="w-full h-auto object-cover opacity-90">
+                        class="relative overflow-hidden rounded-[1.5rem] bg-slate-800 border border-slate-700 shadow-inner flex items-center justify-center aspect-square md:aspect-auto h-full min-h-64">
+                        <div class="text-center text-slate-500 p-4">
+                            <svg class="size-12 mx-auto mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-xs uppercase tracking-widest font-bold">Peta Shakemap</p>
+                        </div>
                         <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
                             <div class="bg-slate-900/90 backdrop-blur-md border border-slate-700 p-2 rounded-lg">
                                 <p class="text-[9px] font-mono text-indigo-400 uppercase leading-none mb-1">Koordinat
                                 </p>
-                                <p class="text-[10px] font-bold text-white">{{ $earthquake['coordinates'] }}</p>
+                                <p class="text-[10px] font-bold text-white">{{ $gempaTerkini['coordinates'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -59,28 +91,28 @@
                 <div class="lg:col-span-3 flex flex-col">
                     <div class="inline-flex items-center gap-2 mb-4">
                         <span
-                            class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-widest">Update:
-                            {{ $earthquake['date'] }}</span>
+                            class="px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-black uppercase tracking-widest">Pembaruan:
+                            {{ $gempaTerkini['date'] }}</span>
                     </div>
 
                     <h2 class="text-2xl md:text-4xl font-black text-white leading-tight">
-                        {{ $earthquake['region'] }}
+                        {{ $gempaTerkini['region'] }}
                     </h2>
 
                     <div class="mt-8 grid grid-cols-2 gap-6 border-y border-slate-800 py-6">
                         <div>
                             <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Magnitudo</p>
-                            <p class="text-4xl font-black text-white italic">{{ $earthquake['magnitude'] }} <span
+                            <p class="text-4xl font-black text-white italic">{{ $gempaTerkini['magnitude'] }} <span
                                     class="text-lg font-normal not-italic text-slate-600">M</span></p>
                         </div>
                         <div>
                             <p class="text-slate-500 text-[10px] uppercase font-bold tracking-widest">Kedalaman</p>
-                            <p class="text-3xl font-black text-white">{{ $earthquake['depth'] }}</p>
+                            <p class="text-3xl font-black text-white">{{ $gempaTerkini['depth'] }}</p>
                         </div>
                     </div>
 
                     <div class="mt-6 text-slate-400 text-xs flex flex-col gap-1">
-                        <p><strong>Waktu:</strong> {{ $earthquake['date'] }} | {{ $earthquake['time'] }}</p>
+                        <p><strong>Waktu Kejadian:</strong> {{ $gempaTerkini['date'] }} | {{ $gempaTerkini['time'] }}</p>
                     </div>
                 </div>
             </div>
@@ -89,8 +121,8 @@
 
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-10">
-                <h3 class="text-2xl font-black text-slate-900 uppercase italic tracking-tight">Riwayat Aktivitas Terkini
+            <div class="mb-10 flex justify-between items-end">
+                <h3 class="text-2xl font-black text-slate-900 uppercase italic tracking-tight">Riwayat Kejadian Lokal
                 </h3>
             </div>
 
@@ -100,64 +132,19 @@
                         <thead>
                             <tr class="bg-slate-50 border-b border-slate-200">
                                 <th class="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                                    Waktu (WIB)</th>
+                                    Waktu Kejadian (WITA/WIB)</th>
                                 <th
                                     class="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">
-                                    Mag</th>
+                                    Magnitudo</th>
                                 <th
                                     class="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">
-                                    Kedlmn</th>
+                                    Kedalaman</th>
                                 <th class="px-6 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                                    Lokasi & Wilayah</th>
+                                    Lokasi &amp; Wilayah</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100">
-                            @php
-                                $history = [
-                                    [
-                                        'date' => '21 Apr 2026',
-                                        'time' => '02:02:20',
-                                        'mag' => '2.9',
-                                        'dep' => '4 km',
-                                        'area' => '225 km Timur Laut BDRSRIBEGAWAN-BRUNEI',
-                                        'loc' => '6.12 LU - 116.56 BT',
-                                    ],
-                                    [
-                                        'date' => '20 Apr 2026',
-                                        'time' => '18:09:38',
-                                        'mag' => '4.2',
-                                        'dep' => '10 km',
-                                        'area' => '76 km Selatan BERAU-KALTIM',
-                                        'loc' => '1.39 LU - 117.55 BT',
-                                    ],
-                                    [
-                                        'date' => '20 Apr 2026',
-                                        'time' => '14:31:36',
-                                        'mag' => '2.6',
-                                        'dep' => '15 km',
-                                        'area' => '56 km Utara BONTANG-KALTIM',
-                                        'loc' => '0.62 LU - 117.56 BT',
-                                    ],
-                                    [
-                                        'date' => '20 Apr 2026',
-                                        'time' => '11:30:06',
-                                        'mag' => '2.8',
-                                        'dep' => '3 km',
-                                        'area' => '19 km Barat Daya TABALONG-KALSEL',
-                                        'loc' => '2.01 LS - 115.47 BT',
-                                    ],
-                                    [
-                                        'date' => '20 Apr 2026',
-                                        'time' => '11:24:47',
-                                        'mag' => '3.0',
-                                        'dep' => '2 km',
-                                        'area' => '19 km Barat Laut BALANGAN-KALSEL',
-                                        'loc' => '2.17 LS - 115.55 BT',
-                                    ],
-                                ];
-                            @endphp
-
-                            @foreach ($history as $data)
+                            @forelse ($listGempa as $data)
                                 <tr class="hover:bg-slate-50/80 transition-colors">
                                     <td class="px-6 py-5 whitespace-nowrap border-r border-slate-50">
                                         <p class="text-sm font-bold text-slate-900">{{ $data['date'] }}</p>
@@ -178,7 +165,13 @@
                                         </p>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="px-6 py-8 text-center text-slate-500 text-sm">
+                                        Belum ada data historis yang tersedia.
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

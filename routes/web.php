@@ -15,7 +15,10 @@ Route::get('/activity', [PostController::class, 'index'])->name('activity');
 Route::get('/activity/author/{author:slug}', [PostController::class, 'byAuthor'])->name('posts.by-author');
 Route::get('/activity/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/borneo-earthquakes', [GempaController::class, 'index'])->name('borneo-earthquakes');
+Route::get('/gempabumi/terkini', [GempaController::class, 'index'])->name('gempabumi.terkini');
+Route::view('/gempabumi/kalimantan', 'pages.gempabumi.kalimantan')->name('gempabumi.kalimantan');
+Route::view('/gempabumi/seismisitas', 'pages.gempabumi.seismisitas')->name('gempabumi.seismisitas');
+Route::view('/gempabumi/mitigasi', 'pages.gempabumi.mitigasi')->name('gempabumi.mitigasi');
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 Route::view('/buletin', 'pages.buletin')->name('buletin');
 Route::view('/struktur-organisasi', 'pages.struktur-organisasi')->name('struktur-organisasi');
