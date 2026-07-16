@@ -10,6 +10,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ReplicateAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
@@ -99,6 +100,7 @@ class PostsTable
                     ->icon('heroicon-o-x-circle')
                     ->color('warning')
                     ->visible(fn (Post $record): bool => $record->status === 'published'),
+                ViewAction::make(),
                 EditAction::make(),
                 ReplicateAction::make(),
                 DeleteAction::make(),

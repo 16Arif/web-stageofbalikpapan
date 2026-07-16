@@ -11,26 +11,36 @@ class PostInfolist
     {
         return $schema
             ->components([
+                TextEntry::make('title')
+                    ->weight('bold')
+                    ->size('lg'),
                 TextEntry::make('slug'),
-                TextEntry::make('title'),
+                \Filament\Infolists\Components\ImageEntry::make('featured_image')
+                    ->columnSpanFull(),
                 TextEntry::make('excerpt')
                     ->columnSpanFull(),
-                TextEntry::make('category'),
-                TextEntry::make('author'),
-                TextEntry::make('date')
-                    ->date(),
+                TextEntry::make('content')
+                    ->html()
+                    ->columnSpanFull(),
+                TextEntry::make('status')
+                    ->badge()
+                    ->colors([
+                        'danger' => 'draft',
+                        'warning' => 'scheduled',
+                        'success' => 'published',
+                        'secondary' => 'archived',
+                    ]),
                 TextEntry::make('published_at')
                     ->dateTime(),
-                TextEntry::make('img')
-                    ->placeholder('-'),
-                TextEntry::make('content')
-                    ->columnSpanFull(),
                 TextEntry::make('category.name')
                     ->label('Category')
                     ->placeholder('-'),
                 TextEntry::make('author.name')
                     ->label('Author')
                     ->placeholder('-'),
+                TextEntry::make('meta_title'),
+                TextEntry::make('meta_description')
+                    ->columnSpanFull(),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

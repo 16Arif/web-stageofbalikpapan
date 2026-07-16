@@ -11,8 +11,12 @@ class CategoryInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                TextEntry::make('name')
+                    ->weight('bold'),
                 TextEntry::make('slug'),
+                TextEntry::make('description')
+                    ->columnSpanFull()
+                    ->placeholder('Belum ada deskripsi.'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

@@ -11,8 +11,14 @@ class AuthorInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
+                \Filament\Infolists\Components\ImageEntry::make('photo')
+                    ->circular(),
+                TextEntry::make('name')
+                    ->weight('bold'),
                 TextEntry::make('slug'),
+                TextEntry::make('bio')
+                    ->columnSpanFull()
+                    ->placeholder('Belum ada bio.'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),

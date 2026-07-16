@@ -13,6 +13,21 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected static function booted(): void
+    {
+        static::saving(function (Post $post) {
+            if (!array_key_exists('category', $post->getAttributes()) && $post->category_id) {
+                $post->setAttribute('category', \App\Models\Category::find($post->category_id)?->name ?? 'Uncategorized');
+            }
+            if (!array_key_exists('author', $post->getAttributes()) && $post->author_id) {
+                $post->setAttribute('author', \App\Models\Author::find($post->author_id)?->name ?? 'Unknown');
+            }
+            if (!array_key_exists('date', $post->getAttributes())) {
+                $post->setAttribute('date', $post->published_at ?? now());
+            }
+        });
+    }
+
     public const STATUS_DRAFT = 'draft';
 
     public const STATUS_SCHEDULED = 'scheduled';

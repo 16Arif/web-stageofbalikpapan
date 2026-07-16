@@ -4,14 +4,14 @@ namespace App\Filament\Resources\Posts\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Grid;
+use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 
@@ -55,12 +55,12 @@ class PostForm
                             ->required(fn (Get $get) => in_array($get('status'), ['published', 'scheduled']))
                             ->nullable(),
                         Select::make('category_id')
-                            ->relationship('category', 'name')
+                            ->relationship('categoryRelation', 'name')
                             ->required()
                             ->searchable()
                             ->preload(),
                         Select::make('author_id')
-                            ->relationship('author', 'name')
+                            ->relationship('authorRelation', 'name')
                             ->required()
                             ->searchable()
                             ->preload(),
