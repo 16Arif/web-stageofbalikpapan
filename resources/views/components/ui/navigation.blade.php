@@ -5,7 +5,7 @@
                  <a href="{{ route('home_page') }}" class="-m-1.5 p-1.5 flex items-center gap-3">
                      <span class="sr-only">Stasiun Geofisika Balikpapan</span>
 
-                     <img src="{{ asset('build/assets/img/logo-bmkg.png') }}" alt="Logo BMKG" class="h-10 w-auto" />
+                     <img src="{{ asset('images/logo-bmkg.png') }}" alt="Logo BMKG" class="h-10 w-auto" />
 
                      <div class="hidden lg:block">
                          <p class="text-sm font-bold text-gray-900 leading-tight uppercase">Pusat Gempa Regional
@@ -44,9 +44,10 @@
                          class="absolute left-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                          <div class="p-2">
 
-                             <a href="{{ route('about') }}" wire:navigate
-                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Tentang</a>
-                             <a href="{{ route('organization') }}" wire:navigate
+                             <a href="{{ route('profil') }}" wire:navigate
+                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Profil
+                                 UPT</a>
+                             <a href="{{ route('struktur-organisasi') }}" wire:navigate
                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Struktur
                                  Organisasi</a>
                          </div>
@@ -140,10 +141,9 @@
                  <el-dialog-panel
                      class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                      <div class="flex items-center justify-between">
-                         <a href="#" class="-m-1.5 p-1.5">
-                             <span class="sr-only">Your Company</span>
-                             <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                                 alt="" class="h-8 w-auto" />
+                         <a href="{{ route('home_page') }}" class="-m-1.5 p-1.5">
+                             <span class="sr-only">Stasiun Geofisika Balikpapan</span>
+                             <img src="{{ asset('images/logo-bmkg.png') }}" alt="Logo BMKG" class="h-8 w-auto" />
                          </a>
                          <button type="button" command="close" commandfor="mobile-menu"
                              class="-m-2.5 rounded-md p-2.5 text-gray-700">
@@ -159,8 +159,9 @@
                              <div class="space-y-2 py-6">
                                  <a href="{{ route('home_page') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Home</a>
-                                 <a href="{{ route('about') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Profil</a>
+                                 <a href="{{ route('profil') }}"
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Profil
+                                     Instansi</a>
                                  <a href="{{ route('borneo-earthquakes') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempabumi</a>
                                  <a href="{{ route('activity') }}"

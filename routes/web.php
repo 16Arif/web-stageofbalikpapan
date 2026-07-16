@@ -9,9 +9,7 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home_page');
 
-Route::get('/about', function () {
-    return view('pages.about');
-})->name('about');
+Route::view('/profil', 'pages.profil')->name('profil');
 
 Route::get('/activity', [PostController::class, 'index'])->name('activity');
 Route::get('/activity/author/{author:slug}', [PostController::class, 'byAuthor'])->name('posts.by-author');
@@ -20,7 +18,7 @@ Route::get('/activity/{post:slug}', [PostController::class, 'show'])->name('post
 Route::get('/borneo-earthquakes', [GempaController::class, 'index'])->name('borneo-earthquakes');
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 Route::view('/buletin', 'pages.buletin')->name('buletin');
-Route::view('/organization', 'pages.organization')->name('organization');
+Route::view('/struktur-organisasi', 'pages.struktur-organisasi')->name('struktur-organisasi');
 Route::view('/education-hilal', 'pages.education-hilal')->name('education-hilal');
 Route::view('/education-gerhana', 'pages.education-gerhana')->name('education-gerhana');
 Route::view('/lightning-kalimantan', 'pages.lightning-kalimantan')->name('lightning-kalimantan');

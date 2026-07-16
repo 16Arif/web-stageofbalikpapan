@@ -19,7 +19,7 @@
 
             <div class="space-y-6">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('build/assets/img/logo-bmkg.png') }}" alt="Logo BMKG"
+                    <img src="{{ asset('images/logo-bmkg.png') }}" alt="Logo BMKG"
                         class="h-14 w-auto brightness-110">
                     <div>
                         <p class="text-lg font-bold tracking-widest text-indigo-400">PGR XI</p>
