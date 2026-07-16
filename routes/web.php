@@ -19,9 +19,11 @@ Route::get('/borneo-earthquakes', [GempaController::class, 'index'])->name('born
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 Route::view('/buletin', 'pages.buletin')->name('buletin');
 Route::view('/struktur-organisasi', 'pages.struktur-organisasi')->name('struktur-organisasi');
-Route::view('/education-hilal', 'pages.education-hilal')->name('education-hilal');
-Route::view('/education-gerhana', 'pages.education-gerhana')->name('education-gerhana');
-Route::view('/lightning-kalimantan', 'pages.lightning-kalimantan')->name('lightning-kalimantan');
+Route::view('/geofisika/hilal', 'pages.geofisika.hilal')->name('geofisika.hilal');
+Route::view('/geofisika/gerhana', 'pages.geofisika.gerhana')->name('geofisika.gerhana');
+Route::view('/geofisika/petir', 'pages.geofisika.petir')->name('geofisika.petir');
+Route::view('/geofisika/peta-petir', 'pages.geofisika.peta-petir')->name('geofisika.peta-petir');
+Route::view('/geofisika/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('geofisika.kerapatan-petir');
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
 Route::get('/sitemap-posts.xml', function () {
