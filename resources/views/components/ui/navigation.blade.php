@@ -1,6 +1,6 @@
- <header class=" sticky top-0 inset-x-0 top-0 z-50 bg-gray-200">
+ <header class="sticky top-0 inset-x-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-         <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+         <nav aria-label="Global" class="flex items-center justify-between py-5 lg:px-8">
              <div class="flex lg:flex-1">
                  <a href="{{ route('home_page') }}" class="-m-1.5 p-1.5 flex items-center gap-3">
                      <span class="sr-only">Stasiun Geofisika Balikpapan</span>
@@ -8,16 +8,16 @@
                      <img src="{{ asset('build/assets/img/logo-bmkg.png') }}" alt="Logo BMKG" class="h-10 w-auto" />
 
                      <div class="hidden lg:block">
-                         <p class="text-sm font-bold text-gray-900 leading-tight uppercase">Pusat gempa regional
+                         <p class="text-sm font-bold text-gray-900 leading-tight uppercase">Pusat Gempa Regional
                              XI</p>
-                         <p class="text-xs font-medium text-gray-600 leading-none">STASIUN GEOFISIKA BALIKPAPAN
+                         <p class="text-xs font-medium text-gray-500 leading-none">STASIUN GEOFISIKA BALIKPAPAN
                          </p>
                      </div>
                  </a>
              </div>
              <div class="flex lg:hidden">
                  <button type="button" command="show-modal" commandfor="mobile-menu"
-                     class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                     class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 hover:bg-slate-50">
                      <span class="sr-only">Open main menu</span>
                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
                          aria-hidden="true" class="size-6">
@@ -26,8 +26,9 @@
                      </svg>
                  </button>
              </div>
-             <div class="hidden lg:flex lg:gap-x-12 ">
-                 <a href="{{ route('home_page') }}" class="text-sm/6 font-semibold text-gray-900">Home</a>
+             <div class="hidden lg:flex lg:gap-x-10">
+                 <a href="{{ route('home_page') }}"
+                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition">Home</a>
                  <div class="relative group">
                      <button
                          class="flex items-center gap-1 text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
@@ -129,7 +130,7 @@
                      </div>
                  </div>
                  <a href="{{ route('pelayanan') }}" wire:navigate
-                     class="text-sm/6 font-semibold text-gray-900">Pelayanan</a>
+                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition">Pelayanan</a>
              </div>
          </nav>
      </div>
@@ -157,15 +158,15 @@
                          <div class="-my-6 divide-y divide-gray-500/10">
                              <div class="space-y-2 py-6">
                                  <a href="{{ route('home_page') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Home</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Home</a>
                                  <a href="{{ route('about') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Profil</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Profil</a>
                                  <a href="{{ route('borneo-earthquakes') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Gempabumi</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempabumi</a>
                                  <a href="{{ route('activity') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Publikasi</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Publikasi</a>
                                  <a href="{{ route('pelayanan') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Pelayanan</a>
+                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Pelayanan</a>
                              </div>
                          </div>
                      </div>

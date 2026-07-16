@@ -31,7 +31,7 @@ class GempaController extends Controller
                     'region' => $earthquake['Wilayah'] ?? null,
                     'coordinates' => $earthquake['Coordinates'] ?? null,
                     'shakemap' => isset($earthquake['Shakemap'])
-                        ? 'https://data.bmkg.go.id/DataMKG/TEWS/' . $earthquake['Shakemap']
+                        ? 'https://data.bmkg.go.id/DataMKG/TEWS/'.$earthquake['Shakemap']
                         : null,
                 ];
             } catch (\Throwable $exception) {

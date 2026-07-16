@@ -1,14 +1,14 @@
 <x-layouts.app>
     <x-slot:title>Buletin Geofisika PGR XI - Stageof Balikpapan</x-slot:title>
 
-    <section class="relative isolate overflow-hidden bg-slate-900 py-16 md:py-24">
-        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-blue-800/20" />
+    <section class="relative isolate overflow-hidden bg-slate-950 py-16 md:py-24">
+        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-sky-500/20" />
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-sm mb-4">Publikasi Berkala</h2>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Buletin <span class="text-indigo-500">PGR
                     XI</span></h1>
-            <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 Kumpulan informasi aktivitas gempabumi dan petir di wilayah Pusat Gempa Regional XI yang diterbitkan
                 secara berkala setiap bulan.
             </p>
@@ -76,7 +76,7 @@
 
                             <div class="mt-6">
                                 <a href="#"
-                                    class="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-indigo-600 text-white py-3 rounded-2xl text-xs font-bold transition-colors group">
+                                    class="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-2xl text-xs font-bold transition-colors group">
                                     <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

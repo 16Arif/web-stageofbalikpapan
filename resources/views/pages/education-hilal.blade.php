@@ -1,13 +1,13 @@
 <x-layouts.app>
     <x-slot:title>Edukasi Hilal - Stageof Balikpapan</x-slot:title>
 
-    <section class="relative isolate overflow-hidden bg-slate-900 py-20">
+    <section class="relative isolate overflow-hidden bg-slate-950 py-20">
         <x-ui.decoration.blur-bg position="top" color="from-indigo-500/10 to-slate-900" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Astronomi & Tanda Waktu</h2>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Mengenal <span
                     class="text-indigo-500">Hilal</span></h1>
-            <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 Memahami sains di balik penentuan awal bulan Hijriah melalui pengamatan astronomi dan kriteria
                 visibilitas bulan sabit.
             </p>
@@ -105,15 +105,15 @@
                 </div>
             </div>
 
-            <div class="bg-orange-50 rounded-3xl p-8 border border-orange-100">
-                <h4 class="font-bold text-orange-900 mb-4 flex items-center gap-2">
+            <div class="bg-indigo-50 rounded-3xl p-8 border border-indigo-100">
+                <h4 class="font-bold text-indigo-900 mb-4 flex items-center gap-2">
                     <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Tahukah Anda?
                 </h4>
-                <p class="text-sm text-orange-800 leading-relaxed italic">
+                <p class="text-sm text-indigo-800 leading-relaxed italic">
                     BMKG melakukan pengamatan hilal sebanyak 12 kali dalam setahun, bukan hanya saat menjelang Ramadan,
                     Syawal, dan Dzulhijjah. Hal ini dilakukan untuk menguji akurasi kriteria dan membangun basis data
                     klimatologi visibilitas hilal di Indonesia.

@@ -2,12 +2,12 @@
     <x-slot:title>Edukasi & Mitigasi Petir - Stageof Balikpapan</x-slot:title>
 
     <section class="relative isolate overflow-hidden bg-slate-950 py-20">
-        <x-ui.decoration.blur-bg position="top" color="from-yellow-600/20 to-slate-900" />
+        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-900" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-yellow-500 font-bold uppercase tracking-[0.3em] text-xs mb-4">Sains Geofisika</h2>
+            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Sains Geofisika</h2>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Fenomena <span
-                    class="text-yellow-500">Petir</span></h1>
-            <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    class="text-indigo-500">Petir</span></h1>
+            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 Memahami proses terjadinya pelepasan muatan listrik di atmosfer dan langkah-langkah keselamatan saat
                 terjadi cuaca ekstrem.
             </p>
@@ -21,7 +21,7 @@
                 <div class="grid md:grid-cols-2 gap-12 items-start">
                     <div>
                         <h3
-                            class="text-2xl font-black text-slate-900 mb-6 border-l-4 border-yellow-500 pl-4 uppercase italic">
+                            class="text-2xl font-black text-slate-900 mb-6 border-l-4 border-indigo-600 pl-4 uppercase italic">
                             Apa itu Petir?</h3>
                         <div class="text-slate-600 leading-relaxed space-y-4 text-sm md:text-base">
                             <p>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white relative overflow-hidden">
                         <div class="relative z-10">
-                            <h4 class="text-yellow-500 font-bold text-xs uppercase tracking-widest mb-4">Tipe Sambaran:
+                            <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-4">Tipe Sambaran:
                             </h4>
                             <ul class="space-y-4 text-sm">
                                 <li class="flex flex-col gap-1">
@@ -68,7 +68,7 @@
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                         <div
-                            class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 text-yellow-600">
+                            class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 text-indigo-600">
                             <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -80,7 +80,7 @@
                     </div>
                     <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                         <div
-                            class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 text-yellow-600">
+                            class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 text-indigo-600">
                             <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
@@ -92,7 +92,7 @@
                     </div>
                     <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                         <div
-                            class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 text-yellow-600">
+                            class="size-10 bg-white rounded-xl shadow-sm flex items-center justify-center mb-4 text-indigo-600">
                             <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M13 10V3L4 14h7v7l9-11h-7z" />
