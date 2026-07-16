@@ -39,6 +39,6 @@ class GempaController extends Controller
             }
         });
 
-        return view('pages.borneo-earthquakes', compact('latestEarthquake'));
+        return view('pages.gempabumi.terkini', compact('latestEarthquake'));
     }
 }
