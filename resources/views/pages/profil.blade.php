@@ -11,12 +11,12 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-sm mb-3">Tentang Kami</h2>
+            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-sm mb-3">Profil UPT</h2>
             <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
                 Stasiun Geofisika Balikpapan
             </h1>
             <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Unit Pelaksana Teknis Badan Meteorologi Klimatologi dan Geofisika yang berdedikasi tinggi sejak tahun
+                Unit Pelaksana Teknis Badan Meteorologi, Klimatologi, dan Geofisika yang berdedikasi tinggi sejak tahun
                 1975 di Kalimantan Timur.
             </p>
         </div>
@@ -34,31 +34,31 @@
                         </svg>
                         Berdiri Sejak 1975
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900">Sejarah & Jejak Langkah</h3>
+                    <h3 class="text-2xl font-bold text-slate-900">Sejarah &amp; Jejak Langkah</h3>
                     <p class="text-slate-600 leading-relaxed italic">
                         "Stasiun Geofisika Balikpapan didirikan pada tahun 1975 yang berlokasi di Jl. Marsma R.
                         Iswahyudi No. 354, Kelurahan Sepinggan Raya, Kota Balikpapan."
                     </p>
                     <p class="text-slate-600 leading-relaxed">
-                        Pada tahun 2008, dilakukan pengembangan dengan membangun **Kantor Operasional** di Jl. Prona III
-                        Sepinggan. Langkah ini mentransformasi gedung lama menjadi pusat Administrasi (Tata Usaha), demi
-                        meningkatkan efisiensi pelayanan dan pengamatan geofisika di wilayah Kalimantan Timur.
+                        Pada tahun 2008, dilakukan pengembangan dengan membangun
+                        <strong>Kantor Operasional</strong> di Jl. Prona III Sepinggan. Langkah ini mentransformasi
+                        gedung lama menjadi pusat Administrasi (Tata Usaha), demi meningkatkan efisiensi pelayanan dan
+                        pengamatan geofisika di wilayah Kalimantan Timur.
                     </p>
 
                     <div class="bg-slate-50 border-l-4 border-indigo-500 p-6 rounded-r-2xl">
                         <p class="text-sm font-semibold text-slate-900 mb-2">Status Operasional Saat Ini:</p>
                         <p class="text-slate-600 text-sm">
-                            Stasiun Kelas III dengan sistem pengamatan, pengolahan, dan analisa **24 Jam penuh selama 7
-                            hari** seminggu.
+                            Stasiun Kelas III dengan sistem pengamatan, pengolahan, dan analisis
+                            <strong>24 jam penuh selama 7 hari</strong> dalam seminggu.
                         </p>
                     </div>
                 </div>
 
                 <div class="relative">
                     <div class="aspect-video rounded-3xl bg-slate-200 overflow-hidden shadow-2xl border-8 border-white">
-                        <div class="w-full h-full flex items-center justify-center text-slate-400 bg-slate-100">
-                            [ Foto Kantor Operasional ]
-                        </div>
+                        <img src="{{ asset('images/foto-kantor.png') }}"
+                            alt="Kantor Operasional Stasiun Geofisika Balikpapan" class="w-full h-full object-cover" />
                     </div>
                     <div
                         class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
@@ -73,21 +73,22 @@
     <section class="py-16 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h3 class="text-2xl font-bold text-slate-900">Kegiatan & Tugas Pokok</h3>
+                <h3 class="text-2xl font-bold text-slate-900">Tugas Pokok &amp; Fungsi</h3>
                 <p class="text-slate-500 mt-2">Ruang lingkup kerja Stasiun Geofisika Balikpapan</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                    <div
+                        class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Gempabumi & Listrik Udara</h4>
-                    <p class="text-sm text-slate-600 leading-relaxed">Observasi, pengolahan, analisa, dan pelayanan data
-                        geofisika secara real-time.</p>
+                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Gempabumi &amp; Listrik Udara</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Observasi, pengolahan, analisis, dan pelayanan
+                        data geofisika secara waktu nyata (<i>real-time</i>).</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
@@ -103,20 +104,20 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                    <div
+                        class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Kejadian Ekstrim</h4>
+                    <h4 class="font-bold text-slate-900 mb-3 text-lg">Kejadian Ekstrem</h4>
                     <p class="text-sm text-slate-600 leading-relaxed">Observasi langsung maupun visual terhadap kejadian
-                        alam ekstrim yang berkaitan dengan geofisika.</p>
+                        alam ekstrem yang berkaitan dengan bidang geofisika.</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                    <div
-                        class="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
