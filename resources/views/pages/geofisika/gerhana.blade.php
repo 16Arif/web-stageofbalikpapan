@@ -1,10 +1,10 @@
 <x-layouts.app>
-    <x-slot:title>Edukasi Gerhana - Stageof Balikpapan</x-slot:title>
+    <x-slot:title>Informasi Gerhana - Stasiun Geofisika Balikpapan</x-slot:title>
 
     <section class="relative isolate overflow-hidden bg-slate-950 py-20">
         <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-900" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center border-b border-slate-800/50 pb-16">
-            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Fenomena Astronomi</h2>
+            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Geopotensial &amp; Tanda Waktu</h2>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Mekanisme <span
                     class="text-indigo-500">Gerhana</span></h1>
             <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
@@ -34,23 +34,23 @@
                             sehingga menutup sebagian atau seluruh cahaya Matahari di langit Bumi.
                         </p>
                         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                            <h4 class="font-bold text-slate-900 mb-3 uppercase text-xs tracking-wider">Tipe Gerhana
+                            <h4 class="font-bold text-slate-900 mb-3 uppercase text-xs tracking-wider">Jenis Gerhana
                                 Matahari:</h4>
                             <ul class="space-y-3 text-sm">
                                 <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span>
-                                    <strong>Total:</strong> Matahari tertutup sepenuhnya oleh Bulan.</li>
+                                    <strong>Total:</strong> Matahari tertutup sepenuhnya oleh piringan Bulan.</li>
                                 <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span>
-                                    <strong>Cincin:</strong> Bulan berada di titik terjauh, menyisakan pinggiran cahaya.
-                                </li>
+                                    <strong>Cincin (Anular):</strong> Bulan berada di titik terjauh dari Bumi, sehingga
+                                    menyisakan pinggiran cahaya Matahari.</li>
                                 <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span>
-                                    <strong>Sebagian:</strong> Hanya sebagian piringan Matahari yang tertutup.</li>
+                                    <strong>Sebagian (Parsial):</strong> Hanya sebagian piringan Matahari yang tertutup
+                                    oleh Bulan.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="flex flex-col justify-center">
-
-                        <p class="mt-4 text-[10px] text-center text-slate-400 font-mono uppercase tracking-widest">Skema
-                            Posisi Matahari-Bulan-Bumi</p>
+                        <p class="mt-4 text-[10px] text-center text-slate-400 font-mono uppercase tracking-widest">
+                            Skema Posisi Matahari–Bulan–Bumi</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                             <div class="text-center">
                                 <div class="size-20 bg-red-900/50 rounded-full blur-xl mx-auto mb-4"></div>
                                 <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest">Visualisasi
-                                    Blood Moon</p>
+                                    Bulan Merah (<i>Blood Moon</i>)</p>
                             </div>
                         </div>
                     </div>
@@ -85,15 +85,18 @@
                             Cahaya Matahari terhalang oleh Bumi sehingga Bulan masuk ke dalam bayang-bayang Bumi.
                         </p>
                         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                            <h4 class="font-bold text-slate-900 mb-3 uppercase text-xs tracking-wider">Tipe Gerhana
+                            <h4 class="font-bold text-slate-900 mb-3 uppercase text-xs tracking-wider">Jenis Gerhana
                                 Bulan:</h4>
                             <ul class="space-y-3 text-sm">
                                 <li class="flex gap-3"><span class="text-indigo-500 font-bold">•</span>
-                                    <strong>Total:</strong> Bulan masuk sepenuhnya ke bayangan Umbra (inti).</li>
+                                    <strong>Total:</strong> Bulan masuk sepenuhnya ke dalam bayangan inti (Umbra) Bumi.
+                                </li>
                                 <li class="flex gap-3"><span class="text-indigo-500 font-bold">•</span>
-                                    <strong>Sebagian:</strong> Hanya sebagian Bulan yang masuk ke Umbra.</li>
+                                    <strong>Sebagian (Parsial):</strong> Hanya sebagian permukaan Bulan yang masuk ke
+                                    dalam Umbra.</li>
                                 <li class="flex gap-3"><span class="text-indigo-500 font-bold">•</span>
-                                    <strong>Penumbra:</strong> Bulan hanya masuk ke bayangan samar (luar).</li>
+                                    <strong>Penumbra:</strong> Bulan hanya masuk ke dalam bayangan luar (Penumbra) Bumi.
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -112,16 +115,17 @@
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-xl font-black text-red-900 mb-2 uppercase italic">Peringatan Keamanan Pengamatan
+                        <h4 class="text-xl font-black text-red-900 mb-2 uppercase italic">Peringatan Keamanan
+                            Pengamatan
                         </h4>
                         <p class="text-red-800 leading-relaxed text-sm md:text-base">
                             Jangan pernah melihat <strong>Gerhana Matahari</strong> secara langsung dengan mata
-                            telanjang tanpa pelindung. Radiasi intens matahari dapat menyebabkan kerusakan permanen pada
-                            retina (Solar Retinopathy). Gunakan kacamata khusus gerhana dengan filter ND5 atau metode
-                            proyeksi lubang jarum.
+                            telanjang tanpa pelindung. Radiasi intens dari Matahari dapat menyebabkan kerusakan permanen
+                            pada retina (<i>Solar Retinopathy</i>). Gunakan kacamata khusus gerhana dengan filter ND5
+                            atau metode proyeksi lubang jarum (<i>pinhole projection</i>).
                         </p>
-                        <p class="text-red-700/70 text-[10px] mt-4 font-bold uppercase tracking-widest italic">*Gerhana
-                            Bulan aman dilihat dengan mata telanjang.</p>
+                        <p class="text-red-700/70 text-[10px] mt-4 font-bold uppercase tracking-widest italic">
+                            *Gerhana Bulan aman diamati dengan mata telanjang.</p>
                     </div>
                 </div>
             </div>

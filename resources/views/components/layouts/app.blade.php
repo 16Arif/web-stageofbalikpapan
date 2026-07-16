@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ asset('build/assets/img/logo-bmkg2.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo-bmkg2.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo-bmkg2.png') }}">
     <title>{{ $title ?? config('app.name') }}</title>
     @if(isset($description))
     <meta name="description" content="{{ $description }}">
@@ -36,7 +37,6 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -62,7 +62,7 @@
     @livewireStyles
 </head>
 
-<body class="bg-white font-[Inter] text-gray-900 antialiased">
+<body class="bg-white font-sans text-gray-900 antialiased">
     <x-ui.time-navigation />
     <x-ui.navigation />
     <main> {{ $slot }} </main>

@@ -1,14 +1,14 @@
 <x-layouts.app>
-    <x-slot:title>Edukasi & Mitigasi Petir - Stageof Balikpapan</x-slot:title>
+    <x-slot:title>Informasi Petir - Stasiun Geofisika Balikpapan</x-slot:title>
 
     <section class="relative isolate overflow-hidden bg-slate-950 py-20">
         <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-900" />
         <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Sains Geofisika</h2>
+            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Geopotensial &amp; Tanda Waktu</h2>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Fenomena <span
                     class="text-indigo-500">Petir</span></h1>
             <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Memahami proses terjadinya pelepasan muatan listrik di atmosfer dan langkah-langkah keselamatan saat
+                Memahami proses terjadinya pelepasan muatan listrik di atmosfer dan langkah-langkah mitigasi saat
                 terjadi cuaca ekstrem.
             </p>
         </div>
@@ -22,11 +22,11 @@
                     <div>
                         <h3
                             class="text-2xl font-black text-slate-900 mb-6 border-l-4 border-indigo-600 pl-4 uppercase italic">
-                            Apa itu Petir?</h3>
+                            Apa Itu Petir?</h3>
                         <div class="text-slate-600 leading-relaxed space-y-4 text-sm md:text-base">
                             <p>
                                 <strong>Petir</strong> adalah fenomena alam berupa pelepasan muatan listrik yang terjadi
-                                akibat adanya perbedaan potensi listrik antara awan dan bumi, atau antar awan itu
+                                akibat adanya perbedaan potensial listrik antara awan dan bumi, atau antar awan itu
                                 sendiri.
                             </p>
                             <p>
@@ -38,18 +38,18 @@
                     </div>
                     <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white relative overflow-hidden">
                         <div class="relative z-10">
-                            <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-4">Tipe Sambaran:
+                            <h4 class="text-indigo-400 font-bold text-xs uppercase tracking-widest mb-4">Jenis Sambaran:
                             </h4>
                             <ul class="space-y-4 text-sm">
                                 <li class="flex flex-col gap-1">
-                                    <strong class="text-white">1. Cloud-to-Ground (CG)</strong>
+                                    <strong class="text-white">1. Awan ke Bumi (<i>Cloud-to-Ground</i> / CG)</strong>
                                     <span class="text-slate-400">Sambaran yang terjadi antara awan dan permukaan bumi.
-                                        Tipe ini yang paling berbahaya bagi manusia dan bangunan.</span>
+                                        Jenis ini yang paling berbahaya bagi manusia dan infrastruktur.</span>
                                 </li>
                                 <li class="flex flex-col gap-1">
-                                    <strong class="text-white">2. Intra-Cloud (IC)</strong>
+                                    <strong class="text-white">2. Antar Awan (<i>Intra-Cloud</i> / IC)</strong>
                                     <span class="text-slate-400">Sambaran yang terjadi di dalam satu awan atau antar
-                                        awan. Tipe ini sering terlihat sebagai kilatan di dalam langit.</span>
+                                        awan. Jenis ini sering terlihat sebagai kilatan di dalam awan pelapis langit.</span>
                                 </li>
                             </ul>
                         </div>
@@ -76,7 +76,7 @@
                         </div>
                         <h4 class="font-bold text-slate-900 mb-2">Segera Masuk Ruangan</h4>
                         <p class="text-xs text-slate-500 leading-relaxed">Saat mendengar guntur, segera cari
-                            perlindungan di dalam bangunan permanen atau mobil yang tertutup rapat.</p>
+                            perlindungan di dalam bangunan permanen atau kendaraan mobil yang tertutup rapat.</p>
                     </div>
                     <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                         <div
@@ -87,8 +87,8 @@
                             </svg>
                         </div>
                         <h4 class="font-bold text-slate-900 mb-2">Hindari Area Terbuka</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Jauhi lapangan terbuka, sawah, atau kolam
-                            renang. Jangan berlindung di bawah pohon tunggal yang tinggi.</p>
+                        <p class="text-xs text-slate-500 leading-relaxed">Jauhi lapangan terbuka, persawahan, atau kolam
+                            renang. Jangan pernah berlindung di bawah pohon tunggal yang tinggi.</p>
                     </div>
                     <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100">
                         <div
@@ -99,24 +99,24 @@
                             </svg>
                         </div>
                         <h4 class="font-bold text-slate-900 mb-2">Lepas Alat Elektronik</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Matikan dan cabut kabel power alat elektronik
-                            sensitif dari stop kontak untuk menghindari induksi sambaran.</p>
+                        <p class="text-xs text-slate-500 leading-relaxed">Matikan dan cabut steker kabel daya alat elektronik
+                            sensitif dari stopkontak untuk menghindari induksi sambaran petir.</p>
                     </div>
                 </div>
             </div>
 
             <div class="relative overflow-hidden rounded-[3rem] bg-indigo-600 p-10 md:p-16 text-center text-white">
                 <div class="relative z-10 max-w-2xl mx-auto">
-                    <h3 class="text-2xl md:text-3xl font-black mb-6 leading-tight">Pantau Aktivitas Petir Real-time
+                    <h3 class="text-2xl md:text-3xl font-black mb-6 leading-tight">Pantau Aktivitas Petir Waktu Nyata
                         Melalui Portal Resmi BMKG</h3>
                     <p class="text-indigo-100 text-sm md:text-base mb-10 leading-relaxed">
                         Dapatkan akses visual pemantauan sambaran petir di wilayah Indonesia secara langsung melalui
-                        sistem monitoring pusat.
+                        sistem pemantauan terpusat.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href="https://www.bmkg.go.id/geofisika-potensial/petir-realtime" target="_blank"
                             class="w-full sm:w-auto px-10 py-4 bg-white text-indigo-600 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-50 transition shadow-xl">
-                            Buka Monitoring Real-time
+                            Buka Pemantauan Waktu Nyata
                         </a>
                         <a href="{{ route('pelayanan') }}"
                             class="w-full sm:w-auto px-10 py-4 bg-indigo-500 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-400 transition border border-indigo-400">
