@@ -18,7 +18,7 @@
         </div>
 
         <div class="text-center">
-            <h1 class="text-5xl font-extrabold tracking-tight text-balance text-gray-900 sm:text-7xl">
+            <h1 class="text-4xl font-bold tracking-tight text-balance text-gray-900 sm:text-7xl">
                 Informasi Geofisika <br>
                 <span class="text-indigo-600 inline-flex" x-data="{
                     words: ['Cepat...', 'Tepat...', 'Akurat...', 'Mudah Dipahami...'],

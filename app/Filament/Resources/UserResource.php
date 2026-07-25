@@ -10,9 +10,11 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
 
@@ -54,6 +56,11 @@ class UserResource extends Resource
                     ->preload()
                     ->searchable()
                     ->label('Peran (Role)'),
+                Toggle::make('is_active')
+                    ->label('Akun Aktif')
+                    ->default(true)
+                    ->helperText('Matikan untuk memblokir akses masuk user ini.')
+                    ->disabled(fn (?User $record) => $record !== null && $record->id === auth()->id()),
             ]);
     }
 
@@ -77,6 +84,9 @@ class UserResource extends Resource
                     ->label('Created Date')
                     ->dateTime()
                     ->sortable(),
+                ToggleColumn::make('is_active')
+                    ->label('Status Aktif')
+                    ->disabled(fn (User $record) => $record->id === auth()->id()),
             ])
             ->filters([])
             ->actions([
