@@ -8,6 +8,7 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;
+
     public function test_the_home_page_returns_a_successful_response(): void
     {
         $response = $this->get('/');
@@ -15,16 +16,16 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_the_borneo_earthquakes_page_returns_a_successful_response(): void
+    public function test_the_kalimantan_earthquakes_page_returns_a_successful_response(): void
     {
-        $response = $this->get('/borneo-earthquakes');
+        $response = $this->get('/gempabumi/kalimantan');
 
         $response->assertStatus(200);
     }
 
-    public function test_the_lightning_kalimantan_page_returns_a_successful_response(): void
+    public function test_the_lightning_page_returns_a_successful_response(): void
     {
-        $response = $this->get('/lightning-kalimantan');
+        $response = $this->get('/geofisika/petir');
 
         $response->assertStatus(200);
     }

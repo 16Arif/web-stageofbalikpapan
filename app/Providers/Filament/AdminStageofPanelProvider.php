@@ -2,10 +2,12 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\MyProfile;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -28,6 +30,13 @@ class AdminStageofPanelProvider extends PanelProvider
             ->id('admin-stageof')
             ->path('admin-stageof')
             ->login()
+            ->passwordReset()
+            ->userMenuItems([
+                'profile' => MenuItem::make()
+                    ->label(fn () => auth()->user()->name)
+                    ->url(fn (): string => MyProfile::getUrl())
+                    ->icon('heroicon-o-user'),
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
