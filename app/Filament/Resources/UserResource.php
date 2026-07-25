@@ -8,6 +8,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -47,6 +48,12 @@ class UserResource extends Resource
                     ->required(fn (string $operation): bool => $operation === 'create')
                     ->dehydrated(false)
                     ->maxLength(255),
+                Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable()
+                    ->label('Peran (Role)'),
             ]);
     }
 
@@ -62,6 +69,10 @@ class UserResource extends Resource
                     ->label('Email Address')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('roles.name')
+                    ->badge()
+                    ->label('Peran')
+                    ->searchable(),
                 TextColumn::make('created_at')
                     ->label('Created Date')
                     ->dateTime()
