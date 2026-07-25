@@ -9,18 +9,17 @@
 
             <div class="group flex justify-center">
                 <img class="max-h-20 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
-                    src="https://old.itk.ac.id/wp-content/uploads/2020/04/site-logo.png"
-                    alt="Institut Teknologi Kalimantan">
+                    src="{{ asset('images/logo-itk.png') }}" alt="Institut Teknologi Kalimantan">
             </div>
 
             <div class="group flex justify-center">
                 <img class="max-h-20 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
-                    src="https://www.kemenagbalikpapan.com/img/logo.png" alt="Kemenag Balikpapan">
+                    src="{{ asset('images/logo-kemenag.png') }}" alt="Kemenag Balikpapan">
             </div>
 
             <div class="group flex justify-center">
                 <img class="max-h-20 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
-                    src="https://bpbd.jakarta.go.id/assets/bpbd/img/logo-bpbd.png" alt="BPBD">
+                    src="{{ asset('images/logo-bpbd.png') }}" alt="BPBD">
             </div>
 
         </div>
