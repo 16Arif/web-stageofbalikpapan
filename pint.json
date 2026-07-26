@@ -1,0 +1,7 @@
+{
+    "preset": "laravel",
+    "exclude": [
+        "app/Filament/Resources/Buletins",
+        "app/Filament/Widgets"
+    ]
+}

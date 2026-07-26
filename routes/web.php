@@ -30,7 +30,6 @@ Route::prefix('geofisika')->name('geofisika.')->group(function () {
     Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
 });
 
-
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 
 Route::prefix('publikasi')->name('publikasi.')->group(function () {
@@ -38,10 +37,11 @@ Route::prefix('publikasi')->name('publikasi.')->group(function () {
     Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('/berita/{berita:slug}', [BeritaController::class, 'show'])->name('berita.show');
 });
+Route::get('/publikasi/buletin/{buletin:slug}/baca', [BuletinController::class, 'baca'])->name('buletin.baca');
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
 Route::get('/sitemap-berita.xml', function () {
-    $beritaTerkini = App\Models\Berita::latest('published_at')->get();
+    $beritaTerkini = Berita::latest('published_at')->get();
 
     return response()->view('sitemap', [
         'posts' => $beritaTerkini, // Jika file view sitemap masih menggunakan $posts
