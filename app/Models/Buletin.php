@@ -12,13 +12,16 @@ class Buletin extends Model
         'title',
         'slug',
         'file_path',
-        'published_at',
+        'bulan',
+        'tahun',
+        'views',
     ];
 
     protected function casts(): array
     {
         return [
-            'published_at' => 'date',
+            'bulan' => 'integer',
+            'tahun' => 'integer',
         ];
     }
 }
