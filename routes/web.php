@@ -3,6 +3,7 @@
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BuletinController;
 use App\Http\Controllers\GempaController;
+use App\Livewire\Publikasi\BeritaList;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
@@ -34,9 +35,9 @@ Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 
 Route::prefix('publikasi')->name('publikasi.')->group(function () {
     Route::get('/buletin', [BuletinController::class, 'index'])->name('buletin');
-    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
-    Route::get('/berita/{berita:slug}', [BeritaController::class, 'show'])->name('berita.show');
 });
+Route::get('/berita', BeritaList::class)->name('berita.index');
+Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.show');
 Route::get('/publikasi/buletin/{buletin:slug}/baca', [BuletinController::class, 'baca'])->name('buletin.baca');
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 

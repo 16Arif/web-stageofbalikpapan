@@ -153,7 +153,7 @@
                          <div class="p-2">
                              <a href="{{ route('publikasi.buletin') }}" wire:navigate
                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Buletin</a>
-                             <a href="{{ route('publikasi.berita.index') }}" wire:navigate
+                             <a href="{{ route('berita.index') }}" wire:navigate
                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Berita</a>
                          </div>
                      </div>
@@ -202,7 +202,7 @@
                                  <a href="{{ route('gempabumi.seismisitas') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Peta
                                      Seismisitas</a>
-                                 <a href="{{ route('publikasi.berita.index') }}"
+                                 <a href="{{ route('berita.index') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Berita</a>
                                  <a href="{{ route('pelayanan') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Pelayanan</a>

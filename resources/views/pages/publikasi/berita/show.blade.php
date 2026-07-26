@@ -3,8 +3,10 @@
 
     <div class="bg-white py-12 md:py-20">
         <div class="max-w-3xl mx-auto px-6 lg:px-8">
-            <a href="{{ route('publikasi.berita.index') }}" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800 mb-8 transition-colors">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+            <a href="{{ route('berita.index') }}" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800 mb-8 transition-colors">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
                 Kembali ke Daftar Berita
             </a>
             
@@ -13,13 +15,23 @@
                     <span class="font-bold text-indigo-600 uppercase tracking-widest">Berita</span>
                     <span class="text-slate-300">&bull;</span>
                     <span class="text-slate-500 font-medium flex items-center gap-1.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
                         {{ $berita->published_at ? $berita->published_at->translatedFormat('d F Y, H:i') : 'Draft' }}
+                    </span>
+                    <span class="text-slate-300">&bull;</span>
+                    <span class="text-slate-500 font-medium flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        {{ number_format($berita->views_count, 0, ',', '.') }} kali dilihat
                     </span>
                 </div>
                 <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-6">{{ $berita->judul }}</h1>
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
                         {{ substr($berita->penulis, 0, 1) }}
                     </div>
                     <div>
@@ -39,5 +51,30 @@
                 {!! $berita->konten !!}
             </article>
         </div>
+
+        @if(count($beritaLainnya) > 0)
+            <div class="max-w-5xl mx-auto px-6 lg:px-8 mt-16 pt-16 border-t border-slate-100">
+                <h3 class="text-2xl font-black text-slate-900">Berita Lainnya</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    @foreach($beritaLainnya as $item)
+                        <a href="{{ route('berita.show', $item->slug) }}" class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300 flex flex-col">
+                            <div class="h-48 bg-slate-100 relative overflow-hidden shrink-0">
+                                @if($item->gambar_thumbnail)
+                                    <img src="{{ asset('storage/' . $item->gambar_thumbnail) }}" alt="{{ $item->judul }}" class="object-cover w-full h-48 rounded-t-lg transition duration-500 group-hover:scale-105">
+                                @else
+                                    <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-slate-800 flex items-center justify-center rounded-t-lg text-white/30 text-xs">
+                                        BMKG
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <span class="text-xs font-semibold text-slate-400 mb-2 block">{{ $item->published_at ? $item->published_at->translatedFormat('d F Y') : 'Draft' }}</span>
+                                <h4 class="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">{{ $item->judul }}</h4>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </div>
 </x-layouts.app>
