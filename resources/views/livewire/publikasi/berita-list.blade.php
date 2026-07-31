@@ -39,8 +39,8 @@
                         <div class="grid lg:grid-cols-12 gap-0">
                             <!-- Image Container -->
                             <div class="lg:col-span-7 aspect-video lg:aspect-auto lg:h-[480px] bg-slate-100 relative overflow-hidden">
-                                @if($beritaUtama->gambar_thumbnail)
-                                    <img src="{{ asset('storage/' . $beritaUtama->gambar_thumbnail) }}" alt="{{ $beritaUtama->judul }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                                @if($beritaUtama->thumbnail_url)
+                                    <img src="{{ $beritaUtama->thumbnail_url }}" alt="{{ $beritaUtama->judul }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                                 @else
                                     <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-slate-800 flex items-center justify-center">
                                         <svg class="w-16 h-16 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,8 +102,8 @@
                         <a href="{{ route('berita.show', $item->slug) }}" class="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col">
                             <!-- Thumbnail -->
                             <div class="h-48 bg-slate-100 relative overflow-hidden shrink-0">
-                                @if($item->gambar_thumbnail)
-                                    <img src="{{ asset('storage/' . $item->gambar_thumbnail) }}" alt="{{ $item->judul }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                                @if($item->thumbnail_url)
+                                    <img src="{{ $item->thumbnail_url }}" alt="{{ $item->judul }}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                                 @else
                                     <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-slate-800 flex items-center justify-center">
                                         <svg class="w-12 h-12 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">

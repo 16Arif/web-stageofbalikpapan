@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ asset('images/logo-bmkg2.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo-bmkg2.png') }}">
+    @if(!isset($hasCustomMeta))
     <title>{{ $title ?? config('app.name') }}</title>
     @if(isset($description))
     <meta name="description" content="{{ $description }}">
@@ -32,6 +33,9 @@
     @if(isset($image))
     <meta name="twitter:image" content="{{ $image }}">
     @endif
+    @endif
+
+    @stack('meta')
 
     {{ $schema ?? '' }}
 

@@ -1,5 +1,24 @@
 <x-layouts.app>
-    <x-slot:title>{{ $berita->judul }} - Stageof Balikpapan</x-slot:title>
+    <x-slot:hasCustomMeta>true</x-slot:hasCustomMeta>
+
+    @push('meta')
+        {{-- SEO Meta Tags Standar --}}
+        <title>{{ $berita->judul }} | UPT Stasiun Geofisika Balikpapan</title>
+        <meta name="description" content="{{ \Illuminate\Support\Str::limit(strip_tags($berita->konten), 150) }}">
+
+        {{-- Open Graph Meta Tags (Untuk WhatsApp, Facebook, Telegram) --}}
+        <meta property="og:title" content="{{ $berita->judul }}">
+        <meta property="og:description" content="{{ \Illuminate\Support\Str::limit(strip_tags($berita->konten), 150) }}">
+        <meta property="og:image" content="{{ $berita->thumbnail_url }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="article">
+
+        {{-- Twitter Card (Untuk X / Twitter) --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $berita->judul }}">
+        <meta name="twitter:description" content="{{ \Illuminate\Support\Str::limit(strip_tags($berita->konten), 150) }}">
+        <meta name="twitter:image" content="{{ $berita->thumbnail_url }}">
+    @endpush
 
     <div class="bg-white py-12 md:py-20">
         <div class="max-w-3xl mx-auto px-6 lg:px-8">
@@ -41,9 +60,9 @@
                 </div>
             </header>
 
-            @if($berita->gambar_thumbnail)
+            @if($berita->thumbnail_url)
                 <figure class="mb-10 rounded-3xl overflow-hidden shadow-lg border border-slate-100">
-                    <img src="{{ asset('storage/' . $berita->gambar_thumbnail) }}" alt="{{ $berita->judul }}" class="w-full h-auto object-cover">
+                    <img src="{{ $berita->thumbnail_url }}" alt="{{ $berita->judul }}" class="w-full h-auto object-cover">
                 </figure>
             @endif
 
@@ -59,8 +78,8 @@
                     @foreach($beritaLainnya as $item)
                         <a href="{{ route('berita.show', $item->slug) }}" class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300 flex flex-col">
                             <div class="h-48 bg-slate-100 relative overflow-hidden shrink-0">
-                                @if($item->gambar_thumbnail)
-                                    <img src="{{ asset('storage/' . $item->gambar_thumbnail) }}" alt="{{ $item->judul }}" class="object-cover w-full h-48 rounded-t-lg transition duration-500 group-hover:scale-105">
+                                @if($item->thumbnail_url)
+                                    <img src="{{ $item->thumbnail_url }}" alt="{{ $item->judul }}" class="object-cover w-full h-48 rounded-t-lg transition duration-500 group-hover:scale-105">
                                 @else
                                     <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-slate-800 flex items-center justify-center rounded-t-lg text-white/30 text-xs">
                                         BMKG
