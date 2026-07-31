@@ -2,6 +2,7 @@
     "preset": "laravel",
     "exclude": [
         "app/Filament/Resources/Buletins",
+        "app/Filament/Resources/Beritas",
         "app/Filament/Widgets"
     ]
 }

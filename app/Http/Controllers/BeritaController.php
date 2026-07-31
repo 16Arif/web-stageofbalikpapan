@@ -18,10 +18,20 @@ class BeritaController extends Controller
         ]);
     }
 
-    public function show(Berita $berita): View
+    public function show(string $slug): View
     {
+        $berita = Berita::where('slug', $slug)->where('is_publish', true)->firstOrFail();
+        $berita->incrementViews();
+
+        $beritaLainnya = Berita::where('id', '!=', $berita->id)
+            ->where('is_publish', true)
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
         return view('pages.publikasi.berita.show', [
             'berita' => $berita,
+            'beritaLainnya' => $beritaLainnya,
         ]);
     }
 }

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
+        $staffRole = Role::firstOrCreate(['name' => 'staff']);
 
         User::factory(10)->create();
 
@@ -27,8 +28,17 @@ class DatabaseSeeder extends Seeder
                 'password' => '12345678',
             ],
         );
-
         $adminUser->assignRole($superAdminRole);
+
+        $staffUser = User::query()->updateOrCreate(
+            ['email' => 'lalana@gmail.com'],
+            [
+                'name' => 'lalana',
+                'password' => '12345678',
+            ],
+        );
+
+        $staffUser->assignRole($staffRole);
 
         $this->call([
             BeritaSeeder::class,

@@ -12,7 +12,7 @@
                 </p>
             </div>
             <div class="shrink-0 mb-2">
-                <a href="{{ route('publikasi.berita.index') }}"
+                <a href="{{ route('berita.index') }}"
                     class="inline-flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 transition">
                     Lihat Semua Berita
                     <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -30,7 +30,7 @@
                     <div class="flex items-center gap-x-4 text-xs">
                         <time datetime="{{ $berita->published_at?->format('Y-m-d') }}"
                             class="text-gray-500 font-mono">{{ $berita->published_at?->translatedFormat('d M Y') }}</time>
-                        <a href="{{ route('publikasi.berita.index') }}"
+                        <a href="{{ route('berita.index') }}"
                             class="relative z-10 rounded-full bg-indigo-50 px-3 py-1.5 font-bold text-indigo-600 hover:bg-indigo-100 transition">
                             Berita
                         </a>
@@ -38,7 +38,7 @@
                     <div class="group relative grow">
                         <h3
                             class="mt-3 text-lg font-bold leading-6 text-gray-900 group-hover:text-indigo-600 transition line-clamp-2">
-                            <a href="{{ route('publikasi.berita.show', $berita) }}">
+                            <a href="{{ route('berita.show', $berita) }}">
                                 <span class="absolute inset-0"></span>
                                 {{ $berita->judul }}
                             </a>
