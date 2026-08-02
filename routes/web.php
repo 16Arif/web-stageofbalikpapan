@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BuletinController;
+use App\Http\Controllers\Frontend\PetaPetirController;
 use App\Http\Controllers\GempaController;
 use App\Livewire\Publikasi\BeritaList;
 use App\Models\Berita;
@@ -27,9 +28,11 @@ Route::prefix('geofisika')->name('geofisika.')->group(function () {
     Route::view('/hilal', 'pages.geofisika.hilal')->name('hilal');
     Route::view('/gerhana', 'pages.geofisika.gerhana')->name('gerhana');
     Route::view('/petir', 'pages.geofisika.petir')->name('petir');
-    Route::view('/peta-petir', 'pages.geofisika.peta-petir')->name('peta-petir');
+    Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir');
     Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
 });
+
+Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir.index');
 
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 

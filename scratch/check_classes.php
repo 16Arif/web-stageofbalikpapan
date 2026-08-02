@@ -3,17 +3,22 @@
 require __DIR__.'/../vendor/autoload.php';
 
 $classes = [
-    'Filament\Schemas\Components\Group',
-    'Filament\Schemas\Components\Section',
-    'Filament\Forms\Components\TextInput',
-    'Filament\Forms\Components\Hidden',
-    'Filament\Forms\Components\RichEditor',
-    'Filament\Forms\Components\DateTimePicker',
-    'Filament\Forms\Components\Toggle',
-    'Filament\Forms\Components\FileUpload',
-    'Filament\Schemas\Components\Utilities\Set',
+    // Table Actions (WRONG - old namespace)
+    'Filament\Tables\Actions\EditAction' => 'Tables\Actions\EditAction',
+    'Filament\Tables\Actions\DeleteAction' => 'Tables\Actions\DeleteAction',
+    'Filament\Tables\Actions\BulkActionGroup' => 'Tables\Actions\BulkActionGroup',
+    'Filament\Tables\Actions\DeleteBulkAction' => 'Tables\Actions\DeleteBulkAction',
+
+    // Actions (CORRECT - new namespace)
+    'Filament\Actions\EditAction' => 'Actions\EditAction',
+    'Filament\Actions\DeleteAction' => 'Actions\DeleteAction',
+    'Filament\Actions\BulkActionGroup' => 'Actions\BulkActionGroup',
+    'Filament\Actions\DeleteBulkAction' => 'Actions\DeleteBulkAction',
+
+    // Columns
+    'Filament\Tables\Columns\SpatieMediaLibraryImageColumn' => 'SpatieMediaLibraryImageColumn',
 ];
 
-foreach ($classes as $c) {
-    echo $c.': '.(class_exists($c) ? 'OK' : 'NOT FOUND').PHP_EOL;
+foreach ($classes as $fqcn => $label) {
+    echo $fqcn.': '.(class_exists($fqcn) ? 'OK' : 'NOT FOUND').PHP_EOL;
 }
