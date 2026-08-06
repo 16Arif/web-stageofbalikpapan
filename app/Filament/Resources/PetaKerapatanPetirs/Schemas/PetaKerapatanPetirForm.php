@@ -2,19 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\PetaPetirs\Schemas;
+namespace App\Filament\Resources\PetaKerapatanPetirs\Schemas;
 
+use Carbon\Carbon;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 
-class PetaPetirForm
+class PetaKerapatanPetirForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                \Filament\Schemas\Components\Group::make([
-                    \Filament\Forms\Components\SpatieMediaLibraryFileUpload::make('image')
-                        ->label('Gambar Peta Petir')
+                Group::make([
+                    SpatieMediaLibraryFileUpload::make('image')
+                        ->label('Gambar Peta Kerapatan Petir')
                         ->collection('default')
                         ->disk('public')
                         ->image()
@@ -29,13 +39,13 @@ class PetaPetirForm
                         ->required(),
                 ])->columnSpan(1),
 
-                \Filament\Schemas\Components\Group::make([
-                    \Filament\Forms\Components\Hidden::make('periode')
+                Group::make([
+                    Hidden::make('periode')
                         ->required(),
 
-                    \Filament\Schemas\Components\Grid::make(2)
+                    Grid::make(2)
                         ->schema([
-                            \Filament\Forms\Components\Select::make('bulan_input')
+                            Select::make('bulan_input')
                                 ->label('Bulan Peta')
                                 ->options([
                                     '01' => 'Januari',
@@ -53,14 +63,14 @@ class PetaPetirForm
                                 ])
                                 ->dehydrated(false)
                                 ->live()
-                                ->afterStateHydrated(function (\Filament\Schemas\Components\Utilities\Get $get, \Filament\Schemas\Components\Utilities\Set $set, $state) {
+                                ->afterStateHydrated(function (Get $get, Set $set, $state) {
                                     $periode = $get('periode');
                                     if ($periode) {
-                                        $date = \Carbon\Carbon::parse($periode)->setTimezone(config('app.timezone'));
+                                        $date = Carbon::parse($periode)->setTimezone(config('app.timezone'));
                                         $set('bulan_input', $date->format('m'));
                                     }
                                 })
-                                ->afterStateUpdated(function (\Filament\Schemas\Components\Utilities\Get $get, \Filament\Schemas\Components\Utilities\Set $set) {
+                                ->afterStateUpdated(function (Get $get, Set $set) {
                                     $bulan = $get('bulan_input');
                                     $tahun = $get('tahun_input');
                                     if ($bulan && $tahun) {
@@ -69,7 +79,7 @@ class PetaPetirForm
                                 })
                                 ->required(),
 
-                            \Filament\Forms\Components\Select::make('tahun_input')
+                            Select::make('tahun_input')
                                 ->label('Tahun Peta')
                                 ->options(function () {
                                     $currentYear = (int) date('Y');
@@ -77,18 +87,19 @@ class PetaPetirForm
                                     for ($y = $currentYear; $y <= $currentYear + 3; $y++) {
                                         $years[(string) $y] = (string) $y;
                                     }
+
                                     return $years;
                                 })
                                 ->dehydrated(false)
                                 ->live()
-                                ->afterStateHydrated(function (\Filament\Schemas\Components\Utilities\Get $get, \Filament\Schemas\Components\Utilities\Set $set, $state) {
+                                ->afterStateHydrated(function (Get $get, Set $set, $state) {
                                     $periode = $get('periode');
                                     if ($periode) {
-                                        $date = \Carbon\Carbon::parse($periode)->setTimezone(config('app.timezone'));
+                                        $date = Carbon::parse($periode)->setTimezone(config('app.timezone'));
                                         $set('tahun_input', $date->format('Y'));
                                     }
                                 })
-                                ->afterStateUpdated(function (\Filament\Schemas\Components\Utilities\Get $get, \Filament\Schemas\Components\Utilities\Set $set) {
+                                ->afterStateUpdated(function (Get $get, Set $set) {
                                     $bulan = $get('bulan_input');
                                     $tahun = $get('tahun_input');
                                     if ($bulan && $tahun) {
@@ -98,7 +109,7 @@ class PetaPetirForm
                                 ->required(),
                         ]),
 
-                    \Filament\Forms\Components\RichEditor::make('deskripsi')
+                    RichEditor::make('deskripsi')
                         ->label('Deskripsi Peta')
                         ->disableToolbarButtons([
                             'attachFiles',
@@ -106,7 +117,7 @@ class PetaPetirForm
                             'blockquote',
                         ]),
 
-                    \Filament\Forms\Components\Toggle::make('is_active')
+                    Toggle::make('is_active')
                         ->label('Publikasikan Peta')
                         ->helperText('Aktifkan untuk menerbitkan peta ke publik. Biarkan mati untuk menyimpan sebagai Draf.')
                         ->default(true)
