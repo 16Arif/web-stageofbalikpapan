@@ -6,7 +6,7 @@
     <!-- Top Bar: Header & Filter -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-gray-100">
         <div>
-            <h2 class="text-lg md:text-xl font-semibold text-gray-800">Peta Kejadian Petir</h2>
+            <h2 class="text-lg md:text-xl font-semibold text-gray-800">Peta Kerapatan Petir</h2>
             @if ($this->activeMap)
                 <p class="text-xs text-gray-500 mt-0.5">Periode aktif: {{ $this->activeMap->periode_bulan_tahun }}</p>
             @endif
@@ -119,7 +119,7 @@
                 >
                     <img 
                         src="{{ $this->activeMap->map_image_url }}" 
-                        alt="Peta Kejadian Petir - {{ $this->activeMap->periode_bulan_tahun }}" 
+                        alt="Peta Kerapatan Petir - {{ $this->activeMap->periode_bulan_tahun }}" 
                         draggable="false"
                         oncontextmenu="return false;"
                         @load="onImageLoad()"
@@ -161,7 +161,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
             <h3 class="text-base font-medium text-gray-500">
-                Data Peta Petir belum tersedia.
+                Data Peta Kerapatan Petir belum tersedia.
             </h3>
         </div>
 

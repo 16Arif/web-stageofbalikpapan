@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Livewire\Component\Geofisika;
 
-use App\Models\PetaPetir;
+use App\Models\PetaKerapatanPetir;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 
-class PetaPetirViewer extends Component
+class KerapatanPetirViewer extends Component
 {
     public string $selectedYear = '';
 
@@ -17,7 +17,7 @@ class PetaPetirViewer extends Component
 
     public function mount(): void
     {
-        $latestMap = PetaPetir::where('is_active', true)
+        $latestMap = PetaKerapatanPetir::where('is_active', true)
             ->orderBy('periode', 'desc')
             ->first();
 
@@ -53,7 +53,7 @@ class PetaPetirViewer extends Component
     #[Computed]
     public function availableYears(): array
     {
-        return PetaPetir::where('is_active', true)
+        return PetaKerapatanPetir::where('is_active', true)
             ->orderBy('periode', 'desc')
             ->get()
             ->map(fn ($map) => (string) $map->periode->format('Y'))
@@ -69,7 +69,7 @@ class PetaPetirViewer extends Component
             return [];
         }
 
-        return PetaPetir::where('is_active', true)
+        return PetaKerapatanPetir::where('is_active', true)
             ->whereYear('periode', (int) $this->selectedYear)
             ->orderBy('periode', 'desc')
             ->get()
@@ -83,10 +83,10 @@ class PetaPetirViewer extends Component
     }
 
     #[Computed]
-    public function activeMap(): ?PetaPetir
+    public function activeMap(): ?PetaKerapatanPetir
     {
         if ($this->selectedYear && $this->selectedMonth) {
-            $map = PetaPetir::where('is_active', true)
+            $map = PetaKerapatanPetir::where('is_active', true)
                 ->whereYear('periode', (int) $this->selectedYear)
                 ->whereMonth('periode', (int) $this->selectedMonth)
                 ->first();
@@ -96,13 +96,13 @@ class PetaPetirViewer extends Component
             }
         }
 
-        return PetaPetir::where('is_active', true)
+        return PetaKerapatanPetir::where('is_active', true)
             ->orderBy('periode', 'desc')
             ->first();
     }
 
     public function render(): View
     {
-        return view('livewire.component.geofisika.peta-petir-viewer');
+        return view('livewire.component.geofisika.kerapatan-petir-viewer');
     }
 }
