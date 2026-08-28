@@ -1,29 +1,33 @@
 <x-layouts.app>
     <x-slot:title>Profil Instansi - Stasiun Geofisika Balikpapan</x-slot:title>
 
-    <section class="relative bg-slate-950 py-16 md:py-24 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <svg class="w-full h-full" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                <path
-                    d="M0,50 L50,48 L80,52 L120,45 L150,55 L180,40 L210,60 L240,45 L270,10 L290,90 L310,20 L330,80 L350,40 L1000,50"
-                    fill="none" stroke="white" stroke-width="1" />
-            </svg>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-sm mb-3">Profil UPT</h2>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-                Stasiun Geofisika Balikpapan
-            </h1>
-            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Unit Pelaksana Teknis Badan Meteorologi, Klimatologi, dan Geofisika yang berdedikasi tinggi sejak tahun
-                1975 di Kalimantan Timur.
-            </p>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-4">
+        <ol class="flex items-center space-x-2 text-sm text-gray-700">
+            <li>
+                <a href="/" class="hover:text-blue-600 hover:underline transition-colors">Home</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hover:text-blue-600 hover:underline transition-colors cursor-pointer">Profil</span>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-900 font-medium">Profil Instansi</span>
+                </div>
+            </li>
+        </ol>
+    </div>
 
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
                     <div
@@ -71,7 +75,7 @@
     </section>
 
     <section class="py-16 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h3 class="text-2xl font-bold text-slate-900">Tugas Pokok &amp; Fungsi</h3>
                 <p class="text-slate-500 mt-2">Ruang lingkup kerja Stasiun Geofisika Balikpapan</p>

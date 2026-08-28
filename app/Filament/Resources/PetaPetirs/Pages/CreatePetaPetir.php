@@ -36,7 +36,9 @@ class CreatePetaPetir extends CreateRecord
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         if (isset($data['periode'])) {
-            $data['periode'] = Carbon::parse($data['periode'])->startOfMonth()->format('Y-m-d');
+            $data['periode'] = Carbon::parse($data['periode'])
+                ->setTimezone(config('app.timezone'))
+                ->format('Y-m-01');
         }
 
         return $data;

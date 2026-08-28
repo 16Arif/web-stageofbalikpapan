@@ -1,8 +1,36 @@
 @assets
-<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom/dist/panzoom.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 @endassets
 
-<div class="space-y-6">
+<div>
+    <!-- Breadcrumb Minimalis -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-4 mb-4">
+        <ol class="flex items-center space-x-2 text-sm text-gray-700">
+            <li>
+                <a href="/" class="hover:text-blue-600 hover:underline transition-colors">Home</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hover:text-blue-600 hover:underline transition-colors cursor-pointer">Geofisika</span>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-900 font-medium">Kerapatan Petir</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pb-12 space-y-6">
     <!-- Top Bar: Header & Filter -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-gray-100">
         <div>
@@ -43,103 +71,30 @@
         @endif
     </div>
 
-    <!-- Map Container (Alpine.js + Panzoom + Fullscreen) -->
+    <!-- Map Container (Static) -->
     @if ($this->activeMap && $this->activeMap->map_image_url)
-        <div x-data="{ isFullscreen: false }" class="relative max-w-5xl mx-auto w-full">
+        <div class="relative max-w-5xl mx-auto w-full">
             <div 
                 wire:key="map-container-{{ $this->activeMap->id }}"
-                x-data="mapZoomer('{{ $this->activeMap->map_image_url }}')"
-                x-effect="imageUrl = '{{ $this->activeMap->map_image_url }}'"
-                :class="isFullscreen 
-                    ? 'fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4' 
-                    : 'relative overflow-hidden w-full h-[600px] bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center'"
-                class="w-full transition-all duration-200"
+                x-data="lightboxViewer()"
+                class="relative overflow-hidden w-full bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center p-4"
             >
-                <!-- Floating controls overlay (z-[60]) -->
-                <div 
-                    :class="isFullscreen ? 'fixed top-4 right-4 z-[60]' : 'absolute top-4 right-4 z-10'"
-                    class="flex flex-col gap-2"
-                >
-                    <!-- Fullscreen Toggle -->
-                    <button 
-                        @click="isFullscreen = !isFullscreen" 
-                        class="p-2 bg-white/90 hover:bg-white text-gray-700 rounded-lg shadow-sm border border-gray-200 transition backdrop-blur-md flex items-center justify-center w-9 h-9"
-                        title="Toggle Layar Penuh"
-                    >
-                        <template x-if="!isFullscreen">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
-                            </svg>
-                        </template>
-                        <template x-if="isFullscreen">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </template>
-                    </button>
-
-                    <!-- Zoom In -->
-                    <button 
-                        @click="zoomIn()" 
-                        class="p-2 bg-white/90 hover:bg-white text-gray-700 rounded-lg shadow-sm border border-gray-200 transition backdrop-blur-md flex items-center justify-center w-9 h-9"
-                        title="Zoom In"
-                    >
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                        </svg>
-                    </button>
-
-                    <!-- Zoom Out -->
-                    <button 
-                        @click="zoomOut()" 
-                        class="p-2 bg-white/90 hover:bg-white text-gray-700 rounded-lg shadow-sm border border-gray-200 transition backdrop-blur-md flex items-center justify-center w-9 h-9"
-                        title="Zoom Out"
-                    >
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
-                        </svg>
-                    </button>
-
-                    <!-- Reset Zoom -->
-                    <button 
-                        @click="resetZoom()" 
-                        class="p-2 bg-white/90 hover:bg-white text-gray-700 rounded-lg shadow-sm border border-gray-200 transition backdrop-blur-md flex items-center justify-center w-9 h-9"
-                        title="Reset Zoom"
-                    >
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z M9 9h6v6H9z" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Panzoom Area (z-0) -->
-                <div 
-                    x-ref="panzoomArea" 
-                    class="w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing relative z-0"
+                <a 
+                    href="{{ $this->activeMap->map_image_url }}" 
+                    class="glightbox w-full flex justify-center" 
+                    data-title="Peta Kerapatan Petir - {{ $this->activeMap->periode_bulan_tahun }}"
                 >
                     <img 
                         src="{{ $this->activeMap->map_image_url }}" 
                         alt="Peta Kerapatan Petir - {{ $this->activeMap->periode_bulan_tahun }}" 
                         draggable="false"
                         oncontextmenu="return false;"
-                        @load="onImageLoad()"
-                        class="max-w-full max-h-full object-contain pointer-events-none select-none transition-transform"
+                        class="max-w-full h-auto object-contain select-none shadow-sm rounded hover:opacity-90 transition-opacity cursor-pointer"
                     >
-                </div>
-
-                <!-- Watermark Overlay (Only shown in Fullscreen, outside Panzoom Area, z-[55]) -->
-                <div 
-                    x-show="isFullscreen" 
-                    x-transition 
-                    class="absolute inset-0 z-[55] flex items-center justify-center opacity-30 pointer-events-none select-none overflow-hidden"
-                >
-                    <span class="text-4xl md:text-6xl font-extrabold text-white/40 -rotate-12 tracking-wider uppercase select-none pointer-events-none">
-                        Stasiun Geofisika Balikpapan
-                    </span>
-                </div>
+                </a>
 
                 <!-- Loading State Indicator overlay inside the map container -->
-                <div wire:loading wire:target="selectedYear, selectedMonth" class="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center z-20">
+                <div wire:loading wire:target="selectedYear, selectedMonth" class="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center z-20 rounded-lg">
                     <svg class="animate-spin h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -174,70 +129,30 @@
         </div>
     @endif
 </div>
+</div>
 
 @script
 <script>
-    Alpine.data('mapZoomer', (initialUrl) => ({
-        panzoomInstance: null,
-        imageUrl: initialUrl,
-
+    Alpine.data('lightboxViewer', () => ({
+        lightbox: null,
         init() {
-            this.initPanzoom();
-
-            this.$watch('imageUrl', (newVal) => {
-                if (this.panzoomInstance) {
-                    this.panzoomInstance.reset();
-                }
-            });
-
-            this.$watch('isFullscreen', (newVal) => {
-                setTimeout(() => {
-                    if (this.panzoomInstance) {
-                        this.panzoomInstance.reset();
-                    }
-                }, 50);
-            });
-        },
-
-        initPanzoom() {
-            const area = this.$refs.panzoomArea;
-            if (!area) return;
-
-            this.panzoomInstance = Panzoom(area, {
-                maxScale: 5,
-                startScale: 1,
-                minScale: 0.1
-            });
-
-            area.parentElement.addEventListener('wheel', this.panzoomInstance.zoomWithWheel);
-        },
-
-        onImageLoad() {
             this.$nextTick(() => {
-                if (this.panzoomInstance) {
-                    this.panzoomInstance.reset();
+                this.lightbox = GLightbox({
+                    selector: '.glightbox',
+                    zoomable: true,
+                    touchNavigation: true,
+                    closeButton: true,
+                    descPosition: 'bottom'
+                });
+            });
+
+            // Bersihkan instance saat re-render Livewire
+            this.$cleanup(() => {
+                if (this.lightbox) {
+                    this.lightbox.destroy();
                 }
             });
-        },
-
-        zoomIn() {
-            if (this.panzoomInstance) {
-                this.panzoomInstance.zoomIn();
-            }
-        },
-
-        zoomOut() {
-            if (this.panzoomInstance) {
-                this.panzoomInstance.zoomOut();
-            }
-        },
-
-        resetZoom() {
-            if (this.panzoomInstance) {
-                this.panzoomInstance.reset();
-            }
         }
     }));
 </script>
 @endscript
-

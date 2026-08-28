@@ -42,23 +42,33 @@
         ];
     @endphp
 
-    <section class="relative isolate overflow-hidden bg-slate-950 py-16">
-        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/10 to-slate-950" />
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="max-w-2xl">
-                <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Pemantauan Lokal</h2>
-                <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">Gempa <span
-                        class="text-indigo-500">Kalimantan</span></h1>
-                <p class="mt-6 text-lg text-slate-300 leading-relaxed">
-                    Daftar aktivitas gempabumi yang terjadi di wilayah Pulau Kalimantan dan sekitarnya, hasil analisis Stasiun Geofisika
-                    Balikpapan.
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-4">
+        <ol class="flex items-center space-x-2 text-sm text-gray-700">
+            <li>
+                <a href="/" class="hover:text-blue-600 hover:underline transition-colors">Home</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hover:text-blue-600 hover:underline transition-colors cursor-pointer">Gempabumi</span>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-900 font-medium">Gempabumi Kalimantan</span>
+                </div>
+            </li>
+        </ol>
+    </div>
 
     <section class="py-12 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="mb-8 flex items-center gap-4">
                 <span class="relative flex h-3 w-3 rounded-full bg-indigo-500">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
@@ -120,7 +130,7 @@
     </section>
 
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="mb-10 flex justify-between items-end">
                 <h3 class="text-2xl font-black text-slate-900 uppercase italic tracking-tight">Riwayat Kejadian Lokal
                 </h3>

@@ -20,8 +20,41 @@
         <meta name="twitter:image" content="{{ $berita->thumbnail_url }}">
     @endpush
 
-    <div class="bg-white py-12 md:py-20">
-        <div class="max-w-3xl mx-auto px-6 lg:px-8">
+    <!-- Breadcrumb -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-4">
+        <ol class="flex items-center space-x-2 text-sm text-gray-700">
+            <li>
+                <a href="/" class="hover:text-blue-600 hover:underline transition-colors">Home</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hover:text-blue-600 hover:underline transition-colors cursor-pointer">Publikasi</span>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <a href="{{ route('berita.index') }}" class="hover:text-blue-600 hover:underline transition-colors">Berita</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-900 font-medium">Detail Berita</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <div class="bg-white py-8 md:py-12">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
             <a href="{{ route('berita.index') }}" class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800 mb-8 transition-colors">
                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -72,7 +105,7 @@
         </div>
 
         @if(count($beritaLainnya) > 0)
-            <div class="max-w-5xl mx-auto px-6 lg:px-8 mt-16 pt-16 border-t border-slate-100">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8 mt-16 pt-16 border-t border-slate-100">
                 <h3 class="text-2xl font-black text-slate-900">Berita Lainnya</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                     @foreach($beritaLainnya as $item)
