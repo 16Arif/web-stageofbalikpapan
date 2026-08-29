@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
             BeritaSeeder::class,
             BuletinSeeder::class,
             RoleSeeder::class,
+            PegawaiSeeder::class,
         ]);
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BuletinController;
 use App\Http\Controllers\Frontend\PetaPetirController;
 use App\Http\Controllers\GempaController;
+use App\Http\Controllers\ProfilController;
 use App\Livewire\Publikasi\BeritaList;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,7 @@ Route::get('/', function () {
 
 Route::prefix('profil')->name('profil.')->group(function () {
     Route::view('/', 'pages.profil.profil')->name('profil');
-    Route::view('/struktur-organisasi', 'pages.profil.struktur-organisasi')->name('organisasi');
+    Route::get('/struktur-organisasi', [ProfilController::class, 'strukturOrganisasi'])->name('organisasi');
 });
 
 Route::prefix('gempabumi')->name('gempabumi.')->group(function () {
