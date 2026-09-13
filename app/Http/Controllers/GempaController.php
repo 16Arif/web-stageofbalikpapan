@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GempaKalimantan;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class GempaController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $latestEarthquake = Cache::remember('gempa_terkini', 300, function () {
             try {
@@ -40,5 +42,20 @@ class GempaController extends Controller
         });
 
         return view('pages.gempabumi.terkini', compact('latestEarthquake'));
+    }
+
+    public function kalimantan(): View
+    {
+        $listGempa = Cache::remember(GempaKalimantan::CACHE_KEY, 300, function () {
+            return GempaKalimantan::query()
+                ->active()
+                ->latestEvent()
+                ->take(5)
+                ->get();
+        });
+
+        $gempaTerkini = $listGempa->first();
+
+        return view('pages.gempabumi.kalimantan', compact('gempaTerkini', 'listGempa'));
     }
 }
