@@ -20,9 +20,13 @@ class BeritaResource extends Resource
 
     protected static \UnitEnum|string|null $navigationGroup = 'Publikasi';
 
+    protected static ?string $navigationLabel = 'Berita';
+
     protected static ?string $modelLabel = 'Berita';
 
     protected static ?string $pluralModelLabel = 'Daftar Berita';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {

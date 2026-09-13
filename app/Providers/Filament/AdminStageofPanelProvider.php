@@ -44,6 +44,17 @@ class AdminStageofPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->brandLogo(view('filament.admin.logo'))
+            ->brandLogoHeight('2rem')
+            ->brandName('Stasiun Geofisika Balikpapan')
+            ->favicon(asset('images/logo-bmkg2.png'))
+            ->navigationGroups([
+                'Geofisika',
+                'Gempabumi',
+                'Publikasi',
+                'Profil',
+                'Pengaturan',
+            ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([

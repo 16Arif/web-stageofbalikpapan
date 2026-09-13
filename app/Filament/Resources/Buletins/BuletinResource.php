@@ -24,6 +24,8 @@ class BuletinResource extends Resource
 
     protected static string|null $pluralModelLabel = 'Daftar Buletin';
 
+    protected static ?int $navigationSort = 2;
+
     public static function form(Schema $schema): Schema
     {
         return $schema

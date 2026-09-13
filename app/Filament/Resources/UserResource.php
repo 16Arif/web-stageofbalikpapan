@@ -24,14 +24,26 @@ class UserResource extends Resource
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
 
+    protected static \UnitEnum|string|null $navigationGroup = 'Pengaturan';
+
+    protected static ?string $navigationLabel = 'Kelola Pengguna';
+
+    protected static ?string $modelLabel = 'Pengguna';
+
+    protected static ?string $pluralModelLabel = 'Pengguna';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Nama Lengkap')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('email')
+                    ->label('Alamat Email')
                     ->email()
                     ->required()
                     ->maxLength(255)
@@ -69,11 +81,11 @@ class UserResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nama Lengkap')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('email')
-                    ->label('Email Address')
+                    ->label('Alamat Email')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('roles.name')
@@ -81,8 +93,8 @@ class UserResource extends Resource
                     ->label('Peran')
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->label('Created Date')
-                    ->dateTime()
+                    ->label('Tanggal Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->sortable(),
                 ToggleColumn::make('is_active')
                     ->label('Status Aktif')
