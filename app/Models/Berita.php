@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Database\Factories\BeritaFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -42,6 +44,22 @@ class Berita extends Model implements HasMedia
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('is_publish', true)->whereNotNull('published_at');
+    }
+
+    protected static function booted(): void
+    {
+        static::saved(function (): void {
+            Cache::forget('home_latest_berita');
+        });
+
+        static::deleted(function (): void {
+            Cache::forget('home_latest_berita');
+        });
     }
 
     public function registerMediaCollections(): void

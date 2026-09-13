@@ -26,37 +26,54 @@
         <div
             class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-100 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             @forelse($beritaList as $berita)
-                <article class="flex max-w-xl flex-col items-start justify-between group">
-                    <div class="flex items-center gap-x-4 text-xs">
-                        <time datetime="{{ $berita->published_at?->format('Y-m-d') }}"
-                            class="text-gray-500 font-mono">{{ $berita->published_at?->translatedFormat('d M Y') }}</time>
-                        <a href="{{ route('berita.index') }}"
-                            class="relative z-10 rounded-full bg-indigo-50 px-3 py-1.5 font-bold text-indigo-600 hover:bg-indigo-100 transition">
-                            Berita
-                        </a>
-                    </div>
-                    <div class="group relative grow">
-                        <h3
-                            class="mt-3 text-lg font-bold leading-6 text-gray-900 group-hover:text-indigo-600 transition line-clamp-2">
-                            <a href="{{ route('berita.show', $berita) }}">
-                                <span class="absolute inset-0"></span>
-                                {{ $berita->judul }}
-                            </a>
-                        </h3>
-                        <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                            {{ Str::limit(strip_tags($berita->konten), 120) }}
-                        </p>
+                <article class="flex max-w-xl flex-col items-start justify-between group bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:border-indigo-100 transition-all duration-300">
+                    <div class="w-full">
+                        <!-- Thumbnail Gambar Berita -->
+                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-100 mb-5">
+                            @if($berita->thumbnail_url)
+                                <img src="{{ $berita->thumbnail_url }}" alt="{{ $berita->judul }}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                            @else
+                                <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-slate-800 flex items-center justify-center">
+                                    <svg class="w-10 h-10 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5L18.5 7H20M12 16v-4m0 0l-2 2m2-2l2 2" />
+                                    </svg>
+                                </div>
+                            @endif
+                            <div class="absolute top-3 left-3">
+                                <span class="bg-indigo-600/90 backdrop-blur-sm text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">Berita</span>
+                            </div>
+                        </div>
+
+                        <!-- Tanggal & Kategori -->
+                        <div class="flex items-center gap-x-4 text-xs">
+                            <time datetime="{{ $berita->published_at?->format('Y-m-d') }}"
+                                class="text-gray-500 font-mono">{{ $berita->published_at?->translatedFormat('d M Y') ?? 'Baru' }}</time>
+                            <span class="text-slate-300">&bull;</span>
+                            <span class="text-indigo-600 font-semibold">Publikasi UPT</span>
+                        </div>
+
+                        <!-- Judul & Konten Ringkas -->
+                        <div class="group relative mt-3">
+                            <h3 class="text-lg font-bold leading-snug text-gray-900 group-hover:text-indigo-600 transition line-clamp-2">
+                                <a href="{{ route('berita.show', $berita->slug) }}">
+                                    <span class="absolute inset-0"></span>
+                                    {{ $berita->judul }}
+                                </a>
+                            </h3>
+                            <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-gray-600">
+                                {{ Str::limit(strip_tags($berita->konten), 120) }}
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="relative mt-8 flex items-center gap-x-4">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 font-bold text-sm">
-                            {{ substr($berita->penulis, 0, 1) }}
+                    <!-- Penulis -->
+                    <div class="relative mt-6 flex items-center gap-x-3 pt-4 border-t border-slate-100 w-full">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 font-bold text-xs shrink-0">
+                            {{ strtoupper(substr($berita->penulis ?? 'B', 0, 1)) }}
                         </div>
-                        <div class="text-sm leading-6">
-                            <p class="font-bold text-gray-900">
-                                {{ $berita->penulis }}
-                            </p>
-                            <p class="text-gray-600">Penulis</p>
+                        <div class="text-xs leading-none min-w-0">
+                            <p class="font-bold text-gray-900 truncate">{{ $berita->penulis ?? 'Stasiun Geofisika Balikpapan' }}</p>
+                            <p class="text-[11px] text-gray-500 mt-0.5">Penulis</p>
                         </div>
                     </div>
                 </article>
