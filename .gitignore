@@ -3,6 +3,7 @@
 .env
 .env.backup
 .env.production
+.env.testing
 .phpactor.json
 .phpunit.result.cache
 /.fleet
@@ -23,7 +24,12 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 AI_RULES.md
+GEMINI.md
 dev_work_log.txt
+boost.json
+channel.html
+web-stageofbalikpapan-db
+*.db
 /.gemini
 /scratch
 /docs
