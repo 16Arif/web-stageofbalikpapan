@@ -1,48 +1,31 @@
-<?php
-
-use Livewire\Component;
-
-new class extends Component {
-    public array $videos = [];
-
-    public function mount(): void
-    {
-        $this->videos = [
-            [
-                'title' => 'Kunjungan Edukasi Siswa SMPS Integral Luqman Al Hakim',
-                'label' => 'Sorotan Kegiatan',
-                'description' => 'Dokumentasi kegiatan edukasi kebencanaan bersama peserta didik di Stasiun Geofisika Balikpapan.',
-                'video_id' => 'ZR13ukPdzsw',
-            ],
-            [
-                'title' => 'Pengamatan Hilal 1 Syawal Bersama Mitra Daerah',
-                'label' => 'Kegiatan UPT',
-                'description' => 'Kolaborasi pengamatan hilal bersama mitra daerah dan pemangku kepentingan.',
-                'video_id' => 'FYSK6vN_QFs',
-            ],
-            [
-                'title' => 'Kunjungan Edukasi Siswa SD PJHI Balikpapan',
-                'label' => 'Kegiatan UPT',
-                'description' => 'Kunjungan edukatif siswa untuk mengenal pengamatan geofisika dan layanan BMKG.',
-                'video_id' => '3ecqqxH7J7I',
-            ],
-            [
-                'title' => 'Kaleidoskop Kegiatan Stasiun Geofisika Balikpapan Tahun 2025',
-                'label' => 'Kegiatan UPT',
-                'description' => 'Rangkuman kegiatan dan capaian Stasiun Geofisika Balikpapan sepanjang tahun 2025.',
-                'video_id' => '04U6CkZXdCg',
-            ],
-        ];
-    }
-
-    public function render()
-    {
-        return view('components.geofisika.media-section');
-    }
-};
-?>
-
 @php
+    $videos = [
+        [
+            'title' => 'Kunjungan Edukasi Siswa SMPS Integral Luqman Al Hakim',
+            'label' => 'Sorotan Kegiatan',
+            'description' => 'Dokumentasi kegiatan edukasi kebencanaan bersama peserta didik di Stasiun Geofisika Balikpapan.',
+            'video_id' => 'ZR13ukPdzsw',
+        ],
+        [
+            'title' => 'Pengamatan Hilal 1 Syawal Bersama Mitra Daerah',
+            'label' => 'Kegiatan UPT',
+            'description' => 'Kolaborasi pengamatan hilal bersama mitra daerah dan pemangku kepentingan.',
+            'video_id' => 'FYSK6vN_QFs',
+        ],
+        [
+            'title' => 'Kunjungan Edukasi Siswa SD PJHI Balikpapan',
+            'label' => 'Kegiatan UPT',
+            'description' => 'Kunjungan edukatif siswa untuk mengenal pengamatan geofisika dan layanan BMKG.',
+            'video_id' => '3ecqqxH7J7I',
+        ],
+        [
+            'title' => 'Kaleidoskop Kegiatan Stasiun Geofisika Balikpapan Tahun 2025',
+            'label' => 'Kegiatan UPT',
+            'description' => 'Rangkuman kegiatan dan capaian Stasiun Geofisika Balikpapan sepanjang tahun 2025.',
+            'video_id' => '04U6CkZXdCg',
+        ],
+    ];
+
     $featuredVideo = $videos[0] ?? null;
     $supportingVideos = array_slice($videos, 1, 3);
 @endphp
@@ -69,6 +52,7 @@ new class extends Component {
                         <iframe class="h-full w-full"
                             src="https://www.youtube.com/embed/{{ $featuredVideo['video_id'] }}"
                             title="{{ $featuredVideo['title'] }}" frameborder="0"
+                            loading="lazy"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
@@ -101,6 +85,8 @@ new class extends Component {
                                     class="absolute inset-0 bg-black">
                                     <img src="https://i.ytimg.com/vi/{{ $video['video_id'] }}/hqdefault.jpg"
                                         alt="{{ $video['title'] }}"
+                                        loading="lazy"
+                                        decoding="async"
                                         class="h-full w-full object-cover opacity-80 transition duration-300 group-hover:scale-105 group-hover:opacity-70">
                                 </div>
                                 <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/55 to-transparent"></div>

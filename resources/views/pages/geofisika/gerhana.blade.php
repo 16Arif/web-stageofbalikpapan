@@ -1,20 +1,33 @@
 <x-layouts.app>
     <x-slot:title>Informasi Gerhana - Stasiun Geofisika Balikpapan</x-slot:title>
 
-    <section class="relative isolate overflow-hidden bg-slate-950 py-20">
-        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-900" />
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center border-b border-slate-800/50 pb-16">
-            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Geopotensial &amp; Tanda Waktu</h2>
-            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Mekanisme <span
-                    class="text-indigo-500">Gerhana</span></h1>
-            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Memahami peristiwa tertutupnya sebuah benda langit oleh benda langit lainnya dalam tata surya kita.
-            </p>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-4">
+        <ol class="flex items-center space-x-2 text-sm text-gray-700">
+            <li>
+                <a href="/" class="hover:text-blue-600 hover:underline transition-colors">Home</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hover:text-blue-600 hover:underline transition-colors cursor-pointer">Geofisika</span>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-900 font-medium">Info Gerhana</span>
+                </div>
+            </li>
+        </ol>
+    </div>
 
     <section class="py-16 bg-white">
-        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
 
             <div class="mb-20">
                 <div class="flex items-center gap-4 mb-8">

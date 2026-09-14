@@ -1,21 +1,33 @@
 <x-layouts.app>
     <x-slot:title>Edukasi Mitigasi Gempabumi - Stasiun Geofisika Balikpapan</x-slot:title>
 
-    <section class="relative isolate overflow-hidden bg-slate-950 py-20">
-        <x-ui.decoration.blur-bg position="top" color="from-indigo-500/20 to-slate-900" />
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-indigo-400 font-bold uppercase tracking-[0.3em] text-xs mb-4">Edukasi Publik</h2>
-            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">Mitigasi <span
-                    class="text-indigo-500">Gempabumi</span></h1>
-            <p class="mt-6 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Pahami langkah-langkah keselamatan sebelum, sesaat, dan setelah terjadinya gempabumi untuk melindungi
-                diri dan keluarga.
-            </p>
-        </div>
-    </section>
+    <!-- Breadcrumb -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-4">
+        <ol class="flex items-center space-x-2 text-sm text-gray-700">
+            <li>
+                <a href="/" class="hover:text-blue-600 hover:underline transition-colors">Home</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="hover:text-blue-600 hover:underline transition-colors cursor-pointer">Gempabumi</span>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-900 font-medium">Mitigasi Gempabumi</span>
+                </div>
+            </li>
+        </ol>
+    </div>
 
     <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="mb-10 text-center">
                 <h3 class="text-3xl font-black text-slate-900 uppercase tracking-tight">Kenali Ancaman dan Persiapkan
                     Diri</h3>
@@ -43,7 +55,7 @@
     </section>
 
     <section class="py-16 bg-slate-50 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="mb-12 text-center">
                 <div
                     class="inline-flex items-center justify-center size-16 rounded-full bg-pink-100 text-pink-600 mb-4">

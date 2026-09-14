@@ -1,0 +1,9 @@
+{
+    "preset": "laravel",
+    "exclude": [
+        "app/Filament/Resources/Buletins",
+        "app/Filament/Resources/Beritas",
+        "app/Filament/Resources/PetaPetirs",
+        "app/Filament/Widgets"
+    ]
+}

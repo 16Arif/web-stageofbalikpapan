@@ -8,10 +8,13 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,14 +24,26 @@ class UserResource extends Resource
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-users';
 
+    protected static \UnitEnum|string|null $navigationGroup = 'Pengaturan';
+
+    protected static ?string $navigationLabel = 'Kelola Pengguna';
+
+    protected static ?string $modelLabel = 'Pengguna';
+
+    protected static ?string $pluralModelLabel = 'Pengguna';
+
+    protected static ?int $navigationSort = 1;
+
     public static function form(Schema $schema): Schema
     {
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('Nama Lengkap')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('email')
+                    ->label('Alamat Email')
                     ->email()
                     ->required()
                     ->maxLength(255)
@@ -47,6 +62,17 @@ class UserResource extends Resource
                     ->required(fn (string $operation): bool => $operation === 'create')
                     ->dehydrated(false)
                     ->maxLength(255),
+                Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable()
+                    ->label('Peran (Role)'),
+                Toggle::make('is_active')
+                    ->label('Akun Aktif')
+                    ->default(true)
+                    ->helperText('Matikan untuk memblokir akses masuk user ini.')
+                    ->disabled(fn (?User $record) => $record !== null && $record->id === auth()->id()),
             ]);
     }
 
@@ -55,17 +81,24 @@ class UserResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nama Lengkap')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('email')
-                    ->label('Email Address')
+                    ->label('Alamat Email')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('roles.name')
+                    ->badge()
+                    ->label('Peran')
+                    ->searchable(),
                 TextColumn::make('created_at')
-                    ->label('Created Date')
-                    ->dateTime()
+                    ->label('Tanggal Dibuat')
+                    ->dateTime('d M Y H:i')
                     ->sortable(),
+                ToggleColumn::make('is_active')
+                    ->label('Status Aktif')
+                    ->disabled(fn (User $record) => $record->id === auth()->id()),
             ])
             ->filters([])
             ->actions([

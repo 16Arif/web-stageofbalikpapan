@@ -12,8 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('bulan');
+            $table->integer('tahun');
             $table->string('file_path');
-            $table->date('published_at');
+            $table->unsignedBigInteger('views')->default(0);
             $table->timestamps();
         });
     }

@@ -10,6 +10,8 @@
                 class="relative grid gap-8 overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 p-6 shadow-xl lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:p-8">
                 <div class="relative overflow-hidden rounded-[1.5rem] border border-slate-800 bg-slate-900">
                     <img src="{{ asset('build/assets/img/gempa2104.jpeg') }}" alt="Peta Guncangan Kalimantan"
+                        loading="lazy"
+                        decoding="async"
                         class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
 
                     <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">

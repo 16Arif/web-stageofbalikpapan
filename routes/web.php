@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BuletinController;
+use App\Http\Controllers\Frontend\PetaPetirController;
 use App\Http\Controllers\GempaController;
+use App\Http\Controllers\ProfilController;
+use App\Livewire\Publikasi\BeritaList;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
@@ -12,12 +15,12 @@ Route::get('/', function () {
 
 Route::prefix('profil')->name('profil.')->group(function () {
     Route::view('/', 'pages.profil.profil')->name('profil');
-    Route::view('/struktur-organisasi', 'pages.profil.struktur-organisasi')->name('organisasi');
+    Route::get('/struktur-organisasi', [ProfilController::class, 'strukturOrganisasi'])->name('organisasi');
 });
 
 Route::prefix('gempabumi')->name('gempabumi.')->group(function () {
     Route::get('/terkini', [GempaController::class, 'index'])->name('terkini');
-    Route::view('/kalimantan', 'pages.gempabumi.kalimantan')->name('kalimantan');
+    Route::get('/kalimantan', [GempaController::class, 'kalimantan'])->name('kalimantan');
     Route::view('/seismisitas', 'pages.gempabumi.seismisitas')->name('seismisitas');
     Route::view('/mitigasi', 'pages.gempabumi.mitigasi')->name('mitigasi');
 });
@@ -26,22 +29,24 @@ Route::prefix('geofisika')->name('geofisika.')->group(function () {
     Route::view('/hilal', 'pages.geofisika.hilal')->name('hilal');
     Route::view('/gerhana', 'pages.geofisika.gerhana')->name('gerhana');
     Route::view('/petir', 'pages.geofisika.petir')->name('petir');
-    Route::view('/peta-petir', 'pages.geofisika.peta-petir')->name('peta-petir');
+    Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir');
     Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
 });
 
+Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir.index');
 
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 
 Route::prefix('publikasi')->name('publikasi.')->group(function () {
     Route::get('/buletin', [BuletinController::class, 'index'])->name('buletin');
-    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
-    Route::get('/berita/{berita:slug}', [BeritaController::class, 'show'])->name('berita.show');
 });
+Route::get('/berita', BeritaList::class)->name('berita.index');
+Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.show');
+Route::get('/publikasi/buletin/{buletin:slug}/baca', [BuletinController::class, 'baca'])->name('buletin.baca');
 Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
 
 Route::get('/sitemap-berita.xml', function () {
-    $beritaTerkini = App\Models\Berita::latest('published_at')->get();
+    $beritaTerkini = Berita::latest('published_at')->get();
 
     return response()->view('sitemap', [
         'posts' => $beritaTerkini, // Jika file view sitemap masih menggunakan $posts

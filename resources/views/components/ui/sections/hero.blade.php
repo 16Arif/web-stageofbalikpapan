@@ -10,7 +10,7 @@
             <div
                 class="relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition">
                 <span class="font-semibold text-indigo-600">Info Layanan:</span> Kunjungan edukasi sekolah kini dibuka.
-                <a href="{{ route('publikasi.berita.index') }}" class="font-semibold text-indigo-600 ml-1">
+                <a href="{{ route('berita.index') }}" class="font-semibold text-indigo-600 ml-1">
                     <span aria-hidden="true" class="absolute inset-0"></span>Selengkapnya <span
                         aria-hidden="true">&rarr;</span>
                 </a>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="text-center">
-            <h1 class="text-5xl font-extrabold tracking-tight text-balance text-gray-900 sm:text-7xl">
+            <h1 class="text-4xl font-bold tracking-tight text-balance text-gray-900 sm:text-7xl">
                 Informasi Geofisika <br>
                 <span class="text-indigo-600 inline-flex" x-data="{
                     words: ['Cepat...', 'Tepat...', 'Akurat...', 'Mudah Dipahami...'],
