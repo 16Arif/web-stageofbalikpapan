@@ -24,3 +24,6 @@ Homestead.yaml
 Thumbs.db
 AI_RULES.md
 dev_work_log.txt
+/.gemini
+/scratch
+/docs

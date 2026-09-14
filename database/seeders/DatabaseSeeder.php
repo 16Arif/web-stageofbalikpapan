@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
         $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
         $staffRole = Role::firstOrCreate(['name' => 'staff']);
 
-        User::factory(10)->create();
-
         $adminUser = User::query()->updateOrCreate(
             ['email' => 'arif.abdul0002@gmail.com'],
             [
