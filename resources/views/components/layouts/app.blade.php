@@ -54,6 +54,7 @@
     <main> {{ $slot }} </main>
 
     <x-ui.footer />
+    <x-ui.back-to-top />
     @livewireScripts
 </body>
 

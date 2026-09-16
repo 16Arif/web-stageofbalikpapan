@@ -81,15 +81,9 @@
                         {{ number_format($berita->views_count, 0, ',', '.') }} kali dilihat
                     </span>
                 </div>
-                <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-6">{{ $berita->judul }}</h1>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
-                        {{ substr($berita->penulis, 0, 1) }}
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-slate-900">{{ $berita->penulis }}</p>
-                        <p class="text-xs text-slate-500">Penulis</p>
-                    </div>
+                <h1 class="text-xl md:text-3xl font-black text-slate-900 leading-tight mb-6">{{ $berita->judul }}</h1>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">{{ $berita->penulis }}</p>
                 </div>
             </header>
 

@@ -6,17 +6,6 @@
     </div>
 
     <div class="mx-auto max-w-2xl py-24 sm:py-32 lg:py-40">
-        <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div
-                class="relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition">
-                <span class="font-semibold text-indigo-600">Info Layanan:</span> Kunjungan edukasi sekolah kini dibuka.
-                <a href="{{ route('berita.index') }}" class="font-semibold text-indigo-600 ml-1">
-                    <span aria-hidden="true" class="absolute inset-0"></span>Selengkapnya <span
-                        aria-hidden="true">&rarr;</span>
-                </a>
-            </div>
-        </div>
-
         <div class="text-center">
             <h1 class="text-4xl font-bold tracking-tight text-balance text-gray-900 sm:text-7xl">
                 Informasi Geofisika <br>
@@ -58,7 +47,7 @@
                 gempabumi, petir, dan tanda waktu secara real-time 24/7.
             </p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a href="#monitoring"
+                <a href="{{ route('gempabumi.terkini') }}"
                     class="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition">
                     Cek Gempa Terkini
                 </a>
