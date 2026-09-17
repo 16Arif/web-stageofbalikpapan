@@ -27,8 +27,6 @@
                  </button>
              </div>
              <div class="hidden lg:flex lg:gap-x-10">
-                 <a href="{{ route('home_page') }}"
-                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition">Home</a>
                  <div class="relative group">
                      <button
                          class="flex items-center gap-1 text-sm font-semibold text-gray-900 hover:text-indigo-600 transition-colors">
@@ -158,8 +156,9 @@
                          </div>
                      </div>
                  </div>
-                 <a href="{{ route('pelayanan') }}" wire:navigate
-                     class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition">Pelayanan</a>
+                 <a href="https://sites.google.com/bmkg.go.id/pelayanan-stageof-balikpapan/beranda"
+                    target="_blank" rel="noopener noreferrer"
+                    class="text-sm/6 font-semibold text-gray-900 hover:text-indigo-600 transition">Pelayanan</a>
              </div>
          </nav>
      </div>
@@ -185,8 +184,6 @@
                      <div class="mt-6 flow-root">
                          <div class="-my-6 divide-y divide-gray-500/10">
                              <div class="space-y-2 py-6">
-                                 <a href="{{ route('home_page') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Home</a>
                                  <a href="{{ route('profil.profil') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Profil
                                      Instansi</a>
@@ -204,8 +201,9 @@
                                      Seismisitas</a>
                                  <a href="{{ route('berita.index') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Berita</a>
-                                 <a href="{{ route('pelayanan') }}"
-                                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Pelayanan</a>
+                                 <a href="https://sites.google.com/bmkg.go.id/pelayanan-stageof-balikpapan/beranda"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Pelayanan</a>
                              </div>
                          </div>
                      </div>
