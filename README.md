@@ -29,60 +29,20 @@ Sistem ini dikelompokkan ke dalam beberapa modul utama untuk memudahkan navigasi
   - **Profil UPT:** Sejarah, visi-misi, dan tugas pokok instansi.
   - **Struktur Organisasi:** Bagan hierarki dan pejabat fungsional di lingkungan stasiun.
 
+- **Pelayanan**
+  - Akses informasi dan portal layanan publik terpadu UPT Stasiun Geofisika Balikpapan.
+
 ---
 
 ## Teknologi yang Digunakan
 
-Proyek ini dibangun menggunakan teknologi (stack) modern yang tangguh untuk memastikan performa, keamanan, dan pengalaman antarmuka yang optimal:
+Proyek ini dibangun menggunakan teknologi (*stack*) modern yang tangguh untuk memastikan performa, keamanan, dan pengalaman antarmuka yang optimal:
 
-- **Framework:** Laravel 12.0 (PHP 8.4)
-- **Styling:** Tailwind CSS (beserta komponen UI kustom yang responsif)
-- **Admin Panel:** Filament Admin (TALL Stack: Tailwind, Alpine, Laravel, Livewire)
-- **Database:** MySQL / SQLite
-
----
-
-## Instruksi Instalasi Singkat
-
-Bagi pengembang (developer) yang ingin memasang dan menjalankan sistem ini di lingkungan lokal, ikuti langkah-langkah dasar berikut:
-
-1. **Kloning Repositori**
-   ```bash
-   git clone <url-repo-anda>
-   cd web-stageofbalikpapan
-   ```
-
-2. **Instalasi Dependensi Backend & Frontend**
-   ```bash
-   composer install
-   npm install
-   npm run build
-   ```
-
-3. **Konfigurasi Lingkungan (Environment)**
-   Salin file konfigurasi bawaan dan sesuaikan pengaturan *database* Anda:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-
-4. **Migrasi dan *Seeding* Database**
-   Siapkan struktur tabel beserta data *dummy* awal (Berita, Buletin, dan *User* Admin):
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
-   *(Peringatan: Perintah ini akan menghapus semua data yang ada di database saat ini)*
-
-5. **Jalankan Aplikasi**
-   ```bash
-   php artisan serve
-   ```
-   Aplikasi publik dapat diakses melalui `http://localhost:8000`.
-
----
-
-## Catatan Pengembangan
-
-Sistem portal publik ini dirancang agar dapat dikelola sepenuhnya oleh petugas operasional (UPT) melalui *dashboard administrator* terintegrasi. Segala konten dinamis seperti Berita, Buletin, dan Informasi Terkini dikonfigurasi melalui panel admin tanpa harus mengubah *source code* secara langsung. 
-
-Bagi pengembang lanjutan, pastikan pembuatan *Resource* tambahan di masa mendatang selalu mematuhi pedoman penamaan (Language/Naming Convention) berbahasa Indonesia baku seperti yang disyaratkan di dalam aturan pengembangan (`AI_RULES.md`).
+- **PHP:** 8.4
+- **Framework:** Laravel 12
+- **Admin Panel:** Filament v5 (TALL Stack)
+- **Komponen Interaktif:** Livewire v4 & Alpine.js
+- **Styling:** Tailwind CSS v4
+- **Manajemen Peran & Hak Akses:** Spatie Laravel Permission
+- **Manajemen Media:** Spatie Media Library
+- **Database:** MySQL / PostgreSQL / SQLite
