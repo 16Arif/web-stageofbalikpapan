@@ -10,7 +10,9 @@ use Filament\Widgets\TableWidget as BaseWidget;
 
 class BeritaPopulerWidget extends BaseWidget
 {
-    protected static ?string $heading = '5 Berita Terpopuler';
+    protected static ?int $sort = 1;
+
+    protected int | string | array $columnSpan = 1;
 
     public function table(Table $table): Table
     {
@@ -20,17 +22,24 @@ class BeritaPopulerWidget extends BaseWidget
                     ->orderByDesc('views_count')
                     ->take(5)
             )
+            ->heading('5 Berita Terpopuler')
             ->paginated(false)
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('judul')
                     ->label('Judul Berita')
-                    ->limit(60),
+                    ->limit(45)
+                    ->tooltip(function (\Filament\Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+
+                        return is_string($state) && strlen($state) > 45 ? $state : null;
+                    }),
 
                 \Filament\Tables\Columns\TextColumn::make('views_count')
-                    ->label('Total Dilihat')
+                    ->label('Total Views')
                     ->numeric()
                     ->badge()
-                    ->color('success'),
+                    ->color('success')
+                    ->alignEnd(),
             ]);
     }
 }

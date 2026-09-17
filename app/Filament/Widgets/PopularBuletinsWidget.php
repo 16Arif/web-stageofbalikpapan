@@ -10,36 +10,36 @@ use Filament\Widgets\TableWidget as BaseWidget;
 
 class PopularBuletinsWidget extends BaseWidget
 {
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 2;
 
-    protected int|string|array $columnSpan = 'full';
+    protected int | string | array $columnSpan = 1;
 
     public function table(Table $table): Table
     {
         return $table
             ->query(
                 Buletin::query()
-                    ->orderBy('views', 'desc')
+                    ->orderByDesc('views')
                     ->limit(5)
             )
             ->heading('5 Buletin Terpopuler')
+            ->paginated(false)
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('title')
                     ->label('Judul Buletin')
-                    ->searchable(),
-                \Filament\Tables\Columns\TextColumn::make('bulan')
-                    ->label('Bulan')
-                    ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('tahun')
-                    ->label('Tahun')
-                    ->sortable(),
+                    ->limit(45)
+                    ->tooltip(function (\Filament\Tables\Columns\TextColumn $column): ?string {
+                        $state = $column->getState();
+
+                        return is_string($state) && strlen($state) > 45 ? $state : null;
+                    }),
+
                 \Filament\Tables\Columns\TextColumn::make('views')
                     ->label('Total Views')
+                    ->numeric()
                     ->badge()
                     ->color('success')
-                    ->icon('heroicon-o-eye')
-                    ->sortable(),
-            ])
-            ->paginated(false);
+                    ->alignEnd(),
+            ]);
     }
 }

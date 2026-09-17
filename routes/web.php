@@ -53,4 +53,3 @@ Route::get('/sitemap-berita.xml', function () {
     ])->header('Content-Type', 'text/xml');
 })->name('sitemap.berita');
 
-Route::livewire('/counter', 'livewire.counter');
