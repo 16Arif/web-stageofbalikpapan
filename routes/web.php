@@ -5,6 +5,9 @@ use App\Http\Controllers\BuletinController;
 use App\Http\Controllers\Frontend\PetaPetirController;
 use App\Http\Controllers\GempaController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\Pelayanan\AuthController as PelayananAuthController;
+use App\Livewire\Pelayanan\Auth\Login as PelayananLogin;
+use App\Livewire\Pelayanan\Auth\Register as PelayananRegister;
 use App\Livewire\Publikasi\BeritaList;
 use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +46,19 @@ Route::prefix('publikasi')->name('publikasi.')->group(function () {
 Route::get('/berita', BeritaList::class)->name('berita.index');
 Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.show');
 Route::get('/publikasi/buletin/{buletin:slug}/baca', [BuletinController::class, 'baca'])->name('buletin.baca');
-Route::view('/pelayanan', 'pages.pelayanan')->name('pelayanan');
+Route::view('/pelayanan', 'pages.pelayanan.index')->name('pelayanan');
+Route::redirect('/login', '/pelayanan/login')->name('login');
+
+Route::prefix('pelayanan')->name('pelayanan.')->group(function () {
+    Route::view('/mekanisme', 'pages.pelayanan.mekanisme')->name('mekanisme');
+
+    Route::middleware('guest:applicant')->group(function () {
+        Route::get('/login', PelayananLogin::class)->name('login');
+        Route::get('/register', PelayananRegister::class)->name('register');
+    });
+
+    Route::post('/logout', [PelayananAuthController::class, 'logout'])->name('logout');
+});
 
 Route::get('/sitemap-berita.xml', function () {
     $beritaTerkini = Berita::latest('published_at')->get();
