@@ -162,9 +162,6 @@
                                     <a href="{{ route('geofisika.petir-realtime') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
                                         Petir Realtime</a>
-                                    <a href="{{ route('geofisika.peta-petir') }}"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
-                                        Kejadian Petir</a>
                                     <a href="{{ route('geofisika.kerapatan-petir') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
                                         Kerapatan Petir</a>
@@ -362,8 +359,6 @@
                                          class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Sambaran Petir</a>
                                      <a href="{{ route('geofisika.petir-realtime') }}"
                                          class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Sambaran Petir Realtime</a>
-                                     <a href="{{ route('geofisika.peta-petir') }}"
-                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Peta Kejadian Petir</a>
                                      <a href="{{ route('geofisika.kerapatan-petir') }}"
                                          class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Peta Kerapatan Petir</a>
                                  </div>

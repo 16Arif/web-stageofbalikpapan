@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BuletinController;
-use App\Http\Controllers\Frontend\PetaPetirController;
 use App\Http\Controllers\GempaController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\Pelayanan\AuthController as PelayananAuthController;
@@ -33,11 +32,8 @@ Route::prefix('geofisika')->name('geofisika.')->group(function () {
     Route::view('/gerhana', 'pages.geofisika.gerhana')->name('gerhana');
     Route::view('/petir', 'pages.geofisika.petir')->name('petir');
     Route::view('/sambaran-petir-realtime', 'pages.geofisika.sambaran-petir-realtime')->name('petir-realtime');
-    Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir');
     Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
 });
-
-Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir.index');
 
 Route::view('/ttm', 'pages.borneo-ttm')->name('ttm');
 
