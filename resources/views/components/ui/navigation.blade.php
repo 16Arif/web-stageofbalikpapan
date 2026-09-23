@@ -102,35 +102,44 @@
                      </button>
 
                      <div
-                         class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                         class="absolute left-0 mt-2 w-[30rem] bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                          <div class="p-4">
-                             <div class="grid grid-cols-2 gap-4">
-                                 <div>
-                                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
-                                         Informasi</h4>
-                                     <a href="{{ route('geofisika.hilal') }}"
-                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Hilal
-                                     </a>
-                                     <a href="{{ route('geofisika.gerhana') }}"
-                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gerhana</a>
-                                     <a href="{{ route('geofisika.petir') }}"
-                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
-                                         Petir</a>
-                                     <a href="https://www.bmkg.go.id/tanda-waktu/terbit-terbenam-matahari/7"
-                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg"
-                                         target="blank">Terbit Terbenam Matahari</a>
-                                 </div>
-                                 <div>
-                                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
-                                         Layanan</h4>
-                                     <a href="{{ route('geofisika.peta-petir') }}"
-                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
-                                         Kejadian Petir</a>
-                                     <a href="{{ route('geofisika.kerapatan-petir') }}"
-                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
-                                         Kerapatan Petir</a>
-                                 </div>
-                             </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
+                                        Tanda Waktu</h4>
+                                    <a href="{{ route('geofisika.hilal') }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Hilal
+                                    </a>
+                                    <a href="{{ route('geofisika.gerhana') }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gerhana</a>
+                                    <a href="https://www.bmkg.go.id/tanda-waktu/terbit-terbenam-matahari/7"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg"
+                                        target="_blank" rel="noopener noreferrer">Terbit Terbenam Matahari</a>
+                                    <a href="https://www.bmkg.go.id/tanda-waktu/almanak"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg"
+                                        target="_blank" rel="noopener noreferrer">Almanak</a>
+                                    <a href="https://www.bmkg.go.id/tanda-waktu"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg"
+                                        target="_blank" rel="noopener noreferrer">Tanda Waktu Nasional</a>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">
+                                        Geofisika Potensial</h4>
+                                    <a href="{{ route('geofisika.petir') }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
+                                        Petir</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
+                                        Petir Realtime</a>
+                                    <a href="{{ route('geofisika.peta-petir') }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
+                                        Kejadian Petir</a>
+                                    <a href="{{ route('geofisika.kerapatan-petir') }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta
+                                        Kerapatan Petir</a>
+                                </div>
+                            </div>
                          </div>
                      </div>
                  </div>
@@ -199,6 +208,30 @@
                                  <a href="{{ route('gempabumi.seismisitas') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Peta
                                      Seismisitas</a>
+                                 <div class="pt-2">
+                                     <p class="px-0 text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Tanda Waktu</p>
+                                     <a href="{{ route('geofisika.hilal') }}"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Hilal</a>
+                                     <a href="{{ route('geofisika.gerhana') }}"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Gerhana</a>
+                                     <a href="https://www.bmkg.go.id/tanda-waktu/terbit-terbenam-matahari/7" target="_blank" rel="noopener noreferrer"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Terbit Terbenam Matahari</a>
+                                     <a href="https://www.bmkg.go.id/tanda-waktu/almanak" target="_blank" rel="noopener noreferrer"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Almanak</a>
+                                     <a href="https://www.bmkg.go.id/tanda-waktu" target="_blank" rel="noopener noreferrer"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Tanda Waktu Nasional</a>
+                                 </div>
+                                 <div class="pt-2">
+                                     <p class="px-0 text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Geofisika Potensial</p>
+                                     <a href="{{ route('geofisika.petir') }}"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Sambaran Petir</a>
+                                     <a href="#"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Sambaran Petir Realtime</a>
+                                     <a href="{{ route('geofisika.peta-petir') }}"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Peta Kejadian Petir</a>
+                                     <a href="{{ route('geofisika.kerapatan-petir') }}"
+                                         class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Peta Kerapatan Petir</a>
+                                 </div>
                                  <a href="{{ route('berita.index') }}"
                                      class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Berita</a>
                                  <a href="https://sites.google.com/bmkg.go.id/pelayanan-stageof-balikpapan/beranda"
