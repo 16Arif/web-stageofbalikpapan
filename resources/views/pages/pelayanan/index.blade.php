@@ -118,7 +118,7 @@
                         <svg class="w-4 h-4 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                         </svg>
-                        <span>Portal Pemohon</span>
+                        <span>Portal Pelayanan</span>
                     </a>
                 </div>
             </div>
@@ -408,22 +408,22 @@
         </div>
     </section>
 
-    {{-- 6. Layanan Tatap Muka & Loket Geofisika --}}
+    {{-- 6. Layanan Tatap Muka & Pelayanan Data Geofisika --}}
     <section class="py-16 bg-white">
         <div class="max-w-3xl mx-auto px-6 sm:px-8">
             <div class="bg-white rounded-3xl p-7 sm:p-10 border border-slate-200/90 shadow-sm service-reveal">
                 <div class="text-center">
                     <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Layanan Tatap Muka</span>
                     <h2 class="mt-2 text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                        Loket Layanan Geofisika
+                        Pelayanan Data Geofisika
                     </h2>
                     <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-                        Kunjungi loket pelayanan di gedung operasional kami untuk permohonan data langsung atau verifikasi dokumen fisik:
+                        Kunjungi ruang pelayanan di gedung operasional kami untuk permohonan data langsung atau verifikasi dokumen fisik:
                     </p>
                 </div>
 
                 <div class="mt-8 space-y-4">
-                    {{-- Jam Operasional Loket --}}
+                    {{-- Jam Operasional Pelayanan --}}
                     <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-4">
                         <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -431,7 +431,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">Jam Operasional Loket</h3>
+                            <h3 class="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">Jam Operasional Pelayanan</h3>
                             <p class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
                                 Senin – Kamis: <span class="font-semibold text-slate-900">08.00 – 15.00 WITA</span> (Istirahat 12.00 – 13.00)
                             </p>
@@ -441,24 +441,24 @@
                         </div>
                     </div>
 
-                    {{-- Email Resmi Pelayanan --}}
+                    {{-- Portal Pelayanan Daring --}}
                     <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start sm:items-center justify-between gap-4 flex-col sm:flex-row">
-                        <div class="flex items-center gap-4">
-                            <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <div class="flex items-start sm:items-center gap-4">
+                            <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">Email Resmi Pelayanan</h3>
-                                <a href="mailto:stageof.balikpapan@bmkg.go.id" class="text-xs sm:text-sm text-indigo-600 font-bold mt-1 block hover:underline">
-                                    stageof.balikpapan@bmkg.go.id
-                                </a>
+                                <h3 class="text-xs sm:text-sm font-bold text-slate-900 uppercase tracking-wider">Portal Pelayanan Daring</h3>
+                                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                                    Ajukan permohonan data secara mandiri dan pantau status berkas Anda melalui portal pelayanan.
+                                </p>
                             </div>
                         </div>
-                        <a href="mailto:stageof.balikpapan@bmkg.go.id" 
-                           class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200 transition shadow-xs">
-                            Kirim Email
+                        <a href="{{ auth('applicant')->check() ? route('filament.pelayanan.pages.dashboard') : route('pelayanan.login') }}" 
+                           class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 transition shadow-xs shrink-0 w-full sm:w-auto">
+                            <span>Menuju Portal</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
                     </div>

@@ -51,6 +51,7 @@ Route::redirect('/login', '/pelayanan/login')->name('login');
 
 Route::prefix('pelayanan')->name('pelayanan.')->group(function () {
     Route::view('/mekanisme', 'pages.pelayanan.mekanisme')->name('mekanisme');
+    Route::view('/tarif-pnbp', 'pages.pelayanan.tarif-pnbp')->name('tarif');
 
     Route::middleware('guest:applicant')->group(function () {
         Route::get('/login', PelayananLogin::class)->name('login');

@@ -26,7 +26,7 @@ class PermohonanSayaResource extends Resource
 
     protected static ?string $navigationLabel = 'Permohonan Saya';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
     public static function getEloquentQuery(): Builder
     {
@@ -82,12 +82,16 @@ class PermohonanSayaResource extends Resource
                             ->directory('permohonan/surat')
                             ->acceptedFileTypes(['application/pdf'])
                             ->maxSize(5120)
+                            ->downloadable()
+                            ->openable()
                             ->helperText('Surat permohonan resmi ber-kop dan bertanda tangan yang ditujukan kepada Kepala Stasiun Geofisika Balikpapan (Maks. 5MB).'),
                         \Filament\Forms\Components\FileUpload::make('berkas_pendukung')
                             ->label('Dokumen Pendukung / KTM / Proposal (PDF)')
                             ->directory('permohonan/pendukung')
                             ->acceptedFileTypes(['application/pdf'])
                             ->maxSize(5120)
+                            ->downloadable()
+                            ->openable()
                             ->helperText('Wajib bagi pemohon fasilitas tarif Rp 0,-: lampirkan Kartu Tanda Mahasiswa (KTM) atau surat rekomendasi kampus.'),
                     ]),
 
@@ -119,10 +123,14 @@ class PermohonanSayaResource extends Resource
                             ->directory('permohonan/pembayaran')
                             ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png'])
                             ->maxSize(5120)
+                            ->downloadable()
+                            ->openable()
                             ->helperText('Unggah foto/struk bukti transaksi pembayaran setelah melunasi tagihan Simponi.'),
                         \Filament\Forms\Components\FileUpload::make('berkas_hasil_data')
                             ->label('File Data Resmi dari BMKG')
                             ->disabled()
+                            ->downloadable()
+                            ->openable()
                             ->helperText('Petugas akan mengunggah paket data geofisika resmi di sini setelah permohonan selesai diproses.'),
                     ]),
             ]);
@@ -175,13 +183,11 @@ class PermohonanSayaResource extends Resource
             ->defaultSort('created_at', 'desc')
             ->filters([])
             ->actions([
-                \Filament\Actions\ViewAction::make(),
+                \Filament\Actions\ViewAction::make()
+                    ->label('Lihat Detail'),
                 \Filament\Actions\EditAction::make()
-                    ->label('Lengkapi Berkas')
-                    ->visible(fn (PermohonanLayanan $record): bool => in_array($record->status, [
-                        PermohonanLayanan::STATUS_DIAJUKAN,
-                        PermohonanLayanan::STATUS_MENUNGGU_BAYAR,
-                    ])),
+                    ->label('Edit Permohonan')
+                    ->visible(fn (PermohonanLayanan $record): bool => $record->status !== PermohonanLayanan::STATUS_SELESAI),
                 \Filament\Actions\Action::make('unduh_data')
                     ->label('Unduh Data')
                     ->icon('heroicon-o-arrow-down-tray')

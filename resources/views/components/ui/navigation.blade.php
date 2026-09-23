@@ -1,9 +1,9 @@
- <header class="sticky top-0 inset-x-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
+<header class="sticky top-0 inset-x-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-         <nav aria-label="Global" class="flex items-center justify-between py-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-x-6">
+         <nav aria-label="Global" class="flex items-center justify-between py-4">
              
              {{-- ==================== SISI KIRI: IDENTITAS ==================== --}}
-             <div class="flex items-center gap-3 lg:justify-self-start">
+             <div class="flex items-center gap-3">
                  @if(request()->routeIs('pelayanan*'))
                      {{-- Identitas Khusus Layanan --}}
                      <a href="{{ route('pelayanan') }}" wire:navigate class="-m-1.5 p-1.5 flex items-center gap-3 group">
@@ -12,7 +12,6 @@
                          <div>
                              <div class="flex items-center gap-2">
                                  <p class="text-xs sm:text-sm font-bold text-slate-900 leading-tight tracking-wide uppercase">Layanan Geofisika</p>
-                                 <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/60">PTSP</span>
                              </div>
                              <p class="text-[11px] font-medium text-slate-500 leading-none mt-0.5">Stasiun Geofisika Balikpapan</p>
                          </div>
@@ -43,30 +42,25 @@
                  </button>
              </div>
 
-             {{-- ==================== SISI TENGAH: NAVIGASI SIMETRIS ==================== --}}
-             <div class="hidden lg:flex lg:items-center lg:gap-x-7 lg:justify-self-center">
+             {{-- ==================== SISI KANAN: NAVIGASI & USER ==================== --}}
+             <div class="hidden lg:flex lg:items-center lg:gap-x-7">
                  @if(request()->routeIs('pelayanan*'))
                      {{-- Navigasi Versi Khusus Layanan --}}
                      <a href="{{ route('home_page') }}" wire:navigate
-                        class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors py-1 px-2.5 rounded-lg hover:bg-slate-50">
-                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-                         <span>Web Utama</span>
+                        class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors py-1 px-2.5 rounded-lg hover:bg-slate-50">                        
+                         <span>Home</span>
                      </a>
                      <a href="{{ route('pelayanan') }}#katalog-layanan"
-                        class="text-sm font-semibold {{ request()->routeIs('pelayanan') && !request()->routeIs('pelayanan.mekanisme') ? 'text-indigo-600 font-bold' : 'text-slate-700 hover:text-indigo-600' }} transition-colors">
-                         Katalog Data
+                        class="text-sm font-semibold {{ request()->routeIs('pelayanan') && !request()->routeIs('pelayanan.mekanisme') && !request()->routeIs('pelayanan.tarif') ? 'text-indigo-600 font-bold' : 'text-slate-700 hover:text-indigo-600' }} transition-colors">
+                         Katalog Layanan
                      </a>
                      <a href="{{ route('pelayanan.mekanisme') }}" wire:navigate
                         class="text-sm font-semibold {{ request()->routeIs('pelayanan.mekanisme') ? 'text-indigo-600 font-bold' : 'text-slate-700 hover:text-indigo-600' }} transition-colors">
                          Mekanisme & Syarat
                      </a>
-                     <a href="{{ route('pelayanan.mekanisme') }}#tarif-layanan" wire:navigate
-                        class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition-colors">
+                     <a href="{{ route('pelayanan.tarif') }}" wire:navigate
+                        class="text-sm font-semibold {{ request()->routeIs('pelayanan.tarif') ? 'text-indigo-600 font-bold' : 'text-slate-700 hover:text-indigo-600' }} transition-colors">
                          Tarif PNBP
-                     </a>
-                     <a href="{{ route('pelayanan') }}#faq-pelayanan"
-                        class="text-sm font-semibold text-slate-700 hover:text-indigo-600 transition-colors">
-                         Bantuan & FAQ
                      </a>
                  @else
                      {{-- Navigasi Versi Umum --}}
@@ -138,7 +132,7 @@
                          </button>
 
                          <div
-                             class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                             class="absolute right-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                              <div class="p-4">
                                  <div class="grid grid-cols-2 gap-4">
                                      <div>
@@ -177,7 +171,7 @@
                          </button>
 
                          <div
-                             class="absolute left-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                             class="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                              <div class="p-2">
                                  <a href="{{ route('publikasi.buletin') }}" wire:navigate
                                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Buletin</a>
@@ -193,16 +187,13 @@
                          Layanan
                      </a>
                  @endif
-             </div>
 
-             {{-- ==================== SISI KANAN: PENYEIMBANG AKSI / USER ==================== --}}
-             <div class="hidden lg:flex lg:items-center lg:justify-end lg:justify-self-end">
+                 {{-- User Dropdown Aktif (Jika Ada Sesi) --}}
                  @php
                      $activeUser = auth('applicant')->user() ?? auth()->user();
                  @endphp
 
                  @if($activeUser)
-                     {{-- Menu Dropdown User Aktif --}}
                      <div class="relative" x-data="{ open: false }">
                          <button @click="open = !open" @click.outside="open = false" type="button"
                              class="inline-flex items-center gap-2 rounded-xl bg-slate-100 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-200 transition cursor-pointer">
@@ -226,7 +217,7 @@
                                      <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                      </svg>
-                                     Portal Pemohon
+                                     Portal Pelayanan
                                  </a>
                                  <a href="{{ route('filament.pelayanan.resources.permohonan-sayas.index') }}"
                                      class="flex items-center gap-2 px-3 py-2 text-sm text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition">
@@ -266,27 +257,6 @@
                              </form>
                          </div>
                      </div>
-                 @else
-                     {{-- Kondisi Tamu (Guest) --}}
-                     @if(request()->routeIs('pelayanan*'))
-                         {{-- Tombol Utama di Halaman Layanan --}}
-                         <a href="{{ route('pelayanan.login') }}" wire:navigate
-                             class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-indigo-700 hover:shadow-md transition duration-150">
-                             <svg class="w-3.5 h-3.5 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                             </svg>
-                             <span>Portal Pemohon</span>
-                         </a>
-                     @else
-                         {{-- Tombol Penyeimbang di Halaman Umum --}}
-                         <a href="{{ route('pelayanan') }}" wire:navigate
-                             class="inline-flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50/70 px-3.5 py-2 text-xs font-bold text-indigo-700 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition duration-150 shadow-2xs">
-                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                             </svg>
-                             <span>Portal Layanan</span>
-                         </a>
-                     @endif
                  @endif
              </div>
 
@@ -335,20 +305,16 @@
                                          <span>Kembali ke Web Utama</span>
                                      </a>
                                      <a href="{{ route('pelayanan') }}#katalog-layanan"
-                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold {{ request()->routeIs('pelayanan') && !request()->routeIs('pelayanan.mekanisme') ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-gray-900 hover:bg-indigo-50 hover:text-indigo-600' }}">
+                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold {{ request()->routeIs('pelayanan') && !request()->routeIs('pelayanan.mekanisme') && !request()->routeIs('pelayanan.tarif') ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-gray-900 hover:bg-indigo-50 hover:text-indigo-600' }}">
                                          Katalog Data
                                      </a>
                                      <a href="{{ route('pelayanan.mekanisme') }}" wire:navigate
                                          class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold {{ request()->routeIs('pelayanan.mekanisme') ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-gray-900 hover:bg-indigo-50 hover:text-indigo-600' }}">
                                          Mekanisme Permohonan
                                      </a>
-                                     <a href="{{ route('pelayanan.mekanisme') }}#tarif-layanan" wire:navigate
-                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">
+                                     <a href="{{ route('pelayanan.tarif') }}" wire:navigate
+                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold {{ request()->routeIs('pelayanan.tarif') ? 'text-indigo-600 bg-indigo-50 font-bold' : 'text-gray-900 hover:bg-indigo-50 hover:text-indigo-600' }}">
                                          Tarif PNBP
-                                     </a>
-                                     <a href="{{ route('pelayanan') }}#faq-pelayanan"
-                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">
-                                         Bantuan & FAQ
                                      </a>
                                  @else
                                      {{-- Menu Umum Seluler --}}
@@ -383,7 +349,7 @@
                                      @if(auth('applicant')->check())
                                          <a href="{{ route('filament.pelayanan.pages.dashboard') }}"
                                              class="mb-2 flex items-center justify-center gap-2 rounded-xl bg-indigo-50 border border-indigo-200 px-4 py-2.5 text-sm font-semibold text-indigo-800 hover:bg-indigo-100 transition">
-                                             Portal Pemohon
+                                             Portal Pelayanan
                                          </a>
                                          <a href="{{ route('filament.pelayanan.resources.permohonan-sayas.index') }}"
                                              class="mb-2 flex items-center justify-center gap-2 rounded-xl bg-slate-100 border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-200 transition">
@@ -406,16 +372,6 @@
                                              Keluar
                                          </button>
                                      </form>
-                                 </div>
-                             @else
-                                 <div class="py-6 border-t border-gray-100">
-                                     <a href="{{ route('pelayanan.login') }}" wire:navigate
-                                         class="flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-bold text-white shadow-xs hover:bg-indigo-700 transition">
-                                         <svg class="w-4 h-4 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                                         </svg>
-                                         <span>Portal Pemohon</span>
-                                     </a>
                                  </div>
                              @endif
                          </div>
