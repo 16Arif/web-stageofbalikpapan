@@ -53,6 +53,10 @@
                             class="text-sm leading-6 text-slate-400 hover:text-white transition-colors">BMKG Pusat</a>
                     </li>
                     <li>
+                        <a href="https://ptsp.bmkg.go.id" target="_blank" rel="noopener noreferrer"
+                            class="text-sm leading-6 text-slate-400 hover:text-white transition-colors">PTSP BMKG</a>
+                    </li>
+                    <li>
                         <a href="https://stmkg.ac.id" target="_blank" rel="noopener noreferrer"
                             class="text-sm leading-6 text-slate-400 hover:text-white transition-colors">STMKG</a>
                     </li>
