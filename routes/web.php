@@ -32,6 +32,7 @@ Route::prefix('geofisika')->name('geofisika.')->group(function () {
     Route::view('/hilal', 'pages.geofisika.hilal')->name('hilal');
     Route::view('/gerhana', 'pages.geofisika.gerhana')->name('gerhana');
     Route::view('/petir', 'pages.geofisika.petir')->name('petir');
+    Route::view('/sambaran-petir-realtime', 'pages.geofisika.sambaran-petir-realtime')->name('petir-realtime');
     Route::get('/peta-petir', [PetaPetirController::class, 'index'])->name('peta-petir');
     Route::view('/kerapatan-petir', 'pages.geofisika.kerapatan-petir')->name('kerapatan-petir');
 });

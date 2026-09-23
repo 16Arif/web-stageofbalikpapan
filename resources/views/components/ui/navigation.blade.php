@@ -159,7 +159,7 @@
                                     <a href="{{ route('geofisika.petir') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
                                         Petir</a>
-                                    <a href="#"
+                                    <a href="{{ route('geofisika.petir-realtime') }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Sambaran
                                         Petir Realtime</a>
                                     <a href="{{ route('geofisika.peta-petir') }}"
@@ -360,7 +360,7 @@
                                      <p class="px-0 text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Geofisika Potensial</p>
                                      <a href="{{ route('geofisika.petir') }}"
                                          class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Sambaran Petir</a>
-                                     <a href="#"
+                                     <a href="{{ route('geofisika.petir-realtime') }}"
                                          class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Sambaran Petir Realtime</a>
                                      <a href="{{ route('geofisika.peta-petir') }}"
                                          class="-mx-3 block rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Peta Kejadian Petir</a>
