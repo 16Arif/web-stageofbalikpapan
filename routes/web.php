@@ -23,7 +23,6 @@ Route::prefix('profil')->name('profil.')->group(function () {
 Route::prefix('gempabumi')->name('gempabumi.')->group(function () {
     Route::get('/terkini', [GempaController::class, 'index'])->name('terkini');
     Route::get('/kalimantan', [GempaController::class, 'kalimantan'])->name('kalimantan');
-    Route::view('/seismisitas', 'pages.gempabumi.seismisitas')->name('seismisitas');
     Route::view('/mitigasi', 'pages.gempabumi.mitigasi')->name('mitigasi');
 });
 

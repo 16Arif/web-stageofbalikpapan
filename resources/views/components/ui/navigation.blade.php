@@ -98,24 +98,14 @@
                          </button>
 
                          <div
-                             class="absolute left-0 mt-2 w-96 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                             <div class="p-4">
-                                 <div class="grid grid-cols-2 gap-4">
-                                     <div>
-                                         <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">Informasi</h4>
-                                         <a href="{{ route('gempabumi.terkini') }}" wire:navigate
-                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa Terkini</a>
-                                         <a href="{{ route('gempabumi.kalimantan') }}" wire:navigate
-                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa Kalimantan</a>
-                                         <a href="{{ route('gempabumi.mitigasi') }}" wire:navigate
-                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Mitigasi Gempabumi</a>
-                                     </div>
-                                     <div>
-                                         <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 pl-3">Peta &amp; Analisis</h4>
-                                         <a href="{{ route('gempabumi.seismisitas') }}" wire:navigate
-                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Peta Seismisitas</a>
-                                     </div>
-                                 </div>
+                             class="absolute left-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                             <div class="p-2">
+                                 <a href="{{ route('gempabumi.terkini') }}" wire:navigate
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa Terkini</a>
+                                 <a href="{{ route('gempabumi.kalimantan') }}" wire:navigate
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa Kalimantan</a>
+                                 <a href="{{ route('gempabumi.mitigasi') }}" wire:navigate
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Mitigasi Gempabumi</a>
                              </div>
                          </div>
                      </div>
@@ -338,8 +328,6 @@
                                          class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempa Kalimantan</a>
                                      <a href="{{ route('gempabumi.mitigasi') }}"
                                          class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Mitigasi Gempabumi</a>
-                                     <a href="{{ route('gempabumi.seismisitas') }}"
-                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Peta Seismisitas</a>
                                      <div class="pt-2">
                                      <p class="px-0 text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Tanda Waktu</p>
                                      <a href="{{ route('geofisika.hilal') }}"
