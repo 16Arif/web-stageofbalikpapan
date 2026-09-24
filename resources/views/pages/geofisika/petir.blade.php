@@ -119,16 +119,16 @@
 
             <div class="relative overflow-hidden rounded-[3rem] bg-indigo-600 p-10 md:p-16 text-center text-white">
                 <div class="relative z-10 max-w-2xl mx-auto">
-                    <h3 class="text-2xl md:text-3xl font-black mb-6 leading-tight">Pantau Aktivitas Petir Waktu Nyata
+                    <h3 class="text-2xl md:text-3xl font-black mb-6 leading-tight">Pantau Aktivitas Petir Realtime
                         Melalui Portal Resmi BMKG</h3>
                     <p class="text-indigo-100 text-sm md:text-base mb-10 leading-relaxed">
                         Dapatkan akses visual pemantauan sambaran petir di wilayah Indonesia secara langsung melalui
                         sistem pemantauan terpusat.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="https://www.bmkg.go.id/geofisika-potensial/petir-realtime" target="_blank"
+                        <a href="{{ route('geofisika.petir-realtime') }}" wire:navigate
                             class="w-full sm:w-auto px-10 py-4 bg-white text-indigo-600 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-50 transition shadow-xl">
-                            Buka Pemantauan Waktu Nyata
+                            Buka Pemantauan Realtime
                         </a>
                         <a href="{{ route('pelayanan') }}"
                             class="w-full sm:w-auto px-10 py-4 bg-indigo-500 text-white rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-400 transition border border-indigo-400">

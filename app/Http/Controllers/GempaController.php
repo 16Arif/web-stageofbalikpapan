@@ -58,4 +58,44 @@ class GempaController extends Controller
 
         return view('pages.gempabumi.kalimantan', compact('gempaTerkini', 'listGempa'));
     }
+
+    public function dirasakan(): View
+    {
+        $listGempaDirasakan = Cache::remember('gempa_dirasakan', 300, function (): array {
+            try {
+                $response = Http::timeout(5)->get('https://data.bmkg.go.id/DataMKG/TEWS/gempadirasakan.json');
+
+                if (! $response->successful()) {
+                    return [];
+                }
+
+                $gempaData = data_get($response->json(), 'Infogempa.gempa');
+
+                if (! is_array($gempaData)) {
+                    return [];
+                }
+
+                return array_map(function ($item): array {
+                    return [
+                        'date' => $item['Tanggal'] ?? null,
+                        'time' => $item['Jam'] ?? null,
+                        'datetime' => $item['DateTime'] ?? null,
+                        'coordinates' => $item['Coordinates'] ?? null,
+                        'lintang' => $item['Lintang'] ?? null,
+                        'bujur' => $item['Bujur'] ?? null,
+                        'magnitude' => $item['Magnitude'] ?? null,
+                        'depth' => $item['Kedalaman'] ?? null,
+                        'region' => $item['Wilayah'] ?? null,
+                        'felt' => $item['Dirasakan'] ?? null,
+                    ];
+                }, $gempaData);
+            } catch (\Throwable $exception) {
+                return [];
+            }
+        });
+
+        $gempaTerkiniDirasakan = $listGempaDirasakan[0] ?? null;
+
+        return view('pages.gempabumi.dirasakan', compact('gempaTerkiniDirasakan', 'listGempaDirasakan'));
+    }
 }
