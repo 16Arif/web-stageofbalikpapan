@@ -101,11 +101,13 @@
                              class="absolute left-0 mt-2 w-56 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                              <div class="p-2">
                                  <a href="{{ route('gempabumi.kalimantan') }}" wire:navigate
-                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa Kalimantan</a>
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempabumi Kalimantan</a>
                                  <a href="{{ route('gempabumi.terkini') }}" wire:navigate
-                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempa Terkini</a>
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempabumi Terkini</a>
                                  <a href="{{ route('gempabumi.dirasakan') }}" wire:navigate
                                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempabumi Dirasakan</a>
+                                 <a href="https://www.bmkg.go.id/gempabumi/gempabumi-realtime" target="_blank" rel="noopener noreferrer"
+                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Gempabumi Realtime</a>
                                  <a href="{{ route('gempabumi.mitigasi') }}" wire:navigate
                                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg">Mitigasi Gempabumi</a>
                              </div>
@@ -331,6 +333,8 @@
                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempa Terkini</a>
                                     <a href="{{ route('gempabumi.dirasakan') }}"
                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempabumi Dirasakan</a>
+                                    <a href="https://www.bmkg.go.id/gempabumi/gempabumi-realtime" target="_blank" rel="noopener noreferrer"
+                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Gempabumi Realtime</a>
                                     <a href="{{ route('gempabumi.mitigasi') }}"
                                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">Mitigasi Gempabumi</a>
                                     <div class="pt-2">
