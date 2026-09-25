@@ -76,6 +76,18 @@ class GempaController extends Controller
                 }
 
                 return array_map(function ($item): array {
+                    $shakemap = null;
+                    if (! empty($item['Shakemap'])) {
+                        $shakemap = 'https://data.bmkg.go.id/DataMKG/TEWS/'.$item['Shakemap'];
+                    } elseif (! empty($item['DateTime'])) {
+                        try {
+                            $datetimeWib = \Carbon\Carbon::parse($item['DateTime'])->setTimezone('Asia/Jakarta');
+                            $shakemap = 'https://data.bmkg.go.id/DataMKG/TEWS/'.$datetimeWib->format('YmdHis').'.mmi.jpg';
+                        } catch (\Throwable $e) {
+                            $shakemap = null;
+                        }
+                    }
+
                     return [
                         'date' => $item['Tanggal'] ?? null,
                         'time' => $item['Jam'] ?? null,
@@ -87,6 +99,7 @@ class GempaController extends Controller
                         'depth' => $item['Kedalaman'] ?? null,
                         'region' => $item['Wilayah'] ?? null,
                         'felt' => $item['Dirasakan'] ?? null,
+                        'shakemap' => $shakemap,
                     ];
                 }, $gempaData);
             } catch (\Throwable $exception) {
